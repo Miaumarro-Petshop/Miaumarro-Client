@@ -11,8 +11,8 @@
 /*  Fonts */
 
 @font-face {
-  font-family: Gijsuy;
-  src: url(./fonts/Gijsuypersonal.otf);
+  font-family: DynaPuff-Bold;
+  src: url(./fonts/DynaPuff-Bold.ttf);
 }
 
 @font-face {
@@ -28,8 +28,8 @@
 /*  Text Styles */
 
 .ts40 {
-  font-family: "Gijsuy";
-  font-size: 40px;
+  font-family: "DynaPuff-Bold";
+  font-size: 2.5em;
 }
 
 .ts28b {
@@ -122,7 +122,15 @@ body {
 }
 
 main {
-  padding: 40px 180px;
+  padding: 4rem 10%;
+  align-items: center;
+  text-align: center;
+}
+
+.store-index {
+  padding: 0;
+  align-items: center;
+  text-align: center;
 }
 
 /* Primary menu */
@@ -130,56 +138,37 @@ main {
 .primary-menu {
   background-color: var(--green);
   color: var(--black);
-  padding: 16px 64px;
+  padding: 1rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.menu-logo {
-  padding: 0 64px 0 0;
-}
-
-.menu-logo img {
-  max-width: 120px;
+.search-product {
+  padding: 0 2rem;
 }
 
 .search-product input {
   width: 100%;
-}
-
-.search-button {
-  height: 40px;
-  width: 40px;
-  background-color: var(--grey);
-  color: var(--black);
-  border: none;
-  border-radius: 12px;
-}
-
-.search-button:hover {
-  background-color: var(--purple);
-}
-
-.form-button {
-  padding: 0 0 0 0.5em;
+  margin-right: 0.5rem;
 }
 
 .customer-options {
   display: flex;
   align-items: center;
-  padding: 0 0 0 32px;
+}
+
+.customer-options-items {
+  padding: 0 0 0 2rem;
+}
+
+.customer-options-items:first-child {
+  padding: 0;
 }
 
 .customer-options-items a {
   color: var(--black);
   text-decoration: none;
-  padding: 0 0 0 32px;
-}
-
-.customer-options-items a {
-  color: var(--black);
-  padding: 0 0 0 32px;
 }
 
 .login-options {
@@ -200,7 +189,7 @@ main {
 .secondary-menu {
   background-color: var(--purple);
   align-items: center;
-  padding: 12px 180px;
+  padding: 0.8rem 10%;
   display: flex;
   justify-content: space-between;
 }
@@ -235,4 +224,35 @@ main {
   border: none;
   border-radius: 12px;
   padding-left: 32px;
+}
+
+/* Button */
+
+.btn {
+  border: none;
+  border-radius: 12px;
+}
+
+.btn-icon {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+.btn-grey {
+  background-color: var(--grey);
+  color: var(--black);
+}
+
+.btn-grey:hover {
+  background-color: var(--purple);
+}
+
+.t-highlight {
+  color: #635380;
+}
+
+.carousel-inner > .carousel-item > img {
+  width: 700px;
+  height: 400px;
 }
