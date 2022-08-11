@@ -1,0 +1,258 @@
+/*  Colors */
+
+:root {
+  --purple: #635380;
+  --green: #45d98a;
+  --black: #090809;
+  --grey: #d9d9d9;
+  --white: #f7f0f5;
+}
+
+/*  Fonts */
+
+@font-face {
+  font-family: DynaPuff-Bold;
+  src: url(./fonts/DynaPuff-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+/*  Text Styles */
+
+.ts40 {
+  font-family: "DynaPuff-Bold";
+  font-size: 2.5em;
+}
+
+.ts28b {
+  font-family: "Poppins-Bold";
+  font-size: 28px;
+}
+
+.ts24b {
+  font-family: "Poppins-Bold";
+  font-size: 24px;
+}
+
+.ts24r {
+  font-family: "Poppins-Regular";
+  font-size: 24px;
+}
+
+.ts18b {
+  font-family: "Poppins-Bold";
+  font-size: 18px;
+}
+
+.ts18r {
+  font-family: "Poppins-Regular";
+  font-size: 18px;
+}
+
+.ts14b {
+  font-family: "Poppins-Bold";
+  font-size: 14px;
+}
+
+.ts14r {
+  font-family: "Poppins-Regular";
+  font-size: 14px;
+}
+
+.ts12r {
+  font-family: "Poppins-Regular";
+  font-size: 12px;
+}
+
+/* Icon sizes */
+
+.icon-24 {
+  height: 24px;
+  width: 24px;
+  fill: var(--black);
+}
+
+.icon-32 {
+  height: 32px;
+  width: 32px;
+  fill: var(--black);
+}
+
+.icon-64 {
+  height: 64px;
+  width: 64px;
+}
+
+/* Previous configuration */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 4rem 10%;
+  align-items: center;
+  text-align: center;
+}
+
+.store-index {
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+
+/* Primary menu */
+
+.primary-menu {
+  background-color: var(--green);
+  color: var(--black);
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-product {
+  padding: 0 2rem;
+}
+
+.search-product input {
+  width: 100%;
+  margin-right: 0.5rem;
+}
+
+.customer-options {
+  display: flex;
+  align-items: center;
+}
+
+.customer-options-items {
+  padding: 0 0 0 2rem;
+}
+
+.customer-options-items:first-child {
+  padding: 0;
+}
+
+.customer-options-items a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.login-options {
+  display: flex;
+  align-items: center;
+}
+
+.login-options-text {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 0 0 20px;
+}
+
+/* Secondary menu */
+
+.secondary-menu {
+  background-color: var(--purple);
+  align-items: center;
+  padding: 0.8rem 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondary-menu li {
+  display: flex;
+}
+
+.secondary-menu a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.secondary-menu a:hover {
+  color: var(--white);
+}
+
+.pet-type-items a {
+  padding: 0 52px 0 0;
+}
+
+.appointment-items a {
+  padding: 0 0 0 52px;
+}
+
+/* Form */
+
+.form-black {
+  height: 40px;
+  background-color: var(--black);
+  color: var(--green);
+  border: none;
+  border-radius: 12px;
+  padding-left: 32px;
+}
+
+/* Button */
+
+.btn {
+  border: none;
+  border-radius: 12px;
+}
+
+.btn-icon {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+.btn-grey {
+  background-color: var(--grey);
+  color: var(--black);
+}
+
+.btn-grey:hover {
+  background-color: var(--purple);
+}
+
+.t-highlight {
+  color: #635380;
+}
+
+.carousel-inner > .carousel-item > img {
+  width: 700px;
+  height: 400px;
+}
