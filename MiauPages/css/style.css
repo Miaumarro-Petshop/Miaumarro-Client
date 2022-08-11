@@ -248,11 +248,44 @@ main {
   background-color: var(--purple);
 }
 
-.t-highlight {
-  color: #635380;
+.ts-purple {
+  color: var(--purple);
 }
 
-.carousel-inner > .carousel-item > img {
-  width: 700px;
-  height: 400px;
+.ts-green {
+  color: var(--green);
+}
+
+.store-index section {
+  margin-bottom: 4rem;
+}
+
+.store-index .section-header{
+  margin-bottom: 2rem;
+}
+
+#pet-favorite h1{
+  margin-bottom: 1rem;
+}
+
+#pet-favorite nav{
+  display: flex;
+  align-items: center;
+  padding: 0 20%;
+  justify-content: center;
+}
+
+#pet-favorite li {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+#pet-favorite a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+#pet-favorite a:hover {
+  color: var(--purple);
 }
