@@ -248,8 +248,21 @@ main {
   background-color: var(--purple);
 }
 
-.t-highlight {
-  color: #635380;
+.btn-purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-grey:hover {
+  background-color: var(--green);
+}
+
+.ts-purple {
+  color: var(--purple);
+}
+
+.ts-green {
+  color: var(--green);
 }
 
 .carousel-inner > .carousel-item > img {
