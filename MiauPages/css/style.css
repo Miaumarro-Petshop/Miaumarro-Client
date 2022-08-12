@@ -253,8 +253,9 @@ main {
   color: var(--white);
 }
 
-.btn-grey:hover {
+.btn-purple:hover {
   background-color: var(--green);
+  color: var(--white);
 }
 
 .ts-purple {
