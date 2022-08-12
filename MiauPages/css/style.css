@@ -100,7 +100,7 @@
   height: 6.4rem;
   width: 6.4rem;
   min-height: 24px;
-  min-width: 24px;
+  min-width:24px;
 }
 
 .icon-black {
@@ -111,9 +111,17 @@
   fill: var(--purple);
 }
 
+.icon-black{
+  fill: var(--black)
+}
+
+.icon-purple{
+  fill: var(--purple)
+}
+
 /* Previous configuration */
 
-html {
+html{
   font-size: 10px;
 }
 
@@ -319,6 +327,26 @@ main {
 
 .btn-green:hover {
   background-color: var(--green);
+}
+
+.btn-purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-purple:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+
+.link-green{
+  color: var(--green);
+}
+
+.link-green:hover{
+  color: var(--green);
+  font-style: italic;
 }
 
 .btn-buy {
