@@ -30,17 +30,20 @@
             align-content: space-between;
 
         }
+        .space{
+            margin-bottom: 20px;
+        }
     </style>
     <header>
         <nav class="navbar navbar-expand-lg primary-menu">
-            <a href="index.html" class="navbar-brand">
+            <a href="../index.html" class="navbar-brand">
                 <img src="../img/Logo_dynapuff.png" height="40">
             </a>
         </nav>
     </header>
     <article class="conteudo">
         <section>
-            <h1 class="ts40 ts-purple">Acessar Conta</h1>
+            <h1 class="ts40 ts-purple">Criar Conta</h1>
         </section>
         <section>
             <p class="ts12r ts-green">Complete os campos com suas informações.</p>
@@ -70,12 +73,32 @@
             required>
         </div>
         <div>
-            <button class="btn btn-purple ts24r" type="submit">Acessar conta</button>
+            <label for="confirmPassword"></label>
+            <input
+            class="form-black"
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirmar senha"
+            required>
+        </div>
+        <div>
+            <section>
+                <p class="ts12r ts-green space">
+                    A senha deve conter letras minusculas, maiusculas e no minimo 8 caracteres.
+                </p>
+            </section>
+        </div>
+        <div>
+            <button class="btn btn-purple ts24r" type="submit">Criar conta</button>
         </div>
         </form>
         <section>
             <nav>
-                <p class="ts14b ts-green">Novo na Miaumarro? Crie sua conta.</p>
+                <span class="ts14b ts-green">Já tem cadastro com a gente? </span>
+                <a class="ts14b link-green" href="../LoginPage/">
+                    <span>Acesse sua conta.</span>
+                </a>
             </nav>
         </section>
     </article>

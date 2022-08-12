@@ -29,42 +29,42 @@
 
 .ts40 {
   font-family: "DynaPuff-Bold";
-  font-size: 2.5em;
+  font-size: 4rem;
 }
 
 .ts28b {
   font-family: "Poppins-Bold";
-  font-size: 28px;
+  font-size: 2.8rem;
 }
 
 .ts24b {
   font-family: "Poppins-Bold";
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .ts24r {
   font-family: "Poppins-Regular";
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .ts18b {
   font-family: "Poppins-Bold";
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .ts18r {
   font-family: "Poppins-Regular";
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .ts14b {
   font-family: "Poppins-Bold";
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .ts14r {
   font-family: "Poppins-Regular";
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .ts12r {
@@ -75,23 +75,38 @@
 /* Icon sizes */
 
 .icon-24 {
-  height: 24px;
-  width: 24px;
-  fill: var(--black);
+  height: 2.4rem;
+  width: 2.4rem;
+  min-height: 24px;
+  min-width:24px;
 }
 
 .icon-32 {
-  height: 32px;
-  width: 32px;
-  fill: var(--black);
+  height: 3.2rem;
+  width: 3.2rem;
+  min-height: 24px;
+  min-width:24px;
 }
 
 .icon-64 {
-  height: 64px;
-  width: 64px;
+  height: 6.4rem;
+  width: 6.4rem;
+  min-height: 24px;
+  min-width:24px;
 }
 
+.icon-black{
+  fill: var(--black)
+}
+
+.icon-purple{
+  fill: var(--purple)
+}
 /* Previous configuration */
+
+html{
+  font-size: 10px;
+}
 
 h1,
 h2,
@@ -226,6 +241,10 @@ main {
   padding-left: 32px;
 }
 
+::placeholder {
+  color: var(--green);
+}
+
 /* Button */
 
 .btn {
@@ -234,8 +253,10 @@ main {
 }
 
 .btn-icon {
-  height: 40px;
-  width: 40px;
+  height: 4rem;
+  width: 4rem;
+  min-height: 40px;
+  min-width: 40px;
   padding: 0;
 }
 
@@ -256,6 +277,16 @@ main {
 .btn-purple:hover {
   background-color: var(--green);
   color: var(--white);
+}
+
+
+.link-green{
+  color: var(--green);
+}
+
+.link-green:hover{
+  color: var(--green);
+  font-style: italic;
 }
 
 .ts-purple {
