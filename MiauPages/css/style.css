@@ -111,14 +111,6 @@
   fill: var(--purple);
 }
 
-.icon-black {
-  fill: var(--black);
-}
-
-.icon-purple {
-  fill: var(--purple);
-}
-
 /* Previous configuration */
 
 html {
@@ -169,6 +161,18 @@ main {
   text-align: center;
 }
 
+.g-3, .gy-3 {
+  --bs-gutter-y: 0;
+}
+
+.g-3, .gx-3 {
+  --bs-gutter-x: 0.5rem;
+}
+
+.row{
+  margin: 0;
+  justify-content: center;
+}
 /* Navbar Large Screens*/
 
 /* Primary menu */
@@ -231,7 +235,6 @@ main {
   align-items: center;
   padding: 1.6rem 6.4rem;
   display: flex;
-  justify-content: space-between;
 }
 
 #nav-main-lg .secondary-menu li {
@@ -258,6 +261,19 @@ main {
 
 #nav-main-lg .pet-type-items a {
   padding: 0 4rem 0 0;
+}
+
+/* My Data Secondary Menu */
+
+.my-data-options {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  align-content: space-around;
+}
+
+.my-data{
+  justify-content: space-evenly;
 }
 
 /* Navbar Medium Screens */
@@ -294,6 +310,10 @@ main {
   border: none;
   border-radius: 12px;
   padding-left: 3.2rem;
+}
+
+.form-data{
+  width: 100%;
 }
 
 .form-black::placeholder {
@@ -512,6 +532,10 @@ footer{
   flex-direction: column;
   gap: 2rem;
   align-content: space-between;
+}
+
+.account a{
+  margin-top: 2rem;
 }
 
 .form-account input {
