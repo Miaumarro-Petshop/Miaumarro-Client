@@ -353,6 +353,7 @@ main {
 .btn-purple {
   background-color: var(--purple);
   color: var(--white);
+  width: 100%;
 }
 
 .btn-purple:hover {
@@ -524,8 +525,19 @@ main {
   align-content: space-between;
 }
 
-.account a{
+#edit-button{
   margin-top: 2rem;
+}
+
+#search-button{
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+#form-cep{
+  display: flex;
+  justify-content: flex-start;
 }
 
 .form-account input {
@@ -540,6 +552,13 @@ main {
   margin-bottom: 2rem;
 }
 
+.pet-image{
+  width: 20rem;
+}
+
+
+
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -552,5 +571,12 @@ main {
   }
   #nav-main-md {
     display: flex;
+  }
+  #form-cep{
+    display: flex;
+    justify-content: center;
+  }
+  .form-black{
+    padding-left: 1rem;
   }
 }
