@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" href="../img/miaumarro/logo_icon.svg">
+    <title>Miaumarro Petshop</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav-main-lg">
+            <nav class="navbar primary-menu">
+                <a href="../index.html" class="navbar-brand">
+                    <img src="../img/miaumarro/Logo_dynapuff.png" height="40">
+                </a>
+
+                <form id="search-bar" class="form-inline container-fluid" action="index.html" method="post">
+                    <input class="ts12r form-black" type="search" id="searchedTerm" placeholder="O que você está procurando?" aria-label="Search">
+                    </input>
+                    <div class="form-button">
+                        <button class="btn btn-grey btn-icon" type="submit">
+                            <img class="icon-24" src="../img/icon/search.svg">
+                        </button>
+                    </div>
+                </form>
+
+                <li class="customer-options">
+                    <ul class="customer-options-items">
+                        <a href="../LoginPage/" class="login-options">
+                            <img class="icon-32" src="../img/icon/person-circle.svg">
+                            <div class="hidden-xs login-options-text">
+                                <p class="ts18r">Bem vindo(a)</p>
+                                <p class="ts12r">Entre ou Cadastre-se</p>
+                            </div>
+                        </a>
+
+                    </ul>
+                    <ul class=" customer-options-items">
+                        <a href="wishlist.html">
+                            <img class="icon-32" src="../img/icon/heart-fill.svg">
+                        </a>
+                    </ul>
+                    <ul class="customer-options-items">
+                        <a href="cart.html">
+                            <img class="icon-32" src="../img/icon/cart-fill.svg">
+                        </a>
+                    </ul>
+                </li>
+            </nav>
+
+            <nav class="navbar secondary-menu ts18b">
+                <li class="pet-type">
+                    <ul class="pet-type-items">
+                        <a href="">Cachorros</a>
+                    </ul>
+                    <ul class="pet-type-items">
+                        <a href="">Gatos</a>
+                    </ul>
+                    <ul class="pet-type-items">
+                        <a href="">Pássaros</a>
+                    </ul>
+                    <ul class="pet-type-items">
+                        <a href="">Peixes</a>
+                    </ul>
+                    <ul class="pet-type-items">
+                        <a href="">Outros bichinhos</a>
+                    </ul>
+                </li>
+                <li class="appointment">
+                    <ul class="appointment-items">
+                        <a href="">Banho e tosa</a>
+                    </ul>
+                </li>
+            </nav>
+        </div>
+        <div id="nav-main-md">
+            <div class="navbar container-fluid">
+                <a id="nav-main-md-menu" href="#">
+                    <img class="icon-32" src="../img/icon/list.svg">
+                </a>
+                <a id="nav-main-md-brand" href="../index.html">
+                    <img src="../img/miaumarro/Logo_dynapuff.png" height="32">
+                </a>
+                <a id="nav-main-md-cart" href="cart.html">
+                    <img class="icon-32" src="../img/icon/cart-fill.svg">
+                </a>
+            </div>
+            <div class="navbar container-fluid">
+                <form id="search-bar" class="form-inline container-fluid" action="index.html" method="post">
+                    <input class="ts12r form-black" type="search" id="searchedTerm" placeholder="O que você está procurando?" aria-label="Search">
+                    </input>
+                    <div class="form-button">
+                        <button class="btn btn-grey btn-icon" type="submit">
+                            <img class="icon-24" src="../img/icon/search.svg">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="product-detail">
+            <div class="product-path">
+                <span class="ts18b">Página inicial</span>
+                <span class="ts-purple divider">&gt;</span>
+                <span class="ts18b">Cachorros</span>
+            </div>
+
+            <div class="product-container row">
+                <div class="product-image col col-md-5 col-lg-3">
+                    <div class="main-image">
+                        <img src="../img/miaumarro/logo_icon.svg" alt="Product Image">
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        <a href="">
+                            <div class="item carousel-img img-selected"><img src="../img/miaumarro/logo_icon.svg"></div>
+                        </a>
+                        <a href="">
+                            <div class="item carousel-img"><img src="../img/miaumarro/Logo_dynapuff.png"></div>
+                        </a>
+                        <a href="">
+                            <div class="item carousel-img"><img src="../img/miaumarro/logo_icon.svg"></div>
+                        </a>
+                        <a href="">
+                            <div class="item carousel-img"><img src="../img/miaumarro/logo_icon.svg"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-info col col-md-6 col-lg-5">
+                    <p class="upper ts14b ts-purple">Marca</p>
+                    <h1 class="ts24b">Nome completo do Produto nome completo do Produto</h1>
+                    <p class="upper ts14b ts-purple">CÓDIGO DO PRODUTO: XXXXXXX</p>
+
+                    <div class="product-info-review">
+                        <div id="product-info-score">
+                            <p class="ts18b">5,00</p>
+                            <img src="../img/icon/star-fill.svg" class="icon-16">
+                        </div>
+                        <p class="ts14b ts-purple">(xxx avaliações)</p>
+                    </div>
+
+                    <div id="product-description">
+                        <h2 class="ts14b upper">Descrição</h2>
+
+                        <p class="ts14r">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu</p>
+                    </div>
+
+
+                </div>
+
+                <div class="card card-product-buy col col-md-4 col-lg-3">
+                    <div class="product-buy-price">
+                        <div class="product-amount">
+                            <h1 class="upper ts14b">Quantidade</h1>
+                            <div class="counter">
+                                <button class="btn btn-purple ts24r" onclick="this.blur();">-</button>
+                                <div class="counter-display ts24r ts-black">
+                                    01
+                                </div>
+                                <button class="btn btn-purple ts24r" onclick="this.blur();">+</button>
+                            </div>
+                        </div>
+                        <p class="card-text ts28b">R$ 100,00</p>
+                    </div>
+
+                    <div class="product-buy">
+                        <button class="btn btn-green btn-buy ts24b" type="submit">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion" id="accordionProductReview">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button ts18b " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Avaliações
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <li class="product-review-list">
+                                <ul>
+                                    <div class="user- score">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                    </div>
+                                    <div class="user- review">
+                                        <p class="ts14r">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus</p>
+                                    </div>
+
+                                </ul>
+                                <ul>
+                                    <div class="user- score">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star-fill.svg" class="icon-32">
+                                        <img src="../img/icon/star.svg" class="icon-32">
+                                    </div>
+                                    <div class="user- review">
+                                        <p class="ts14r">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu</p>
+                                    </div>
+
+                                </ul>
+                                <div class="product-filter-button">
+                                    <button class="btn btn-purple ts18b col col-md-4 col-lg-4" type="submit">Ver mais avaliações</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <nav class="navbar ts14r" id="nav-footer">
+            <li id="nav-about">
+                <h1 class="ts18b">Sobre</h1>
+                <ul>
+                    <a href="">Quem somos</a>
+                </ul>
+                <ul>
+                    <a href="">Política de privacidade</a>
+                </ul>
+            </li>
+            <li id="nav-help">
+
+                <h1 class="ts18b">Ajuda</h1>
+                <ul>
+                    <a href="">Dúvidas frequentes</a>
+                </ul>
+                <ul>
+                    <a href="">Trocas e devoluções</a>
+                </ul>
+                <ul>
+                    <a href="">Fale conosco</a>
+                </ul>
+            </li>
+            <li id="nav-oppening-hours">
+
+                <h1 class="ts18b">Atendimento</h1>
+                <ul>
+                    <p>Seg a Sex: 09h às 22h</p>
+                </ul>
+                <ul>
+                    <p>Sáb: 10h às 20h</p>
+                </ul>
+                <ul>
+                    <p>Dom: 10h às 16h</p>
+                </ul>
+            </li>
+            <li id="nav-social-networks">
+
+                <h1 class="ts18b">Redes Sociais</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col"><a href=""><img src="../img/icon/instagram.svg" class="icon-32"></a></div>
+                        <div class="col"><a href=""><img src="../img/icon/whatsapp.svg" class="icon-32"></a></div>
+                        <div class="w-100"></div>
+                        <div class="col"><a href=""><img src="../img/icon/facebook.svg" class="icon-32"></a></div>
+                        <div class="col"><a href=""><img src="../img/icon/tiktok.svg" class="icon-32"></a></div>
+                    </div>
+                </div>
+            </li>
+        </nav>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            margin: 4,
+            dots: false,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 3,
+                    nav: true
+                },
+                990: {
+                    items: 2,
+                    nav: false
+                },
+                1280: {
+                    items: 3,
+                    nav: true,
+                    loop: false
+                }
+            }
+        })
+    </script>
+
+</body>
+
+
+
+</html>
