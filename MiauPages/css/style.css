@@ -598,6 +598,12 @@ footer {
   gap: 4rem;
 }
 
+.form-admin-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .product-filter-options {
   display: flex;
   flex-direction: row;
@@ -752,7 +758,7 @@ select option {
   align-items: center;
 }
 
-.admin-header-subtitle{
+.admin-header-subtitle {
   text-align: left;
 }
 
@@ -773,7 +779,7 @@ tfoot {
   border-top: 1px solid var(--green);
 }
 .table .action-icons .btn {
-  padding: 0;
+  padding: 0 0.4rem;
 }
 
 @media (max-width: 768px) {
