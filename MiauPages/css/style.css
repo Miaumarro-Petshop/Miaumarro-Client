@@ -330,6 +330,24 @@ main {
   color: var(--green);
 }
 
+.form-grey {
+  height: 4rem;
+  min-height: 40px;
+  background-color: var(--grey);
+  color: var(--black);
+  border: none;
+  border-radius: 12px;
+  padding-left: 3.2rem;
+}
+
+.form-grey::placeholder {
+  color: var(--purple);
+}
+
+.input-textarea {
+  height: 10rem;
+}
+
 /* Button */
 
 .btn {
@@ -592,6 +610,12 @@ footer {
   gap: 4rem;
 }
 
+.form-admin-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .product-filter-options {
   display: flex;
   flex-direction: row;
@@ -620,6 +644,7 @@ footer {
 
 legend {
   padding-bottom: 0.8rem;
+  text-align: left;
 }
 
 .checkbox-item {
@@ -660,12 +685,16 @@ input[type="checkbox"]:checked:after {
 }
 
 input[type="checkbox"]:hover {
-  outline: 0.4rem solid var(--grey);
-  background-color: var(--grey);
+  outline: 0.4rem solid var(--green);
+  background-color: var(--green);
 }
 
 .product-sort-order {
-  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  max-width: 100%;
+  padding: 0;
 }
 
 .product-sort-order {
@@ -993,6 +1022,42 @@ select option {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+}
+
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.admin-page .admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header-subtitle {
+  text-align: left;
+}
+
+.table {
+  background-color: var(--grey);
+  border-radius: 10px;
+  color: var(--black);
+  border-style: none;
+}
+
+.table td,
+th,
+tfoot {
+  border-style: none;
+}
+
+.table tbody tr {
+  border-top: 1px solid var(--green);
+}
+.table .action-icons .btn {
+  padding: 0 0.4rem;
 }
 
 @media (max-width: 768px) {
