@@ -2,10 +2,6 @@
   "name": "miaumarro-client",
   "version": "1.0.0",
   "description": "Front-end for the Miaumarro API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Miaumarro-Petshop/Miaumarro-Client.git"
@@ -16,10 +12,30 @@
     "url": "https://github.com/Miaumarro-Petshop/Miaumarro-Client/issues"
   },
   "homepage": "https://github.com/Miaumarro-Petshop/Miaumarro-Client#readme",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "test:unit": "vitest --environment jsdom",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
   "dependencies": {
+    "vue": "^3.2.37",
     "bootstrap": "^5.2.0",
-    "eslint": "^8.22.0",
-    "owl.carousel": "^2.3.4",
-    "vue": "^3.2.37"
+    "owl.carousel": "^2.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vue/test-utils": "^2.0.2",
+    "eslint": "^8.21.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "jsdom": "^20.0.0",
+    "vite": "^3.0.4",
+    "vitest": "^0.21.0"
   }
 }

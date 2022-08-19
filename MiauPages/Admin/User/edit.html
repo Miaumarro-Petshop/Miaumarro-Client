@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="icon" href="../../img/miaumarro/logo_icon.svg">
+    <title>Miaumarro Petshop</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav-main-lg">
+            <nav class="navbar primary-menu">
+                <a href="../../index.html" class="navbar-brand">
+                    <img src="../../img/miaumarro/Logo_dynapuff.png" height="40">
+                </a>
+                <ul class="customer-options-items">
+                    <a href="LoginPage/" class="login-options">
+                        <img class="icon-32" src="../../img/icon/person-circle.svg">
+                        <div class="hidden-xs login-options-text">
+                            <p class="ts18r">Bem vindo(a)</p>
+                            <p class="ts12r">Nome Admin</p>
+                        </div>
+                    </a>
+
+                </ul>
+            </nav>
+
+            <nav class="navbar secondary-menu my-data main ts18b">
+                <li class="my-data-options">
+                    <ul class="my-data-options-items">
+                        <a href="">Produtos</a>
+                    </ul>
+                    <ul class="my-data-options-items">
+                        <a href="">Imagens de produtos</a>
+                    </ul>
+                    <ul class="my-data-options-items">
+                        <a href="">Usuários</a>
+                    </ul>
+                </li>
+            </nav>
+        </div>
+        <div id="nav-main-md">
+            <div class="navbar container-fluid">
+                <a id="nav-main-md-menu" href="#">
+                    <img class="icon-32" src="../../img/icon/list.svg">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="admin-page">
+            <div class="admin-header-subtitle">
+                <h1 class="ts28b ts-purple">Usuários</h1>
+                <h2 class="ts18b">Editar</h2>
+            </div>
+
+            <form method="post" action="" id="create-user" class="ts14r row g-3">
+                <div class="col-md-8 col-lg-8">
+                    <p class="ts18b" id="id" name="id">ID: 000001</p>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <label for="cpf"></label>
+                    <input class="form-grey form-data" id="cpf" name="cpf" type="text" placeholder="CPF">
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <label for="name"></label>
+                    <input class="form-grey form-data" id="name" name="name" type="text" placeholder="Nome">
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <label for="surname"></label>
+                    <input class="form-grey form-data" id="surname" name="surname" type="text" placeholder="Sobrenome">
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <label for="email"></label>
+                    <input class="form-grey form-data" id="email" name="email" type="email" placeholder="E-mail">
+                </div>
+                <div class="col-md-8 col-lg-8 space">
+                    <label for="phone"></label>
+                    <input class="form-grey form-data" id="phone" name="phone" type="text" placeholder="Telefone">
+                </div>
+                <a href="">
+                    <a href="">
+                        <button class="btn btn-purple ts18b col-md-8 col-lg-6" method="post" type="submit">Salvar alterações</button>
+                    </a>
+                </a>
+            </form>
+        </section>
+
+    </main>
+    <footer>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
