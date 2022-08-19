@@ -109,7 +109,7 @@
         <section>
             <p class="ts12r ts-green">Nos fale mais sobre o seu bichinho!</p>
         </section>
-        <div class="row">
+        <div class="my-pet-container">
             <div class="col">
         <form method="post" action="" class="ts14r row g-3">
         <div class="col-12">
@@ -118,7 +118,7 @@
         </div>
         <div class="col-12">
             <label for="pet-type"></label>
-            <select class="form-black form-data" id="pet-type" name="pet-type">
+            <select class="form-select form-black form-data" id="pet-type" name="pet-type">
                 <option selected disabled>Qual é o seu bichinho?</option>
                 <option value="0">Cachorro</option>
                 <option value="1">Gato</option>
@@ -129,7 +129,7 @@
         </div>
         <div class="col-12">
             <label for="pet-gender"></label>
-            <select class="form-black form-data" id="pet-gender" name="pet-gender">
+            <select class="form-select form-black form-data" id="pet-gender" name="pet-gender">
                 <option selected disabled>Seu bichinho é...</option>
                 <option value="0">Macho</option>
                 <option value="1">Fêmea</option>
@@ -143,20 +143,19 @@
             <label for="pet-breed"></label>
             <input class="form-black form-data" id="pet-breed" name="pet-breed" type="text" placeholder="Raça do seu bichinho">
         </div>
-        <div class="col-md-8 col-lg-3" id="edit-button">
+        <div class="col-md-8 col-lg-8" id="edit-button">
             <a href="">
                 <button class="btn btn-purple ts18b" type="submit">Salvar bichinho</button>
             </a>
         </div>
       </form>
     </div>
-    <div class="col">
-            <div class="col-12">
+    <div class="col pet-image-col">
+            <div class="col-8">
                 <img class="pet-image" src="../img/miaumarro/logo_icon.svg">
-            </div>
-            <div>
-                <label for="formFileLg" class="form-label">Large file input example</label>
-                <input class="form-file" id="formFileLg" type="file">
+            </div class="col-8">
+            <div class="col-8">
+                <button class="btn btn-purple ts14b" type="submit">Adicionar foto</button>
               </div>
               
     </div>

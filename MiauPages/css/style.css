@@ -296,6 +296,26 @@ main {
   padding: 0;
 }
 
+/*My Pet*/
+
+.my-pet-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.pet-image{
+  width: 25rem;
+}
+
+.pet-image-col{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+
 /* Form */
 
 .form-black {
@@ -552,13 +572,6 @@ main {
   margin-bottom: 2rem;
 }
 
-.pet-image{
-  width: 20rem;
-}
-
-
-
-
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -578,5 +591,16 @@ main {
   }
   .form-black{
     padding-left: 1rem;
+  }
+  .my-pet-container{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .pet-image-col{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 2rem;
+    margin-top: 4rem;
   }
 }
