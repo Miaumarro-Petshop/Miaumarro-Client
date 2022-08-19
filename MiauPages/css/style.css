@@ -161,15 +161,17 @@ main {
   text-align: center;
 }
 
-.g-3, .gy-3 {
+.g-3,
+.gy-3 {
   --bs-gutter-y: 0;
 }
 
-.g-3, .gx-3 {
+.g-3,
+.gx-3 {
   --bs-gutter-x: 0.5rem;
 }
 
-.row{
+.row {
   margin: 0;
   justify-content: center;
 }
@@ -272,7 +274,7 @@ main {
   align-content: space-around;
 }
 
-.my-data{
+.my-data {
   justify-content: space-evenly;
 }
 
@@ -312,7 +314,7 @@ main {
   padding-left: 3.2rem;
 }
 
-.form-data{
+.form-data {
   width: 100%;
 }
 
@@ -480,7 +482,7 @@ main {
   width: 100%;
 }
 
-footer{
+footer {
   padding: 0;
   align-items: center;
   text-align: center;
@@ -534,7 +536,7 @@ footer{
   align-content: space-between;
 }
 
-.account a{
+.account a {
   margin-top: 2rem;
 }
 
@@ -606,6 +608,7 @@ footer{
 
 legend {
   padding-bottom: 0.8rem;
+  text-align: left;
 }
 
 .checkbox-item {
@@ -651,7 +654,11 @@ input[type="checkbox"]:hover {
 }
 
 .product-sort-order {
-  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  max-width: 100%;
+  padding: 0;
 }
 
 .product-sort-order {
@@ -714,6 +721,37 @@ select option {
   background-color: var(--white);
   color: var(--green);
 }
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.admin-list .admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table {
+  background-color: var(--grey);
+  border-radius: 10px;
+  color: var(--black);
+  border-style: none;
+}
+
+.table  td, th, tfoot{
+  border-style: none;
+}
+
+.table tbody tr {
+  border-top: 1px solid var(--green);
+}
+.table .action-icons .btn{
+  padding: 0;
+}
+
 
 @media (max-width: 768px) {
   html {
