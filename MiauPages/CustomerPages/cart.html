@@ -106,20 +106,20 @@
     </header>
 
     <main>
-        <section id="customer-wishlist">
-            <div class="wishlist-title">
-                <h1 class="ts40 ts-purple">Lista de desejos</h1>
-                <p class="ts18b">Produtos favoritos</p>
+        <section id="customer-cart">
+            <div class="cart-title">
+                <h1 class="ts40 ts-purple">Carrinho</h1>
+                <p class="ts18b">Produtos</p>
             </div>
 
-            <div class="wishlist-products">
+            <div class="cart-products">
                 <div class="result-count">
-                    <p class="ts18b">XXX produtos favoritados</p>
+                    <p class="ts18b">XXX produtos encontrados</p>
                 </div>
-                <li class="products-wishlist-list">
+                <li class="products-cart-list">
                     <ul>
                         <a href="">
-                            <div class="card card-product-wishlist">
+                            <div class="card card-product-cart">
                                 <div class="card-img col col-lg-2">
                                     <img src="../img/miaumarro/logo_icon.svg" alt="Product Image">
                                 </div>
@@ -129,38 +129,25 @@
                                             <h1 class="ts24b">Nome Completo do Produto Nome Completo do Produto</h1>
                                             <h2 class="ts14b ts-purple">CÓDIGO DO PRODUTO: XXXXXX </h2>
                                         </div>
-                                        <div>
-                                            <p class="card-text ts28b">R$ 100,00</p>
+                                        <div class="card-text-cart">
+                                            <div>
+                                                <p class="card-text ts28b">R$ 100,00</p>
+                                            </div>
+                                            <div class="product-amount">
+                                                <div class="counter">
+                                                    <button class="btn btn-purple ts24r" onclick="this.blur();">-</button>
+                                                    <div class="counter-display ts24r ts-black">
+                                                        01
+                                                    </div>
+                                                    <button class="btn btn-purple ts24r" onclick="this.blur();">+</button>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="card-icon">
                                         <a href="">
-                                            <img src="../img/icon/heart-fill.svg" class="icon-32 icon-purple">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </ul>
-                    <ul>
-                        <a href="">
-                            <div class="card card-product-wishlist">
-                                <div class="card-img col col-lg-2">
-                                    <img src="../img/miaumarro/logo_icon.svg" alt="Product Image">
-                                </div>
-                                <div class="card-body col col-lg-10">
-                                    <div class=card-info>
-                                        <div class="card-title">
-                                            <h1 class="ts24b">Nome Completo do Produto Nome Completo do Produto</h1>
-                                            <h2 class="ts14b ts-purple">CÓDIGO DO PRODUTO: XXXXXX </h2>
-                                        </div>
-                                        <div>
-                                            <p class="card-text ts28b">R$ 100,00</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-icon">
-                                        <a href="">
-                                            <img src="../img/icon/heart-fill.svg" class="icon-32 icon-purple">
+                                            <img src="../img/icon/trash-fill-purple.svg" class="icon-32">
                                         </a>
                                     </div>
                                 </div>
