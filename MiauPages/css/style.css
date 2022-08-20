@@ -814,7 +814,8 @@ select option {
   gap: 1.6rem;
 }
 
-.card-product-wishlist {
+.card-product-wishlist,
+.card-product-cart {
   background-color: var(--grey);
   color: var(--black);
   padding: 1.6rem;
@@ -1187,7 +1188,7 @@ tfoot {
     gap: 2rem;
     margin-top: 4rem;
   }
-  
+
   .product-filter-options {
     display: flex;
     flex-direction: column;
@@ -1208,7 +1209,11 @@ tfoot {
   .card-product-cart .card-icon img {
     width: 2.4rem;
     height: 2.4rem;
-
+  }
+  .card-product-wishlist h3,
+  .card-product-cart h3 {
+    font-size: 2rem;
+  }
   .product-container {
     display: flex;
     flex-direction: column;
@@ -1222,6 +1227,5 @@ tfoot {
   }
   .product-buy-price h1 {
     display: none;
-
   }
 }
