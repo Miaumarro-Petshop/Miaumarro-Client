@@ -888,6 +888,12 @@ select option {
   border: none;
 }
 
+.cart-info {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
 #product-detail {
   display: flex;
   flex-direction: column;
@@ -980,7 +986,8 @@ select option {
   gap: 1.6rem;
 }
 
-.card-product-buy {
+.card-product-buy,
+.card-cart-buy {
   display: flex;
   background-color: var(--black);
   color: var(--white);
@@ -989,11 +996,16 @@ select option {
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  height: 24rem;
   gap: 1.6rem;
+  height: 100%;
 }
 
-.product-buy-price {
+.card-product-buy {
+  height: 24rem;
+}
+
+.product-buy-price,
+.cart-buy-price {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1156,6 +1168,38 @@ tfoot {
   width: 100%;
 }
 
+.line {
+  color: var(--white);
+}
+
+.purchase-required-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 1.6rem;
+}
+
+.purchase-additional-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 1.6rem;
+}
+
+.purchase-additional-info form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.8rem;
+}
+
+.cart-input {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  justify-content: flex-start;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1213,6 +1257,11 @@ tfoot {
   .product-container {
     display: flex;
     flex-direction: column;
+  }
+  .cart-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
   }
   .product-buy-price {
     display: flex;
