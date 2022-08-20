@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-
+  
     <link rel="icon" href="../img/miaumarro/logo_icon.svg">
-    <title>Miaumarro Petshop</title>
+    <title>Meus Bichinhos - Minha conta</title>
 </head>
 
 <body>
@@ -54,27 +54,22 @@
                 </li>
             </nav>
 
-            <nav class="navbar secondary-menu ts18b">
-                <li class="pet-type">
-                    <ul class="pet-type-items">
-                        <a href="">Cachorros</a>
+            <nav class="navbar secondary-menu my-data main ts18b">
+                <li class="my-data-options">
+                    <ul class="my-data-options-items">
+                        <a href="">Meus dados</a>
                     </ul>
-                    <ul class="pet-type-items">
-                        <a href="">Gatos</a>
+                    <ul class="my-data-options-items">
+                        <a href="">Meus endereços</a>
                     </ul>
-                    <ul class="pet-type-items">
-                        <a href="">Pássaros</a>
+                    <ul class="my-data-options-items">
+                        <a href="">Meus bichinhos</a>
                     </ul>
-                    <ul class="pet-type-items">
-                        <a href="">Peixes</a>
+                    <ul class="my-data-options-items">
+                        <a href="">Meus pedidos</a>
                     </ul>
-                    <ul class="pet-type-items">
-                        <a href="">Outros bichinhos</a>
-                    </ul>
-                </li>
-                <li class="appointment">
-                    <ul class="appointment-items">
-                        <a href="">Banho e tosa</a>
+                    <ul class="my-data-options-items">
+                        <a href="">Meus agendamentos</a>
                     </ul>
                 </li>
             </nav>
@@ -84,7 +79,7 @@
                 <a id="nav-main-md-menu" href="#">
                     <img class="icon-32" src="../img/icon/list.svg">
                 </a>
-                <a id="nav-main-md-brand" href="../index.html">
+                <a id="nav-main-md-brand" href="index.html">
                     <img src="../img/miaumarro/Logo_dynapuff.png" height="32">
                 </a>
                 <a id="nav-main-md-cart" href="cart.html">
@@ -104,79 +99,27 @@
             </div>
         </div>
     </header>
-
     <main>
+        <article class="account">
+        <section>
+            <h1 class="ts40 ts-purple">Meus bichinhos</h1>
+        </section>
+        <section>
+            <p class="ts12r ts-green">Nos apresente seus bichinhos, adoraríamos conhecê-los!</p>
+        </section>
         <section class="customer-empty-container">
             <div class="card card-empty col col-lg-10">
-                <img src="../img/icon/heart-fill.svg" class="icon-64 icon-purple" alt="Heart icon">
-                <h1 class="ts18b ts-purple">Sua lista de desejos está vazia no momento</h1>
-                <h2 class="ts14r col-lg-6">Você não possui produtos favoritos, continue navegando pelo site para conhecer novos produtos.</h2>
+                <img src="../img/miaumarro/logo_icon.svg" class="icon-64 icon-purple" alt="Heart icon">
+                <h1 class="ts18b ts-purple">Você não tem bichinhos cadastrados</h1>
+                <h2 class="ts14r col-lg-6">Você ainda não adicionou nenhum bichinho.
+                    Adicione um novo pet no botão abaixo.</h2>
             </div>
 
-            <a href="../index.html" class="row">
-                <button class="btn btn-purple btn-48 ts18b" type="submit">Continuar navegando</button>
+            <a href="../MyPetsPages/create-pet.html" class="row">
+                <button class="btn btn-purple btn-48 ts18b" type="submit">Adicionar bichinho</button>
             </a>
         </section>
+    </article>
     </main>
 
-    <footer>
-        <nav class="navbar ts14r" id="nav-footer">
-            <li id="nav-about">
-                <h1 class="ts18b">Sobre</h1>
-                <ul>
-                    <a href="">Quem somos</a>
-                </ul>
-                <ul>
-                    <a href="">Política de privacidade</a>
-                </ul>
-            </li>
-            <li id="nav-help">
-
-                <h1 class="ts18b">Ajuda</h1>
-                <ul>
-                    <a href="">Dúvidas frequentes</a>
-                </ul>
-                <ul>
-                    <a href="">Trocas e devoluções</a>
-                </ul>
-                <ul>
-                    <a href="">Fale conosco</a>
-                </ul>
-            </li>
-            <li id="nav-oppening-hours">
-
-                <h1 class="ts18b">Atendimento</h1>
-                <ul>
-                    <p>Seg a Sex: 09h às 22h</p>
-                </ul>
-                <ul>
-                    <p>Sáb: 10h às 20h</p>
-                </ul>
-                <ul>
-                    <p>Dom: 10h às 16h</p>
-                </ul>
-            </li>
-            <li id="nav-social-networks">
-
-                <h1 class="ts18b">Redes Sociais</h1>
-                <div class="container">
-                    <div class="row">
-                        <div class="col"><a href=""><img src="../img/icon/instagram.svg" class="icon-32"></a></div>
-                        <div class="col"><a href=""><img src="../img/icon/whatsapp.svg" class="icon-32"></a></div>
-                        <div class="w-100"></div>
-                        <div class="col"><a href=""><img src="../img/icon/facebook.svg" class="icon-32"></a></div>
-                        <div class="col"><a href=""><img src="../img/icon/tiktok.svg" class="icon-32"></a></div>
-                    </div>
-                </div>
-            </li>
-        </nav>
-    </footer>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
-
-
-
-</html>
