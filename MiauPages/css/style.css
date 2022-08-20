@@ -1210,10 +1210,6 @@ tfoot {
     width: 2.4rem;
     height: 2.4rem;
   }
-  .card-product-wishlist h3,
-  .card-product-cart h3 {
-    font-size: 2rem;
-  }
   .product-container {
     display: flex;
     flex-direction: column;
