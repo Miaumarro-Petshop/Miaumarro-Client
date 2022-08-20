@@ -310,6 +310,25 @@ main {
   padding: 0;
 }
 
+/*My Pet*/
+
+.my-pet-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pet-image {
+  width: 25rem;
+}
+
+.pet-image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
 /* Form */
 
 .form-black {
@@ -385,13 +404,14 @@ main {
 .btn-purple {
   background-color: var(--purple);
   color: var(--white);
+  width: 100%;
 }
 
 .btn-purple:hover {
   background-color: var(--green);
 }
 
-.btn-48{
+.btn-48 {
   min-height: 4.8rem;
   padding: 0 4rem;
 }
@@ -566,8 +586,22 @@ footer {
   align-content: space-between;
 }
 
+#edit-button {
+  margin-top: 2rem;
+}
+
 .account a {
   margin-top: 2rem;
+}
+
+#search-button {
+  display: flex;
+  align-items: flex-start;
+}
+
+#form-cep {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .form-account input {
@@ -777,12 +811,6 @@ select option {
   gap: 1.6rem;
 }
 
-#customer-wishlist li {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
 .card-product-wishlist {
   background-color: var(--grey);
   color: var(--black);
@@ -839,14 +867,7 @@ select option {
   fill: var(--purple);
 }
 
-#customer-wishlist-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3.2rem;
-}
-
-.card-product-wishlist-empty {
+.card-empty {
   background-color: var(--grey);
   color: var(--black);
   gap: 2rem;
@@ -1060,6 +1081,56 @@ tfoot {
   padding: 0 0.4rem;
 }
 
+.customer-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.cards-list a {
+  margin-top: 0%;
+}
+
+.card-item {
+  background-color: var(--black);
+  color: var(--green);
+  padding: 1.6rem;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.card-img-h {
+  width: 10rem;
+}
+
+#card-img-pet {
+  width: 10rem;
+  padding: 1rem;
+  background-color: var(--white);
+}
+
+.card-body-data {
+  text-align: left;
+}
+
+#center-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1073,6 +1144,26 @@ tfoot {
   #nav-main-md {
     display: flex;
   }
+
+  #form-cep {
+    display: flex;
+    justify-content: center;
+  }
+  .form-black {
+    padding-left: 1rem;
+  }
+  .my-pet-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .pet-image-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
   .product-filter-options {
     display: flex;
     flex-direction: column;
@@ -1089,7 +1180,7 @@ tfoot {
   .card-product-wishlist .card-icon img {
     width: 2.4rem;
     height: 2.4rem;
-
+  }
   .product-container {
     display: flex;
     flex-direction: column;
@@ -1103,6 +1194,5 @@ tfoot {
   }
   .product-buy-price h1 {
     display: none;
-
   }
 }
