@@ -596,7 +596,6 @@ footer {
 }
 
 #search-button{
-  margin-top: 2rem;
   display: flex;
   align-items: flex-start;
 }
@@ -816,7 +815,7 @@ select option {
 #customer-wishlist li {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  /* gap: 1.6rem; */
 }
 
 .card-product-wishlist {
@@ -827,7 +826,7 @@ select option {
   border-radius: 12px;
   display: flex;
   flex-direction: row;
-  gap: 1.6rem;
+  /* gap: 1.6rem; */
 }
 
 .card-product-wishlist:hover {
@@ -1096,6 +1095,66 @@ tfoot {
   padding: 0 0.4rem;
 }
 
+.customer-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.card-product-empty {
+  background-color: var(--grey);
+  color: var(--black);
+  gap: 2rem;
+  padding: 2rem;
+  align-items: center;
+  border-radius: 12px;
+  border: none;
+}
+
+.cards-list{
+  display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.cards-list a{
+  margin-top: 0%;
+}
+
+.card-item{
+  background-color: var(--black);
+    color: var(--green);
+    padding: 1.6rem;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+  align-items: center;
+}
+
+.card-img-h{
+  width: 10rem;
+}
+
+#card-img-pet{
+  width: 10rem;
+  padding:1rem;
+  background-color: var(--white);
+}
+
+.card-body-data{
+  text-align: left;
+}
+
+#center-btn{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1127,6 +1186,7 @@ tfoot {
     align-items:center;
     gap: 2rem;
     margin-top: 4rem;
+  }
 
   .product-filter-options {
     display: flex;
@@ -1144,7 +1204,7 @@ tfoot {
   .card-product-wishlist .card-icon img {
     width: 2.4rem;
     height: 2.4rem;
-
+  }
   .product-container {
     display: flex;
     flex-direction: column;
