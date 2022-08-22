@@ -753,7 +753,6 @@ select {
 }
 
 select option {
-  color: var(--black);
   font-family: "Poppins-Regular";
   font-size: 1.2rem;
 }
@@ -1198,6 +1197,39 @@ tfoot {
   flex-direction: row;
   gap: 0.8rem;
   justify-content: flex-start;
+}
+
+.step{
+  text-align: start;
+}
+
+#img-pet-2 {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 12px;
+  background-color: var(--purple);
+  border: var(--purple) solid 1rem;
+}
+
+#choose-pet{
+  display:flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#service-price{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.appointment-container{
+  display:flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 @media (max-width: 768px) {
