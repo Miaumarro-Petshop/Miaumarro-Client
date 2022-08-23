@@ -4,6 +4,8 @@ import ProductSearch from "../views/Store/Product/ProductSearch.vue";
 import ProductDetail from "../views/Store/Product/ProductDetail.vue";
 import WishListView from "../views/Store/Wishlist/WishListView.vue";
 import CartList from "../views/Store/Cart/CartList.vue";
+import LoginForm from "../views/Store/Login/LoginForm.vue";
+import RegistrationForm from "../views/Store/Login/RegistrationForm.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +34,16 @@ const router = createRouter({
       path: "/carrinho",
       name: "cart",
       component: CartList,
+    },
+    {
+      path: "/cadastrar",
+      name: "register",
+      component: RegistrationForm,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginForm,
     },
   ],
 });
