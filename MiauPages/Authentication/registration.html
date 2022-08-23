@@ -9,7 +9,7 @@
     <link rel="icon" href="../img/logo_icon.svg">
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Miaumarro - Login</title>
+    <title>Cadastre-se - Miaumarro</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <main>
         <article class="account">
             <section>
-                <h1 class="ts40 ts-purple">Acessar Conta</h1>
+                <h1 class="ts40 ts-purple">Criar Conta</h1>
             </section>
             <section>
                 <p class="ts12r ts-green">Complete os campos com suas informações.</p>
@@ -47,16 +47,23 @@
                     <input class="form-black col col-md-8 col-lg-6" id="password" name="password" type="password" placeholder="Senha" required>
                 </div>
                 <div>
-                    <a href="../MyDataPage/">
-                        <button class="btn btn-purple ts24r col col-md-8 col-lg-6" type="submit">Acessar conta</button>
-                    </a>
+                    <label for="confirmPassword"></label>
+                    <input class="form-black col col-md-8 col-lg-6" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmar senha" required>
+                </div>
+                <div>
+                    <p class="ts12r ts-green space">
+                        A senha deve conter letras minusculas, maiusculas e no mínimo 8 caracteres.
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-purple ts24r col col-md-8 col-lg-6" type="submit">Criar conta</button>
                 </div>
             </form>
             <section>
                 <nav>
-                    <span class="ts14b ts-green">Novo na Miaumarro? </span>
-                    <a class="ts14b link-green" href="../RegistrationPage/">
-                        <span>Crie sua conta.</span>
+                    <span class="ts14b ts-green">Já tem cadastro com a gente? </span>
+                    <a class="ts14b link-green" href="../LoginPage/">
+                        <span>Acesse sua conta.</span>
                     </a>
                 </nav>
             </section>
