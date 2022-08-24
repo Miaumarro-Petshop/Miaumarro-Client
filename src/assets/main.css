@@ -1348,6 +1348,11 @@ tfoot {
   padding-left: calc(var(--bs-gutter-x) * .5);
 }
 
+#create-user{
+  display: flex;
+  gap: 1.5rem;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
