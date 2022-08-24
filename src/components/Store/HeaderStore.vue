@@ -12,14 +12,13 @@
           action="./Product/index.html"
           method="post"
         >
-          <Input
+          <input
             class="ts12r form-black"
             type="search"
             id="searchedTerm"
             placeholder="O que você está procurando?"
             aria-label="Search"
-          >
-          </Input>
+          />
           <div class="form-button">
             <button class="btn btn-grey btn-icon" type="submit">
               <img class="icon-24" src="../../assets/img/icon/search.svg" />
@@ -97,13 +96,13 @@
           action="./Product/index.html"
           method="post"
         >
-          <Input
+          <input
             class="ts12r form-black"
             type="search"
             id="searchedTerm"
             placeholder="O que você está procurando?"
             aria-label="Search"
-          ></Input>
+          />
           <div class="form-button">
             <button class="btn btn-grey btn-icon" type="submit">
               <img class="icon-24" src="../../assets/img/icon/search.svg" />

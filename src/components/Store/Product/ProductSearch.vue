@@ -34,48 +34,44 @@
                       <label class="ts14b">Palavra-chave</label>
                     </div>
                     <div class="row">
-                      <Input
+                      <input
                         class="ts12r form-black"
                         type="text"
                         id="searchedTerm"
                         placeholder="Palavra-chave"
                         aria-label="Search"
-                      >
-                      </Input>
+                      />
                     </div>
                     <div class="row">
                       <label class="ts14b">Marca</label>
                     </div>
                     <div class="row">
-                      <Input
+                      <input
                         class="ts12r form-black"
                         type="text"
                         id="brand"
                         placeholder="Marca"
                         aria-label="Brand"
-                      >
-                      </Input>
+                      />
                     </div>
                     <div class="row">
                       <label class="ts14b">Preço</label>
                     </div>
                     <div class="row">
-                      <Input
+                      <input
                         class="ts12r form-black col-6"
                         type="text"
                         id="MinPrice"
                         placeholder="Mínimo"
                         aria-label="Preço Mínimo"
-                      >
-                      </Input>
-                      <Input
+                      />
+                      <input
                         class="ts12r form-black col-6"
                         type="text"
                         id="MaxPrice"
                         placeholder="Máximo"
                         aria-label="Preço Máximo"
-                      >
-                      </Input>
+                      />
                     </div>
                   </div>
                   <div class="product-filter-select col col-lg-8">
@@ -83,7 +79,7 @@
                       <legend class="ts14b">Tags</legend>
                       <div class="product-tags">
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="SmallPet"
                             name="SmallPet"
@@ -94,7 +90,7 @@
                           >
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="MediumPet"
                             name="MediumPet"
@@ -105,7 +101,7 @@
                           >
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="LargePet"
                             name="LargePet"
@@ -116,7 +112,7 @@
                           >
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Clothing"
                             name="Clothing"
@@ -125,7 +121,7 @@
                           <label for="Clothing" class="ts14b">Roupas</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Medicine"
                             name="Medicine"
@@ -136,7 +132,7 @@
                           >
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Furniture"
                             name="Furniture"
@@ -145,7 +141,7 @@
                           <label for="Furniture" class="ts14b">Mobília</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Food"
                             name="Food"
@@ -154,7 +150,7 @@
                           <label for="Food" class="ts14b">Alimentação</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Toy"
                             name="Toy"
@@ -163,7 +159,7 @@
                           <label for="Toy" class="ts14b">Brinquedos</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Accessory"
                             name="Accessory"
@@ -174,7 +170,7 @@
                           >
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Dog"
                             name="Dog"
@@ -183,7 +179,7 @@
                           <label for="Dog" class="ts14b">Cachorros</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Cat"
                             name="Cat"
@@ -192,7 +188,7 @@
                           <label for="Cat" class="ts14b">Gatos</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Bird"
                             name="Bird"
@@ -201,7 +197,7 @@
                           <label for="Bird" class="ts14b">Pássaros</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="Fish"
                             name="Fish"
@@ -210,7 +206,7 @@
                           <label for="Fish" class="ts14b">Peixes</label>
                         </div>
                         <div class="checkbox-item">
-                          <Input
+                          <input
                             type="checkbox"
                             id="OtherPet"
                             name="OtherPet"
@@ -225,7 +221,7 @@
 
                     <div class="row product-discount">
                       <div class="checkbox-item">
-                        <Input
+                        <input
                           type="checkbox"
                           id="ActiveDiscount"
                           name="activeDiscount"
