@@ -2,7 +2,7 @@
   <header>
     <div id="nav-main-lg">
       <nav class="navbar primary-menu">
-        <a href="index.html" class="navbar-brand">
+        <a href="#" class="navbar-brand">
           <img src="../../assets/img/miaumarro/Logo_dynapuff.png" height="40" />
         </a>
 
@@ -28,7 +28,7 @@
 
         <li class="customer-options">
           <ul class="customer-options-items">
-            <a href="LoginPage/" class="login-options">
+            <a href="#" class="login-options">
               <img
                 class="icon-32"
                 src="../../assets/img/icon/person-circle.svg"
@@ -40,12 +40,12 @@
             </a>
           </ul>
           <ul class="customer-options-items">
-            <a href="wishlist.html">
+            <a href="#">
               <img class="icon-32" src="../../assets/img/icon/heart-fill.svg" />
             </a>
           </ul>
           <ul class="customer-options-items">
-            <a href="cart.html">
+            <a href="#">
               <img class="icon-32" src="../../assets/img/icon/cart-fill.svg" />
             </a>
           </ul>
@@ -82,10 +82,10 @@
         <a id="nav-main-md-menu" href="#">
           <img class="icon-32" src="../../assets/img/icon/list.svg" />
         </a>
-        <a id="nav-main-md-brand" href="index.html">
+        <a id="nav-main-md-brand" href="#">
           <img src="../../assets/img/miaumarro/Logo_dynapuff.png" height="32" />
         </a>
-        <a id="nav-main-md-cart" href="cart.html">
+        <a id="nav-main-md-cart" href="#">
           <img class="icon-32" src="../../assets/img/icon/cart-fill.svg" />
         </a>
       </div>
