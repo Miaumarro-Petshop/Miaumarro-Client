@@ -1330,6 +1330,29 @@ tfoot {
   font-size: 2.4rem;
 }
 
+.form-line{
+  display: flex;
+  flex-direction: row;
+}
+
+#form-product{
+  display: flex;
+  gap: 1.5rem;
+}
+
+#form-price-item{
+  padding-left: 0;
+}
+
+#form-discount-item{
+  padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+#create-user{
+  display: flex;
+  gap: 1.5rem;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1349,6 +1372,9 @@ tfoot {
     justify-content: center;
   }
   .form-black {
+    padding-left: 1rem;
+  }
+  .form-grey {
     padding-left: 1rem;
   }
   .my-pet-container {
@@ -1416,5 +1442,14 @@ tfoot {
 @media (max-width: 600px) {
   .card-product-purchased .card-text-cart {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 992px){
+  .form-line{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
   }
 }
