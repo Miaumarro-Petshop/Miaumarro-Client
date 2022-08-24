@@ -12,17 +12,17 @@
 
 @font-face {
   font-family: DynaPuff-Bold;
-  src: url(./fonts/DynaPuff-Bold.ttf);
+  src: url(../assets/fonts/DynaPuff-Bold.ttf);
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url(./fonts/Poppins-Bold.ttf);
+  src: url(../assets/fonts/Poppins-Bold.ttf);
 }
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url(./fonts/Poppins-Regular.ttf);
+  src: url(../assets/fonts/Poppins-Regular.ttf);
 }
 
 /*  Text Styles */
@@ -586,7 +586,7 @@ footer {
 }
 
 #edit-button {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -611,7 +611,7 @@ footer {
 }
 
 .form-account button {
- min-width: 12rem;
+  min-width: 12rem;
 }
 
 .space {
@@ -1277,7 +1277,7 @@ tfoot {
   width: auto;
 }
 
-.step{
+.step {
   text-align: start;
 }
 
@@ -1289,37 +1289,37 @@ tfoot {
   border: var(--purple) solid 1rem;
 }
 
-#choose-pet{
-  display:flex;
+#choose-pet {
+  display: flex;
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-#service-price{
+#service-price {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 
-.appointment-container{
-  display:flex;
+.appointment-container {
+  display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-#carouselPromotionalBanner img{
-width: 100%;
+#carouselPromotionalBanner img {
+  width: 100%;
 }
 
-.div-100{
+.div-100 {
   width: 100%;
 }
 
 #account-button {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -1375,12 +1375,12 @@ width: 100%;
   .card-product-cart p,
   .card-product-purchased h1,
   .card-product-purchased p,
-  .card-product-purchased h3  {
+  .card-product-purchased h3 {
     font-size: 1.8rem;
   }
   .card-product-wishlist h2,
   .card-product-cart h2,
-  .card-product-purchased h2  {
+  .card-product-purchased h2 {
     font-size: 1.2rem;
   }
   .card-product-wishlist .card-icon img,
