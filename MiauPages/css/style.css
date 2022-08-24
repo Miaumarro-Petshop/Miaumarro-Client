@@ -404,7 +404,6 @@ main {
 .btn-purple {
   background-color: var(--purple);
   color: var(--white);
-  width: 100%;
 }
 
 .btn-purple:hover {
@@ -587,7 +586,10 @@ footer {
 }
 
 #edit-button {
-  margin-top: 2rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .account a {
@@ -609,7 +611,7 @@ footer {
 }
 
 .form-account button {
-  min-width: 28rem;
+ min-width: 12rem;
 }
 
 .space {
@@ -1308,6 +1310,26 @@ tfoot {
   gap: 2rem;
 }
 
+#carouselPromotionalBanner img{
+width: 100%;
+}
+
+.div-100{
+  width: 100%;
+}
+
+#account-button {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#account-button button {
+  font-family: "Poppins-Regular";
+  font-size: 2.4rem;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1384,6 +1406,10 @@ tfoot {
   }
   .product-buy-price h1 {
     display: none;
+  }
+  #account-button button {
+    font-family: "Poppins-Regular";
+    font-size: 1.8rem;
   }
 }
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
   
     <link rel="icon" href="../img/miaumarro/logo_icon.svg">
-    <title>Meus Bichinhos - Minha conta</title>
+    <title>Criar Agendamento - Minha conta</title>
 </head>
 
 <body>
@@ -103,63 +103,100 @@
     </header>
     <article class="account">
         <main>
-        <section>
-            <h1 class="ts40 ts-purple">Adicionar bichinho</h1>
-        </section>
-        <section>
-            <p class="ts12r ts-green">Nos fale mais sobre o seu bichinho!</p>
-        </section>
-        <div class="my-pet-container">
-            <div class="col">
-        <form method="post" action="" class="ts14r row g-3">
-        <div class="col-12">
-            <label for="pet-name"></label>
-            <input class="form-black form-data" id="pet-name" name="pet-name" type="name" placeholder="Nome do seu bichinho">
-        </div>
-        <div class="col-12">
-            <label for="pet-type"></label>
-            <select class="form-select form-black form-data" id="pet-type" name="pet-type">
-                <option selected disabled>Qual é o seu bichinho?</option>
-                <option value="0">Cachorro</option>
-                <option value="1">Gato</option>
-                <option value="2">Pássaro</option>
-                <option value="3">Coelho</option>
-                <option value="4">Peixe</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="pet-gender"></label>
-            <select class="form-select form-black form-data" id="pet-gender" name="pet-gender">
-                <option selected disabled>Seu bichinho é...</option>
-                <option value="0">Macho</option>
-                <option value="1">Fêmea</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="pet-date-of-birth"></label>
-            <input class="form-black form-data" id="pet-date-of-birth" name="pet-date-of-birth" type="date" placeholder="Data de nascimento">
-        </div>
-        <div class="col-12">
-            <label for="pet-breed"></label>
-            <input class="form-black form-data" id="pet-breed" name="pet-breed" type="text" placeholder="Raça do seu bichinho">
-        </div>
-        <div class="col-md-8 col-lg-8" id="edit-button">
-            <a href="">
-                <button class="btn btn-purple ts18b" type="submit">Salvar bichinho</button>
-            </a>
-        </div>
-      </form>
-    </div>
-    <div class="col pet-image-col">
-            <div class="col-8">
-                <img class="pet-image" src="../img/miaumarro/logo_icon.svg">
-            </div class="col-8">
-            <div class="col-8">
-                <button class="btn btn-purple ts14b" type="submit">Adicionar foto</button>
-              </div>
-              
-    </div>
-    </div>
+            <div class="appointment-container">
+            <section>
+                <h1 class="ts40 ts-purple">Banho e tosa</h1>
+            </section>
+            <section>
+                <p class="ts12r ts-green">Bem-vindo ao Serviço de Agendamento!
+                    Aqui você consegue agendar diversos serviços para o seu bichinho.</p>
+            </section>
+            <section>
+                <p class="ts18b step">Passo 1</p>
+            </section>
+            <section>
+                <h1 class="ts40 ts-purple step">Selecione o pet</h1>
+            </section>
+            <li id="choose-pet">
+                <ul>
+                    <a href="">
+                        <div>
+                            <div class="col col-lg-2">
+                                <img id="img-pet-2" src="../img/miaumarro/logo_icon.svg" alt="House Image">
+                            </div>
+                        </div>
+                    </a>
+                </ul>
+                <ul>
+                    <a href="">
+                        <div class="">
+                            <div class="col col-lg-2">
+                                <img id="img-pet-2" src="../img/miaumarro/logo_icon.svg" alt="House Image">
+                            </div>
+                        </div>
+                    </a>
+                </ul>
+                <ul>
+                    <a href="">
+                        <div class="">
+                            <div class="col col-lg-2">
+                                <img id="img-pet-2" src="../img/icon/plus-square-fill.svg" alt="House Image">
+                            </div>
+                        </div>
+                    </a>
+                </ul>
+            </li>
+            <section>
+                <p class="ts18b step">Passo 2</p>
+            </section>
+            <section>
+                <h1 class="ts40 ts-purple step">Selecione o serviço</h1>
+            </section>
+            <form method="post" action="" class="ts14r">
+                <select class="form-select form-black form-data ts-green" id="pet-type" name="pet-type">
+                    <option selected disabled>Qual serviço deseja agendar?</option>
+                    <option value="1">Banho</option>
+                    <option value="2">Tosa</option>
+                    <option value="3">Banho e tosa</option>
+                </select>
+            </form>
+            <section>
+                <p class="ts18b step">Passo 3</p>
+            </section>
+            <section>
+                <h1 class="ts40 ts-purple step">Selecione o dia</h1>
+            </section>
+            <section>
+                <p class="ts18b step">Passo 4</p>
+            </section>
+            <section>
+                <h1 class="ts40 ts-purple step">Selecione o horário</h1>
+            </section>
+            <form method="post" action="" class="ts14r">
+                <select class="form-select form-black form-data ts-green" id="pet-type" name="pet-type">
+                    <option selected disabled>Em qual horário deseja agendar?</option>
+                    <option>08:00h</option>
+                    <option>09:00h</option>
+                    <option>10:00h</option>
+                    <option>11:00h</option>
+                    <option>12:00h</option>
+                    <option>14:00h</option>
+                    <option>15:00h</option>
+                    <option>16:00h</option>
+                    <option>17:00h</option>
+                    <option>18:00h</option>
+                </select>
+            </form>
+            <section id="service-price">
+                <span class="ts18b step">Valor de serviço:</span>
+                <span class="ts28b step">R$ 100,00</span>
+            </section>
+            <div class="col-md-8 col-lg-3" id="edit-button">
+                <a href="">
+                    <button class="btn btn-purple ts18b" type="submit">Agendar serviço</button>
+                </a>
+            </div>
+            </div>
+        </main>
     </article>
-</main>
 </body>

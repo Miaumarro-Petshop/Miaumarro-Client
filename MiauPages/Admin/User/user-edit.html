@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/style.css">
 
     <link rel="icon" href="../../img/miaumarro/logo_icon.svg">
-    <title>Miaumarro Petshop</title>
+    <title>Editar Usuário - Miaumarro</title>
 </head>
 
 <body>
@@ -57,10 +57,13 @@
         <section class="admin-page">
             <div class="admin-header-subtitle">
                 <h1 class="ts28b ts-purple">Usuários</h1>
-                <h2 class="ts18b">Cadastrar</h2>
+                <h2 class="ts18b">Editar</h2>
             </div>
 
             <form method="post" action="" id="create-user" class="ts14r row g-3">
+                <div class="col-md-8 col-lg-8">
+                    <p class="ts18b" id="id" name="id">ID: 000001</p>
+                </div>
                 <div class="col-md-8 col-lg-8">
                     <label for="cpf"></label>
                     <input class="form-grey form-data" id="cpf" name="cpf" type="text" placeholder="CPF">
@@ -82,7 +85,9 @@
                     <input class="form-grey form-data" id="phone" name="phone" type="text" placeholder="Telefone">
                 </div>
                 <a href="">
-                    <button class="btn btn-purple ts18b col-md-8 col-lg-6" method="post" type="submit">Cadastrar usuário</button>
+                    <a href="">
+                        <button class="btn btn-purple ts18b col-md-8 col-lg-6" method="post" type="submit">Salvar alterações</button>
+                    </a>
                 </a>
             </form>
         </section>
