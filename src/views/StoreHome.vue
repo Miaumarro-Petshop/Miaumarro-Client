@@ -1,5 +1,5 @@
 <script setup>
-import HeaderStore from "../components/Store/MainPage.vue";
+import HeaderStore from "../components/Store/HeaderStore.vue";
 import FooterStore from "../components/Store/FooterStore.vue";
 import MainPage from "../components/Store/MainPage.vue";
 </script>
