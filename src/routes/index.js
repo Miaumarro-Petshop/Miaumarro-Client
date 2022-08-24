@@ -45,6 +45,61 @@ const router = createRouter({
       name: "login",
       component: LoginForm,
     },
+    {
+      path: "/minha-conta",
+      name: "data-edit",
+      component: DataEdit,
+    },
+    {
+      path: "/minha-conta/enderecos",
+      name: "address-list",
+      component: AddressList,
+    },
+    {
+      path: "/minha-conta/enderecos/adicionar",
+      name: "address-list",
+      component: AddressCreate,
+    },
+    {
+      path: "/minha-conta/enderecos/editar",
+      name: "address-edit",
+      component: AddressEdit,
+    },
+    {
+      path: "/minha-conta/servicos",
+      name: "appointment-list",
+      component: AppointmentList,
+    },
+    {
+      path: "/minha-conta/servicos/adicionar",
+      name: "appointment-list",
+      component: AppointmentCreate,
+    },
+    {
+      path: "/minha-conta/pets",
+      name: "pet-list",
+      component: PetList,
+    },
+    {
+      path: "/minha-conta/pets/adicionar",
+      name: "pet-list",
+      component: PetCreate,
+    },
+    {
+      path: "/minha-conta/pets/editar",
+      name: "pet-edit",
+      component: PetEdit,
+    },
+    {
+      path: "/minha-conta/pedidos",
+      name: "purchase-list",
+      component: PurchaseList,
+    },
+    {
+      path: "/minha-conta/pedidos/detalhe",
+      name: "purchase-detail",
+      component: PurchaseDetail,
+    },
   ],
 });
 
