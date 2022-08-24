@@ -6,6 +6,17 @@ import WishListView from "../views/Store/Wishlist/WishListView.vue";
 import CartList from "../views/Store/Cart/CartList.vue";
 import LoginForm from "../views/Store/Login/LoginForm.vue";
 import RegistrationForm from "../views/Store/Login/RegistrationForm.vue";
+import DataEdit from "../views/User/Data/DataEdit.vue";
+import AddressList from "../views/User/Address/AddressList.vue";
+import AddressCreate from "../views/User/Address/AddressCreate.vue";
+import AddressEdit from "../views/User/Address/AddressEdit.vue";
+import AppointmentList from "../views/User/Appointment/AppointmentList.vue";
+import AppointmentCreate from "../views/User/Appointment/AppointmentCreate.vue";
+import PetList from "../views/User/Pet/PetList.vue";
+import PetCreate from "../views/User/Pet/PetCreate.vue";
+import PetEdit from "../views/User/Pet/PetEdit.vue";
+import PurchaseList from "../views/User/Purchase/PurchaseList.vue";
+import PurchaseDetail from "../views/User/Purchase/PurchaseDetail.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
