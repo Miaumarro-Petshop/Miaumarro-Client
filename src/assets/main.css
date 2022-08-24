@@ -1,4 +1,5 @@
 /*  Colors */
+
 :root {
   --purple: #635380;
   --green: #45d98a;
@@ -8,6 +9,7 @@
 }
 
 /*  Fonts */
+
 @font-face {
   font-family: DynaPuff-Bold;
   src: url(../assets/fonts/DynaPuff-Bold.ttf);
@@ -402,7 +404,6 @@ main {
 .btn-purple {
   background-color: var(--purple);
   color: var(--white);
-  width: 100%;
 }
 
 .btn-purple:hover {
@@ -585,7 +586,10 @@ footer {
 }
 
 #edit-button {
-  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .account a {
@@ -607,7 +611,7 @@ footer {
 }
 
 .form-account button {
-  min-width: 28rem;
+  min-width: 12rem;
 }
 
 .space {
@@ -1273,7 +1277,7 @@ tfoot {
   width: auto;
 }
 
-.step{
+.step {
   text-align: start;
 }
 
@@ -1285,25 +1289,45 @@ tfoot {
   border: var(--purple) solid 1rem;
 }
 
-#choose-pet{
-  display:flex;
+#choose-pet {
+  display: flex;
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-#service-price{
+#service-price {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 
-.appointment-container{
-  display:flex;
+.appointment-container {
+  display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+#carouselPromotionalBanner img {
+  width: 100%;
+}
+
+.div-100 {
+  width: 100%;
+}
+
+#account-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#account-button button {
+  font-family: "Poppins-Regular";
+  font-size: 2.4rem;
 }
 
 @media (max-width: 768px) {
@@ -1351,12 +1375,12 @@ tfoot {
   .card-product-cart p,
   .card-product-purchased h1,
   .card-product-purchased p,
-  .card-product-purchased h3  {
+  .card-product-purchased h3 {
     font-size: 1.8rem;
   }
   .card-product-wishlist h2,
   .card-product-cart h2,
-  .card-product-purchased h2  {
+  .card-product-purchased h2 {
     font-size: 1.2rem;
   }
   .card-product-wishlist .card-icon img,
@@ -1382,6 +1406,10 @@ tfoot {
   }
   .product-buy-price h1 {
     display: none;
+  }
+  #account-button button {
+    font-family: "Poppins-Regular";
+    font-size: 1.8rem;
   }
 }
 
