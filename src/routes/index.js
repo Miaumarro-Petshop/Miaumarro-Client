@@ -17,6 +17,15 @@ import PetCreate from "../views/User/Pet/PetCreate.vue";
 import PetEdit from "../views/User/Pet/PetEdit.vue";
 import PurchaseList from "../views/User/Purchase/PurchaseList.vue";
 import PurchaseDetail from "../views/User/Purchase/PurchaseDetail.vue";
+import ProductList from "../views/Admin/Product/ProductList.vue";
+import ProductCreate from "../views/Admin/Product/ProductCreate.vue";
+import ProductEdit from "../views/Admin/Product/ProductEdit.vue";
+import UserList from "../views/Admin/User/UserList.vue";
+import UserCreate from "../views/Admin/User/UserCreate.vue";
+import UserEdit from "../views/Admin/User/UserEdit.vue";
+import ProductImageList from "../views/Admin/ProductImage/ProductImageList.vue";
+import ProductImageCreate from "../views/Admin/ProductImage/ProductImageCreate.vue";
+import ProductImageEdit from "../views/Admin/ProductImage/ProductImageEdit.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -68,7 +77,7 @@ const router = createRouter({
     },
     {
       path: "/minha-conta/enderecos/adicionar",
-      name: "address-list",
+      name: "address-create",
       component: AddressCreate,
     },
     {
@@ -93,7 +102,7 @@ const router = createRouter({
     },
     {
       path: "/minha-conta/pets/adicionar",
-      name: "pet-list",
+      name: "pet-create",
       component: PetCreate,
     },
     {
@@ -110,6 +119,51 @@ const router = createRouter({
       path: "/minha-conta/pedidos/detalhe",
       name: "purchase-detail",
       component: PurchaseDetail,
+    },
+    {
+      path: "/admin",
+      name: "product-list",
+      component: ProductList,
+    },
+    {
+      path: "/admin/produtos/adicionar",
+      name: "product-create",
+      component: ProductCreate,
+    },
+    {
+      path: "/admin/produtos/editar",
+      name: "product-edit",
+      component: ProductEdit,
+    },
+    {
+      path: "/admin/usuarios",
+      name: "user-list",
+      component: UserList,
+    },
+    {
+      path: "/admin/usuarios/adicionar",
+      name: "user-create",
+      component: UserCreate,
+    },
+    {
+      path: "/admin/usuarios/editar",
+      name: "user-edit",
+      component: UserEdit,
+    },
+    {
+      path: "/admin/produto-imagens",
+      name: "product-image-list",
+      component: ProductImageList,
+    },
+    {
+      path: "/admin/produto-imagens/adicionar",
+      name: "product-image-create",
+      component: ProductImageCreate,
+    },
+    {
+      path: "/admin/produto-imagens/editar",
+      name: "product-image-edit",
+      component: ProductImageEdit,
     },
   ],
 });
