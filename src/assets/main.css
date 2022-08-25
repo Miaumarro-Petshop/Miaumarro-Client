@@ -1358,12 +1358,17 @@ tfoot {
   background-color: var(--white);
   width: 100%;
   aspect-ratio: 1/1;
-  max-height: 20rem;
-  max-width: 20rem;
+  max-height: 15rem;
+  max-width: 15rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.2rem;
+}
+
+.card-img-cl img{
+  max-height: 15rem;
+  max-width: 15rem;
 }
 
 @media (max-width: 768px) {
