@@ -593,17 +593,21 @@ footer {
 }
 
 .account a {
-  margin-top: 2rem;
+  color: var(--black);
 }
 
 #search-button {
   display: flex;
   align-items: flex-start;
+  justify-items: center;
 }
 
 #form-cep {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .form-account input {
@@ -1194,7 +1198,7 @@ tfoot {
 }
 
 #card-img-pet {
-  width: 10rem;
+  width: 15rem;
   padding: 1rem;
   background-color: var(--white);
 }
@@ -1371,6 +1375,11 @@ tfoot {
   max-width: 15rem;
 }
 
+.form-container{
+  display: flex;
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1383,11 +1392,6 @@ tfoot {
   }
   #nav-main-md {
     display: flex;
-  }
-
-  #form-cep {
-    display: flex;
-    justify-content: center;
   }
   .form-black {
     padding-left: 1rem;
