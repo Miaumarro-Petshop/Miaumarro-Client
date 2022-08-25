@@ -276,33 +276,31 @@
           :key="p.id"
           class="col col-sm-3 col-md-3 col-lg-3"
         >
-          <RouterLink to="/produto">
-            <a href="/produto">
-              <div class="card card-product-search">
-                <div class="card-img">
-                  <img
-                    class="card-img-top"
-                    src="src/assets/img/miaumarro/logo_icon.svg"
-                    alt="Product Image"
-                  />
+          <a v-on:click="showProductDetail(p.id)">
+            <div class="card card-product-search">
+              <div class="card-img">
+                <img
+                  class="card-img-top"
+                  src="src/assets/img/miaumarro/logo_icon.svg"
+                  alt="Product Image"
+                />
+              </div>
+              <div class="card-body">
+                <div>
+                  <h1 class="card-title ts14b">{{ p.brand }}</h1>
+                  <h2 class="card-text ts14r ts-green">
+                    {{ p.name }}
+                  </h2>
                 </div>
-                <div class="card-body">
-                  <div>
-                    <h1 class="card-title ts14b">{{ p.brand }}</h1>
-                    <h2 class="card-text ts14r ts-green">
-                      {{ p.name }}
-                    </h2>
-                  </div>
-                  <div>
-                    <p class="card-text ts28b">R$ {{ p.price }}</p>
-                    <button class="btn btn-green btn-buy ts24r" type="submit">
-                      Comprar
-                    </button>
-                  </div>
+                <div>
+                  <p class="card-text ts28b">R$ {{ p.price }}</p>
+                  <button class="btn btn-green btn-buy ts24r" type="submit">
+                    Comprar
+                  </button>
                 </div>
               </div>
-            </a>
-          </RouterLink>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -357,7 +355,7 @@ export default {
   },
   methods: {
     async getProducts() {
-      var resposta = await fetch("https://localhost:7016/api/v1/Product");
+      var resposta = await fetch(`https://localhost:7016/api/v1/Product`);
       var json = await resposta.json();
       this.products = json.response;
       this.currentPage = json.pageNumber + 1;
@@ -365,15 +363,9 @@ export default {
       this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
       if (json.previousCount) this.hasPreviousPage = true;
       if (json.nextCount) this.hasNextPage = true;
-
-      alert(
-        `this.products: ${this.products}\n` +
-          `this.currentPage: ${this.currentPage}\n` +
-          `this.resultAmount: ${this.resultAmount}\n` +
-          `this.totalPages: ${this.totalPages}\n` +
-          `this.hasPreviousPage: ${this.hasPreviousPage}\n` +
-          `this.hasNextPage: ${this.hasNextPage}`
-      );
+    },
+    showProductDetail(productId) {
+      this.$router.push(`/produto/${productId}`);
     },
   },
   beforeMount() {

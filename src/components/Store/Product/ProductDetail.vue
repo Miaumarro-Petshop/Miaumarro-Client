@@ -213,7 +213,6 @@ export default {
       );
       var json = await resposta.json();
       this.product = json;
-      alert(this.product);
     },
   },
   beforeMount() {
