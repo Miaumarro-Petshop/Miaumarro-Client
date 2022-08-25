@@ -344,13 +344,19 @@ export default {
   },
   methods: {
     async getProducts() {
-      var resposta = await fetch("https://localhost:7016/api/v1/Product");
+      var resposta = await fetch('https://localhost:7016/api/v1/Product');
       var json = await resposta.json();
       this.products = json.response;
-      window.alert(resposta.headers.get("date"));
-      for (let [key, value] of resposta.headers) {
-        alert(`${key} = ${value}`);
-      }
+      this.currentPage = json.pageNumber;
+      this.resultAmount = json.previousCount + json.amount + json.nextCount;
+      this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
+
+      alert(
+        `this.products: ${this.products}\n` +
+        `this.currentPage: ${this.currentPage}\n` +
+        `this.resultAmount: ${this.resultAmount}\n` +
+        `this.totalPages: ${this.totalPages}`
+      )
     },
   },
   beforeMount() {
