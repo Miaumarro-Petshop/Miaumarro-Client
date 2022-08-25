@@ -2,9 +2,11 @@
   <header>
     <div id="nav-main-lg">
       <nav class="navbar primary-menu">
+        <RouterLink to="/">
         <a href="#" class="navbar-brand">
           <img src="../../assets/img/miaumarro/Logo_dynapuff.png" height="40" />
         </a>
+        </RouterLink>
 
         <form
           id="search-bar"
@@ -26,8 +28,9 @@
           </div>
         </form>
 
-        <li class="customer-options">
-          <ul class="customer-options-items">
+        <ul class="customer-options">
+          <li class="customer-options-items">
+            <RouterLink to="/login">
             <a href="#" class="login-options">
               <img
                 class="icon-32"
@@ -38,43 +41,48 @@
                 <p class="ts12r">Entre ou Cadastre-se</p>
               </div>
             </a>
-          </ul>
-          <ul class="customer-options-items">
+            </RouterLink>
+          </li>
+          <li class="customer-options-items">
+            <RouterLink to="/wishlist">
             <a href="#">
               <img class="icon-32" src="../../assets/img/icon/heart-fill.svg" />
             </a>
-          </ul>
-          <ul class="customer-options-items">
+            </RouterLink>
+          </li>
+          <li class="customer-options-items">
+            <RouterLink to="/carrinho">
             <a href="#">
               <img class="icon-32" src="../../assets/img/icon/cart-fill.svg" />
             </a>
-          </ul>
-        </li>
+            </RouterLink>
+          </li>
+        </ul>
       </nav>
 
       <nav class="navbar secondary-menu ts18b">
-        <li class="pet-type">
-          <ul class="pet-type-items">
+        <ul class="pet-type">
+          <li class="pet-type-items">
             <a href="">Cachorros</a>
-          </ul>
-          <ul class="pet-type-items">
+          </li>
+          <li class="pet-type-items">
             <a href="">Gatos</a>
-          </ul>
-          <ul class="pet-type-items">
+          </li>
+          <li class="pet-type-items">
             <a href="">Pássaros</a>
-          </ul>
-          <ul class="pet-type-items">
+          </li>
+          <li class="pet-type-items">
             <a href="">Peixes</a>
-          </ul>
-          <ul class="pet-type-items">
+          </li>
+          <li class="pet-type-items">
             <a href="">Outros bichinhos</a>
-          </ul>
-        </li>
-        <li class="appointment">
-          <ul class="appointment-items">
+          </li>
+        </ul>
+        <ul class="appointment">
+          <li class="appointment-items">
             <a href="">Banho e tosa</a>
-          </ul>
-        </li>
+          </li>
+        </ul>
       </nav>
     </div>
     <div id="nav-main-md">
@@ -116,14 +124,17 @@
                         </div>
                         <div id="secondary-login-menu">
                           <li class=" customer-options-items bottom-line">
+                            <RouterLink to="/wishlist">
                             <a href="#" class="wishlist-options">
                                 <img class="icon-32" src="../../assets/img/icon/heart-fill.svg">
                                 <div class="hidden-xs login-options-text">
                                     <p class="ts18r">Lista de Desejos</p>
                                 </div>
                             </a>
+                            </RouterLink>
                         </li>
                         <li class="customer-options customer-options-items bottom-line">
+                          <RouterLink to="/login">
                             <a href="#" class="login-options">
                                 <img class="icon-32" src="../../assets/img/icon/person-circle.svg">
                                 <div class="hidden-xs login-options-text">
@@ -131,6 +142,7 @@
                                     <p class="ts12r">Entre ou Cadastre-se</p>
                                 </div>
                             </a>
+                          </RouterLink>
                         </li>
                     </div>
                 </div>
@@ -139,12 +151,16 @@
                 </div>
               </nav>
             </div>
+            <RouterLink to="/">
                 <a id="nav-main-md-brand" href="#">
                     <img src="../../assets/img/miaumarro/Logo_dynapuff.png" height="32">
                 </a>
+                </RouterLink>
+                <RouterLink to="/carrinho">
                 <a id="nav-main-md-cart" href="cart.html">
                     <img class="icon-32" src="../../assets/img/icon/cart-fill.svg">
                 </a>
+                </RouterLink>
             </div>
             <div class="navbar container-search">
                 <form id="search-bar" class="form-inline container-fluid">

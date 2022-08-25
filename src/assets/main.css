@@ -1511,6 +1511,10 @@ tfoot {
     gap: 2rem;
    }
 
+   #nav-main-md a{
+    color: var(--black);
+   }
+
    .wishlist-options{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
