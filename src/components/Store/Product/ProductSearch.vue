@@ -308,7 +308,13 @@
 
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
+          <li v-if="hasPreviousPage" class="page-item">
+            <a class="page-link ts-purple ts18b" href="#" tabindex="-1">
+              <span aria-hidden="true" class="ts24r">&lt;</span>
+              <span class="sr-only">Anterior</span>
+            </a>
+          </li>
+          <li v-else class="page-item disabled">
             <a class="page-link ts-purple ts18b" href="#" tabindex="-1">
               <span aria-hidden="true" class="ts24r">&lt;</span>
               <span class="sr-only">Anterior</span>
@@ -318,9 +324,15 @@
             <p class="ts24b ts-purple" href="#">{{ currentPage }}</p>
           </li>
           <li class="page-item">
-            <p class="ts24r" href="#">de 02</p>
+            <p class="ts24r" href="#">de {{ totalPages }}</p>
           </li>
-          <li class="page-item">
+          <li v-if="hasNextPage" class="page-item">
+            <a class="page-link ts18b ts-purple" href="#">
+              <span class="sr-only">Próxima</span>
+              <span aria-hidden="true" class="ts24r">&gt;</span>
+            </a>
+          </li>
+          <li v-else class="page-item disabled">
             <a class="page-link ts18b ts-purple" href="#">
               <span class="sr-only">Próxima</span>
               <span aria-hidden="true" class="ts24r">&gt;</span>
@@ -329,7 +341,6 @@
         </ul>
       </nav>
     </section>
-    {{ headers }}
   </main>
 </template>
 <script>
@@ -340,23 +351,29 @@ export default {
       currentPage: 0,
       resultAmount: 0,
       totalPages: 0,
+      hasPreviousPage: false,
+      hasNextPage: false,
     };
   },
   methods: {
     async getProducts() {
-      var resposta = await fetch('https://localhost:7016/api/v1/Product');
+      var resposta = await fetch("https://localhost:7016/api/v1/Product");
       var json = await resposta.json();
       this.products = json.response;
-      this.currentPage = json.pageNumber;
+      this.currentPage = json.pageNumber + 1;
       this.resultAmount = json.previousCount + json.amount + json.nextCount;
       this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
+      if (json.previousCount) this.hasPreviousPage = true;
+      if (json.nextCount) this.hasNextPage = true;
 
       alert(
         `this.products: ${this.products}\n` +
-        `this.currentPage: ${this.currentPage}\n` +
-        `this.resultAmount: ${this.resultAmount}\n` +
-        `this.totalPages: ${this.totalPages}`
-      )
+          `this.currentPage: ${this.currentPage}\n` +
+          `this.resultAmount: ${this.resultAmount}\n` +
+          `this.totalPages: ${this.totalPages}\n` +
+          `this.hasPreviousPage: ${this.hasPreviousPage}\n` +
+          `this.hasNextPage: ${this.hasNextPage}`
+      );
     },
   },
   beforeMount() {
