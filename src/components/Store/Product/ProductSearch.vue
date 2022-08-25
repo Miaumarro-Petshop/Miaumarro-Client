@@ -361,8 +361,8 @@ export default {
       this.currentPage = json.pageNumber + 1;
       this.resultAmount = json.previousCount + json.amount + json.nextCount;
       this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
-      if (json.previousCount) this.hasPreviousPage = true;
-      if (json.nextCount) this.hasNextPage = true;
+      this.hasPreviousPage = json.previousCount != 0;
+      this.hasNextPage = json.nextCount != 0;
     },
     showProductDetail(productId) {
       this.$router.push(`/produto/${productId}`);
