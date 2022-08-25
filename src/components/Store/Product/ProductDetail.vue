@@ -84,7 +84,12 @@
                 </button>
               </div>
             </div>
-            <p class="card-text ts28b">R$ {{ product.price }}</p>
+            <p class="card-text ts28b">
+              R$
+              {{
+                Math.round(product.price * (1 - product.discount) * 100) / 100
+              }}
+            </p>
           </div>
 
           <div class="product-buy">

@@ -36,7 +36,7 @@ const router = createRouter({
       component: StoreHome,
     },
     {
-      path: "/pesquisa",
+      path: "/pesquisa/:filter",
       name: "product-search",
       component: ProductSearch,
     },
