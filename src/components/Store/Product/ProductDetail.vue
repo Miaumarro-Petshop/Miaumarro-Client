@@ -40,11 +40,15 @@
         </div>
 
         <div class="product-info col col-md-6 col-lg-5">
-          <p class="upper ts14b ts-purple">Marca</p>
+          <p class="upper ts14b ts-purple">
+            {{ product.brand }}
+          </p>
           <h1 class="ts24b">
-            Nome completo do Produto nome completo do Produto
+            {{ product.name }}
           </h1>
-          <p class="upper ts14b ts-purple">CÓDIGO DO PRODUTO: XXXXXXX</p>
+          <p class="upper ts14b ts-purple">
+            {{ product.description }}
+          </p>
 
           <div class="product-info-review">
             <div id="product-info-score">
@@ -58,14 +62,7 @@
             <h2 class="ts14b upper">Descrição</h2>
 
             <p class="ts14r">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-              sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-              vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-              imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-              mollis pretium. Integer tincidunt. Cras dapibu
+              {{ product.description }}
             </p>
           </div>
         </div>
@@ -84,7 +81,9 @@
                 </button>
               </div>
             </div>
-            <p class="card-text ts28b">R$ 100,00</p>
+            <p class="card-text ts28b">
+              {{ product.price }}
+            </p>
           </div>
 
           <div class="product-buy">
@@ -198,4 +197,25 @@
     </section>
   </main>
 </template>
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      product: null,
+    };
+  },
+  methods: {
+    async getProductById() {
+      var resposta = await fetch(
+        "https://localhost:7016/api/v1/Product/detail?id=7"
+      );
+      var json = await resposta.json();
+      this.product = json.response;
+      console.log(this.product);
+    },
+  },
+  beforeMount() {
+    this.getProductById();
+  },
+};
+</script>

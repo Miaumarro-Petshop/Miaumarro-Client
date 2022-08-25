@@ -271,113 +271,38 @@
         <p class="ts18b">XXX resultados encontrados</p>
       </div>
       <div class="product-grid row gx-2 gy-1">
-        <div class="col col-sm-3 col-md-3 col-lg-3">
-          <a href="">
-            <div class="card card-product-search">
-              <div class="card-img">
-                <img
-                  class="card-img-top"
-                  src="src/assets/img/miaumarro/logo_icon.svg"
-                  alt="Product Image"
-                />
-              </div>
-              <div class="card-body">
-                <div>
-                  <h1 class="card-title ts14b">Marca</h1>
-                  <h2 class="card-text ts14r ts-green">
-                    Nome Completo do Produto Nome Completo do Produto
-                  </h2>
+        <div
+          v-for="p in products"
+          :key="p.id"
+          class="col col-sm-3 col-md-3 col-lg-3"
+        >
+          <RouterLink to="/produto">
+            <a href="/produto">
+              <div class="card card-product-search">
+                <div class="card-img">
+                  <img
+                    class="card-img-top"
+                    src="src/assets/img/miaumarro/logo_icon.svg"
+                    alt="Product Image"
+                  />
                 </div>
-                <div>
-                  <p class="card-text ts28b">R$ 100,00</p>
-                  <button class="btn btn-green btn-buy ts24r" type="submit">
-                    Comprar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col col-sm-3 col-md-3 col-lg-3">
-          <a href="">
-            <div class="card card-product-search">
-              <div class="card-img">
-                <img
-                  class="card-img-top"
-                  src="src/assets/img/miaumarro/logo_icon.svg"
-                  alt="Product Image"
-                />
-              </div>
-              <div class="card-body">
-                <div>
-                  <h1 class="card-title ts14b">Marca</h1>
-                  <h2 class="card-text ts14r ts-green">
-                    Nome Completo do Produto Nome Completo do Produto
-                  </h2>
-                </div>
-                <div>
-                  <p class="card-text ts28b">R$ 100,00</p>
-                  <button class="btn btn-green btn-buy ts24r" type="submit">
-                    Comprar
-                  </button>
+                <div class="card-body">
+                  <div>
+                    <h1 class="card-title ts14b">{{ p.brand }}</h1>
+                    <h2 class="card-text ts14r ts-green">
+                      {{ p.name }}
+                    </h2>
+                  </div>
+                  <div>
+                    <p class="card-text ts28b">R$ {{ p.price }}</p>
+                    <button class="btn btn-green btn-buy ts24r" type="submit">
+                      Comprar
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        </div>
-        <div class="col col-sm-3 col-md-3 col-lg-3">
-          <a href="">
-            <div class="card card-product-search">
-              <div class="card-img">
-                <img
-                  class="card-img-top"
-                  src="src/assets/img/miaumarro/logo_icon.svg"
-                  alt="Product Image"
-                />
-              </div>
-              <div class="card-body">
-                <div>
-                  <h1 class="card-title ts14b">Marca</h1>
-                  <h2 class="card-text ts14r ts-green">
-                    Nome Completo do Produto Nome Completo do Produto
-                  </h2>
-                </div>
-                <div>
-                  <p class="card-text ts28b">R$ 100,00</p>
-                  <button class="btn btn-green btn-buy ts24r" type="submit">
-                    Comprar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col col-sm-3 col-md-3 col-lg-3">
-          <a href="">
-            <div class="card card-product-search">
-              <div class="card-img">
-                <img
-                  class="card-img-top"
-                  src="src/assets/img/miaumarro/logo_icon.svg"
-                  alt="Product Image"
-                />
-              </div>
-              <div class="card-body">
-                <div>
-                  <h1 class="card-title ts14b">Marca</h1>
-                  <h2 class="card-text ts14r ts-green">
-                    Nome Completo do Produto Nome Completo do Produto
-                  </h2>
-                </div>
-                <div>
-                  <p class="card-text ts28b">R$ 100,00</p>
-                  <button class="btn btn-green btn-buy ts24r" type="submit">
-                    Comprar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
+            </a>
+          </RouterLink>
         </div>
       </div>
 
@@ -390,7 +315,7 @@
             </a>
           </li>
           <li class="page-item">
-            <p class="ts24b ts-purple" href="#">01</p>
+            <p class="ts24b ts-purple" href="#">{{ currentPage }}</p>
           </li>
           <li class="page-item">
             <p class="ts24r" href="#">de 02</p>
@@ -404,8 +329,32 @@
         </ul>
       </nav>
     </section>
+    {{ headers }}
   </main>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      products: [],
+      currentPage: 0,
+      resultAmount: 0,
+      totalPages: 0,
+    };
+  },
+  methods: {
+    async getProducts() {
+      var resposta = await fetch("https://localhost:7016/api/v1/Product");
+      var json = await resposta.json();
+      this.products = json.response;
+      window.alert(resposta.headers.get("date"));
+      for (let [key, value] of resposta.headers) {
+        alert(`${key} = ${value}`);
+      }
+    },
+  },
+  beforeMount() {
+    this.getProducts();
+  },
+};
 </script>
