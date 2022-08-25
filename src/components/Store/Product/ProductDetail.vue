@@ -46,9 +46,7 @@
           <h1 class="ts24b">
             {{ product.name }}
           </h1>
-          <p class="upper ts14b ts-purple">
-            {{ product.description }}
-          </p>
+          <p class="upper ts14b ts-grey">Código do produto: {{ product.id }}</p>
 
           <div class="product-info-review">
             <div id="product-info-score">
@@ -75,15 +73,18 @@
                 <button class="btn btn-purple ts24r" onclick="this.blur();">
                   -
                 </button>
-                <div class="counter-display ts24r ts-black">01</div>
+                <div
+                  class="counter-display ts24r ts-black"
+                  id="product-detail-counter-display"
+                >
+                  01
+                </div>
                 <button class="btn btn-purple ts24r" onclick="this.blur();">
                   +
                 </button>
               </div>
             </div>
-            <p class="card-text ts28b">
-              {{ product.price }}
-            </p>
+            <p class="card-text ts28b">R$ {{ product.price }}</p>
           </div>
 
           <div class="product-buy">
@@ -202,16 +203,17 @@ export default {
   data() {
     return {
       product: null,
+      id: this.$route.params.id,
     };
   },
   methods: {
     async getProductById() {
       var resposta = await fetch(
-        "https://localhost:7016/api/v1/Product/detail?id=7"
+        `https://localhost:7016/api/v1/Product/detail?id=${this.id}`
       );
       var json = await resposta.json();
-      this.product = json.response;
-      console.log(this.product);
+      this.product = json;
+      alert(this.product);
     },
   },
   beforeMount() {

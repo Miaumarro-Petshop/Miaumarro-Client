@@ -41,7 +41,7 @@ const router = createRouter({
       component: ProductSearch,
     },
     {
-      path: "/produto",
+      path: "/produto/:id",
       name: "product-detail",
       component: ProductDetail,
     },
