@@ -23,9 +23,11 @@
             <section>
                 <nav>
                     <span class="ts14b ts-green">Novo na Miaumarro? </span>
-                    <a class="ts14b link-green" href="../RegistrationPage/">
+                    <RouterLink to="/cadastrar">
+                    <a class="ts14b link-green" href="#">
                         <span>Crie sua conta.</span>
                     </a>
+                    </RouterLink>
                 </nav>
             </section>
         </article>

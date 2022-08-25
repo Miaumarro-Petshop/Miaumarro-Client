@@ -247,7 +247,7 @@ main {
   display: flex;
 }
 
-#nav-main-lg .secondary-menu li {
+#nav-main-lg .secondary-menu ul {
   display: flex;
   justify-content: space-around;
   align-items: center;

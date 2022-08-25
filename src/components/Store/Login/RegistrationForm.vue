@@ -32,9 +32,11 @@
             <section>
                 <nav>
                     <span class="ts14b ts-green">Já tem cadastro com a gente? </span>
-                    <a class="ts14b link-green" href="../LoginPage/">
+                    <RouterLink to="/login">
+                    <a class="ts14b link-green" href="#">
                         <span>Acesse sua conta.</span>
                     </a>
+                    </RouterLink>
                 </nav>
             </section>
         </article>
