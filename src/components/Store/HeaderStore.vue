@@ -61,28 +61,28 @@
       </nav>
 
       <nav class="navbar secondary-menu ts18b">
-        <ul class="pet-type">
+        <li class="pet-type">
           <li class="pet-type-items">
             <a href="">Cachorros</a>
           </li>
-          <li class="pet-type-items">
+          <ul class="pet-type-items">
             <a href="">Gatos</a>
-          </li>
-          <li class="pet-type-items">
+          </ul>
+          <ul class="pet-type-items">
             <a href="">Pássaros</a>
-          </li>
-          <li class="pet-type-items">
+          </ul>
+          <ul class="pet-type-items">
             <a href="">Peixes</a>
-          </li>
-          <li class="pet-type-items">
+          </ul>
+          <ul class="pet-type-items">
             <a href="">Outros bichinhos</a>
-          </li>
-        </ul>
-        <ul class="appointment">
-          <li class="appointment-items">
+          </ul>
+        </li>
+        <li class="appointment">
+          <ul class="appointment-items">
             <a href="">Banho e tosa</a>
-          </li>
-        </ul>
+          </ul>
+        </li>
       </nav>
     </div>
     <div id="nav-main-md">
