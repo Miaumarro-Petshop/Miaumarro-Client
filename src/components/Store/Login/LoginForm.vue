@@ -8,10 +8,7 @@
         <p class="ts12r ts-green">Complete os campos com suas informações.</p>
       </section>
       <form
-        method="post"
         class="ts14r form-account"
-        @submit="checkForm"
-        novalidate="true"
       >
         <div v-if="errors.length" class="space ts18b">
           <p>Por favor, corrija o(s) erro(s):</p>
@@ -45,19 +42,16 @@
             required
           />
         </div>
+      </form>
+      <section>
         <div id="account-button">
           <button
             v-on:click="login()"
             class="btn btn-purple col-8 col-md-8 col-lg-6"
-            type="submit"
-            value="Submit"
-            onclick="this.blur();"
           >
             Acessar conta
           </button>
         </div>
-      </form>
-      <section>
         <nav>
           <span class="ts14b ts-green">Novo na Miaumarro? </span>
           <RouterLink to="/cadastrar">
@@ -77,10 +71,33 @@ export default {
       errors: [],
       cpf: null,
       email: null,
-      senha: null,
+      password: null,
     };
   },
   methods: {
+    async login() {
+      fetch('https://localhost:7016/api/v1/Authentication', {
+  method: 'POST',
+  body: JSON.stringify({
+    cpf: null,
+    email: this.email,
+    password: this.password,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => {
+          response.json().then((token) => {
+            localStorage.setItem("token", token.sessionToken);
+            localStorage.setItem("userId", token.id);
+            this.$router.push(`/minha-conta`);
+          });
+        })
+        .catch((err) => {
+          alert(`Usuario ou senha incorretos. ${err.Messsage}`);
+        });
+    },
     checkForm: function (e) {
       this.errors = [];
       if (!this.email) {
@@ -103,43 +120,6 @@ export default {
       var re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
-    },
-    async login() {
-      await fetch(`https://localhost:7016/api/v1/Authentication`, {
-        method: "POST",
-        body: JSON.stringify({
-          cpf: null,
-          email: this.email,
-          password: this.password,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => {
-          response.text().then((token) => {
-            localStorage.setItem("token", token);
-            this.$router.push(`/minha-conta`);
-          });
-        })
-        .catch((err) => {
-          alert(`Usuario ou senha incorretos. ${err.Messsage}`);
-        });
-
-      /*
-      fetch(
-        `https://localhost:7016/api/v1/Authentication=${this.email}&senha=${this.senha}`
-      )
-        .then((resp) => {
-          resp.text().then((token) => {
-            localStorage.setItem("token", token);
-            this.$router.push(`/minha-conta`);
-          });
-        })
-        .catch((err) => {
-          alert(`Usuario ou senha incorretos. ${err.Messsage}`);
-        });
-        */
     },
     submitRegistration() {
       this.submitted = true;

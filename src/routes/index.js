@@ -92,7 +92,7 @@ const router = createRouter({
     },
     {
       path: "/minha-conta/servicos/adicionar",
-      name: "appointment-list",
+      name: "appointment-create",
       component: AppointmentCreate,
     },
     {
