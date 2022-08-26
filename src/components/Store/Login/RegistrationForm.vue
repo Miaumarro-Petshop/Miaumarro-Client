@@ -35,7 +35,7 @@
         <div class="col-8 div-100">
           <label for="confirmPassword"></label>
           <input
-            v-model="password"
+            v-model="confirmPassword"
             class="form-black col-8 col-md-8 col-lg-6"
             id="confirmPassword"
             name="confirmPassword"
@@ -51,7 +51,11 @@
           </p>
         </div>
         <div id="account-button">
-          <button v-on:click="createUser()" class="btn btn-purple col-8 col-md-8 col-lg-6" type="submit">
+          <button
+            v-on:click="createUser()"
+            class="btn btn-purple col-8 col-md-8 col-lg-6"
+            type="submit"
+          >
             Criar conta
           </button>
         </div>
@@ -94,7 +98,7 @@ export default {
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
-        this.$router.push(`/minha-conta/${productId}`);
+        //this.$router.push(`/minha-conta/${productId}`);
     },
   },
 };

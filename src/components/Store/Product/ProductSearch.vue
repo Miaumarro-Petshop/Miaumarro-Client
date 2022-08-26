@@ -1,9 +1,9 @@
 <template>
   <main>
     <section id="product-query">
-      <div>
+      <div v-if="SearchedTerm">
         <p class="ts18b">Você buscou por:</p>
-        <h2 class="ts40 ts-purple">termo buscado</h2>
+        <h2 class="ts40 ts-purple">{{ SearchedTerm }}</h2>
       </div>
 
       <div class="accordion" id="accordionProductFilter">
@@ -27,7 +27,7 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <form class="form-product-filter" method="get">
+              <div class="form-product-filter">
                 <div class="product-filter-options">
                   <div class="product-filter-text col col-lg-4">
                     <div class="row">
@@ -100,7 +100,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="MediumPet"
                             type="checkbox"
                             id="MediumPet"
                             name="product-tags"
@@ -112,7 +111,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="LargePet"
                             type="checkbox"
                             id="LargePet"
                             name="product-tags"
@@ -124,7 +122,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Clothing"
                             type="checkbox"
                             id="Clothing"
                             name="product-tags"
@@ -134,7 +131,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Medicine"
                             type="checkbox"
                             id="Medicine"
                             name="product-tags"
@@ -146,7 +142,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Furniture"
                             type="checkbox"
                             id="Furniture"
                             name="product-tags"
@@ -156,7 +151,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Food"
                             type="checkbox"
                             id="Food"
                             name="product-tags"
@@ -166,7 +160,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Toy"
                             type="checkbox"
                             id="Toy"
                             name="product-tags"
@@ -176,7 +169,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Accessory"
                             type="checkbox"
                             id="Accessory"
                             name="product-tags"
@@ -188,7 +180,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Dog"
                             type="checkbox"
                             id="Dog"
                             name="product-tags"
@@ -198,7 +189,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Cat"
                             type="checkbox"
                             id="Cat"
                             name="product-tags"
@@ -208,7 +198,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Bird"
                             type="checkbox"
                             id="Bird"
                             name="product-tags"
@@ -218,7 +207,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="Fish"
                             type="checkbox"
                             id="Fish"
                             name="product-tags"
@@ -228,7 +216,6 @@
                         </div>
                         <div class="checkbox-item">
                           <input
-                            v-bind="OtherPet"
                             type="checkbox"
                             id="OtherPet"
                             name="product-tags"
@@ -266,7 +253,7 @@
                         form="sortform"
                         class="col-8 ts14b"
                       >
-                        <option value="0">Menor preço</option>
+                        <option value="0" selected>Menor preço</option>
                         <option value="1">Maior preço</option>
                         <option value="2">Menor desconto</option>
                         <option value="3">Maior Desconto</option>
@@ -275,7 +262,7 @@
                   </div>
                 </div>
 
-                <div class="product-filter-button">
+                <form class="product-filter-button">
                   <button
                     v-on:click="filterProducts()"
                     class="btn btn-purple ts18b col col-md-4 col-lg-4"
@@ -283,8 +270,8 @@
                   >
                     Filtrar resultados
                   </button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -307,7 +294,7 @@
                 <div class="card-img">
                   <img
                     class="card-img-top"
-                    src="src/assets/img/miaumarro/logo_icon.svg"
+                    src="/src/assets/img/miaumarro/logo_icon.svg"
                     alt="Product Image"
                   />
                 </div>
@@ -336,25 +323,34 @@
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-center">
             <li v-if="hasPreviousPage" class="page-item">
-              <a class="page-link ts-purple ts18b" href="#" tabindex="-1">
+              <a
+                v-on:click="previousPage()"
+                class="page-link ts-purple ts18b"
+                href=""
+                tabindex="-1"
+              >
                 <span aria-hidden="true" class="ts24r">&lt;</span>
                 <span class="sr-only">Anterior</span>
               </a>
             </li>
             <li v-else class="page-item disabled">
-              <a class="page-link ts-purple ts18b" href="#" tabindex="-1">
+              <a class="page-link ts-purple ts18b" tabindex="-1">
                 <span aria-hidden="true" class="ts24r">&lt;</span>
                 <span class="sr-only">Anterior</span>
               </a>
             </li>
             <li class="page-item">
-              <p class="ts24b ts-purple" href="#">{{ currentPage }}</p>
+              <p class="ts24b ts-purple">{{ currentPage + 1 }}</p>
             </li>
             <li class="page-item">
-              <p class="ts24r" href="#">de {{ totalPages }}</p>
+              <p class="ts24r">de {{ totalPages }}</p>
             </li>
             <li v-if="hasNextPage" class="page-item">
-              <a class="page-link ts18b ts-purple" href="#">
+              <a
+                v-on:click="nextPage()"
+                class="page-link ts18b ts-purple"
+                href="#"
+              >
                 <span class="sr-only">Próxima</span>
                 <span aria-hidden="true" class="ts24r">&gt;</span>
               </a>
@@ -375,7 +371,7 @@
   </main>
 </template>
 <script>
-import QueryBuilder from "../../../helpers/QueryBuilder";
+import QueryBuilder from "/src/helpers/QueryBuilder.jsx";
 import ProductNotFound from "./ProductNotFound.vue";
 export default {
   data() {
@@ -394,49 +390,25 @@ export default {
       MaxPrice: 0,
       ActiveDiscount: false,
       tags: 0,
-      /*
-      SortParameter: 0,
-      PageNumber: 0,
-      SmallPet: 0,
-      MediumPet: 0,
-      LargePet: 0,
-      Clothing: 0,
-      Medicine: 0,
-      Furniture: 0,
-      Food: 0,
-      Toy: 0,
-      Accessory: 0,
-      Dog: 0,
-      Cat: 0,
-      Bird: 0,
-      Fish: 0,
-      OtherPet: 0,
-      */
     };
   },
   methods: {
     async getProducts() {
-      alert(`Entrou em getProducts. filters=${this.filter}`);
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}`
-      );
-
-      alert(
-        `Link da requisição: https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}`
+        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}&PageSize=3`
       );
       var json = await resposta.json();
       this.products = json.response;
-      this.currentPage = json.pageNumber + 1;
+      this.currentPage = json.pageNumber;
       this.resultAmount = json.previousCount + json.amount + json.nextCount;
       this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
       this.hasPreviousPage = json.previousCount != 0;
       this.hasNextPage = json.nextCount != 0;
     },
-    showProductDetail(productId) {
-      this.$router.push(`/produto/${productId}`);
-    },
     filterProducts() {
-      alert("Entrou em filter");
+      if (this.SortParameter == undefined) {
+        this.SortParameter = 0;
+      }
       const query = new QueryBuilder().addProperty(
         "SortParameter",
         this.SortParameter
@@ -448,13 +420,26 @@ export default {
       if (this.MaxPrice != 0) query.addProperty("MaxPrice", this.MaxPrice);
       if (this.ActiveDiscount)
         query.addProperty("ActiveDiscount", this.ActiveDiscount);
-      //if (this.tags != 0) query.addProperty("Tags", this.tags);
+      if (this.tags != 0) query.addProperty("Tags", this.tags);
+
       var queryParameters = query.build();
       alert(`queryparameters que vão para a rota = ${queryParameters}`);
       this.$router.push(`/pesquisa/${queryParameters}`);
     },
+    nextPage() {
+      this.currentPage++;
+      this.getProducts();
+    },
+    previousPage() {
+      this.currentPage--;
+      this.getProducts();
+    },
+    showProductDetail(productId) {
+      this.$router.push(`/produto/${productId}`);
+    },
   },
   beforeMount() {
+    this.currentPage = 0;
     this.getProducts();
   },
   components: {

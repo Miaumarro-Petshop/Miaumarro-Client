@@ -11,29 +11,29 @@
         <div class="product-image col col-md-5 col-lg-3">
           <div class="main-image">
             <img
-              src="src/assets/img/miaumarro/logo_icon.svg"
+              src="/src/assets/img/miaumarro/logo_icon.svg"
               alt="Product Image"
             />
           </div>
           <div class="owl-carousel owl-theme">
             <a href="">
               <div class="item carousel-img img-selected">
-                <img src="src/assets/img/miaumarro/logo_icon.svg" />
+                <img src="/src/assets/img/miaumarro/logo_icon.svg" />
               </div>
             </a>
             <a href="">
               <div class="item carousel-img">
-                <img src="src/assets/img/miaumarro/Logo_dynapuff.png" />
+                <img src="/src/assets/img/miaumarro/Logo_dynapuff.png" />
               </div>
             </a>
             <a href="">
               <div class="item carousel-img">
-                <img src="src/assets/img/miaumarro/logo_icon.svg" />
+                <img src="/src/assets/img/miaumarro/logo_icon.svg" />
               </div>
             </a>
             <a href="">
               <div class="item carousel-img">
-                <img src="src/assets/img/miaumarro/logo_icon.svg" />
+                <img src="/src/assets/img/miaumarro/logo_icon.svg" />
               </div>
             </a>
           </div>
@@ -51,7 +51,7 @@
           <div class="product-info-review">
             <div id="product-info-score">
               <p class="ts18b">5,00</p>
-              <img src="src/assets/img/icon/star-fill.svg" class="icon-16" />
+              <img src="/src/assets/img/icon/star-fill.svg" class="icon-16" />
             </div>
             <p class="ts14b ts-purple">(xxx avaliações)</p>
           </div>
@@ -70,16 +70,24 @@
             <div class="product-amount">
               <h1 class="upper ts14b">Quantidade</h1>
               <div class="counter">
-                <button class="btn btn-purple ts24r" onclick="this.blur();">
+                <button
+                  v-on:click="counterSubtract()"
+                  class="btn btn-purple ts24r"
+                  onclick="this.blur();"
+                >
                   -
                 </button>
                 <div
                   class="counter-display ts24r ts-black"
                   id="product-detail-counter-display"
                 >
-                  01
+                  {{ counter }}
                 </div>
-                <button class="btn btn-purple ts24r" onclick="this.blur();">
+                <button
+                  v-on:click="counterAdd()"
+                  class="btn btn-purple ts24r"
+                  onclick="this.blur();"
+                >
                   +
                 </button>
               </div>
@@ -93,7 +101,11 @@
           </div>
 
           <div class="product-buy">
-            <button class="btn btn-green btn-buy ts24b" type="submit">
+            <button
+              class="btn btn-green btn-buy ts24b"
+              type="submit"
+              v-on:click="addToCart()"
+            >
               Comprar
             </button>
           </div>
@@ -125,23 +137,23 @@
                 <ul>
                   <div class="user- score">
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                   </div>
@@ -156,22 +168,22 @@
                 <ul>
                   <div class="user- score">
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
                     <img
-                      src="src/assets/img/icon/star-fill.svg"
+                      src="/src/assets/img/icon/star-fill.svg"
                       class="icon-32"
                     />
-                    <img src="src/assets/img/icon/star.svg" class="icon-32" />
+                    <img src="/src/assets/img/icon/star.svg" class="icon-32" />
                   </div>
                   <div class="user- review">
                     <p class="ts14r">
@@ -209,6 +221,7 @@ export default {
     return {
       product: null,
       id: this.$route.params.id,
+      counter: 1,
     };
   },
   methods: {
@@ -218,6 +231,16 @@ export default {
       );
       var json = await resposta.json();
       this.product = json;
+    },
+    counterAdd() {
+      this.counter++;
+    },
+    counterSubtract() {
+      if (this.counter > 1) this.counter--;
+    },
+    addToCart() {
+      //cart.add(this.product.id,this.counter)
+      this.$router.push(`/carrinho`);
     },
   },
   beforeMount() {
