@@ -227,7 +227,7 @@ export default {
   methods: {
     async getProductById() {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Product/detail?id=${this.id}`
+        `https://localhost:7016/api/v1/Product/details?id=${this.id}`
       );
       var json = await resposta.json();
       this.product = json;
@@ -239,7 +239,24 @@ export default {
       if (this.counter > 1) this.counter--;
     },
     addToCart() {
-      //cart.add(this.product.id,this.counter)
+      let cartItems = [];
+      if (localStorage.getItem("cart")) {
+        cartItems = JSON.parse(localStorage.getItem("cart"));
+      }
+
+      if (cartItems.find((item) => item.productId == this.product.id)) {
+        let index = cartItems.findIndex(
+          (item) => item.productId == this.product.id
+        );
+        cartItems[index].amount += this.counter;
+      } else {
+        cartItems.push({
+          productId: this.product.id,
+          amount: this.counter,
+        });
+      }
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      console.log(localStorage.getItem("cart"));
       this.$router.push(`/carrinho`);
     },
     installOwlCarousel() {
