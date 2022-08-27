@@ -13,17 +13,13 @@
           <div class="cart-info">
             <div class="purchase-required-info">
               <li class="cards-list space">
-                <div
-                  v-for="p in products"
-                  :key="p.id"
-                  class="col col-sm-3 col-md-3 col-lg-3"
-                >
+                <div v-for="p in products" :key="p.id">
                   <a v-on:click="showProductDetail(p.id)">
                     <ul>
                       <div class="card card-product-cart">
                         <div class="card-img-cl col col-lg-2">
                           <img
-                            src="../../../assets/img/miaumarro/logo_icon.svg"
+                            src="/src/assets/img/miaumarro/logo_icon.svg"
                             alt="Product Image"
                           />
                         </div>
@@ -63,7 +59,7 @@
                           <div class="card-icon">
                             <a href="">
                               <img
-                                src="../../../assets/img/icon/trash-fill-purple.svg"
+                                src="/src/assets/img/icon/trash-fill-purple.svg"
                                 class="icon-32"
                               />
                             </a>
