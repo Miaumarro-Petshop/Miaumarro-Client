@@ -126,20 +126,20 @@
         <h1 class="ts40 ts-purple">Os produtos preferidos dos bichinhos</h1>
         <nav class="navbar ts18b">
           <li>
-            <ul>
-              <a href="">Cachorros</a>
+            <ul v-on:click="searchPetFavorite(512)">
+              <a>Cachorros</a>
             </ul>
-            <ul>
-              <a href="">Gatos</a>
+            <ul v-on:click="searchPetFavorite(1024)">
+              <a>Gatos</a>
             </ul>
-            <ul>
-              <a href="">Pássaros</a>
+            <ul v-on:click="searchPetFavorite(2048)">
+              <a>Pássaros</a>
             </ul>
-            <ul>
-              <a href="">Peixes</a>
+            <ul v-on:click="searchPetFavorite(4096)">
+              <a>Peixes</a>
             </ul>
-            <ul>
-              <a href="">Outros bichinhos</a>
+            <ul v-on:click="searchPetFavorite(8192)">
+              <a>Outros bichinhos</a>
             </ul>
           </li>
         </nav>
@@ -147,106 +147,32 @@
 
       <div class="favorite-product">
         <div class="row gx-2 gy-1">
-          <div class="col col-sm-3 col-md-3 col-lg-3">
-            <a href="">
+          <div
+            v-for="p in petFavorites"
+            :key="p.id"
+            class="col col-sm-3 col-md-3 col-lg-3"
+          >
+            <a v-on:click="showProductDetail(p.id)">
               <div class="card card-product-search">
                 <div class="card-img">
                   <img
                     class="card-img-top"
-                    src="../../assets/img/miaumarro/logo_icon.svg"
+                    src="/src/assets/img/miaumarro/logo_icon.svg"
                     alt="Product Image"
                   />
                 </div>
                 <div class="card-body">
                   <div>
-                    <h1 class="card-title ts14b">Marca</h1>
+                    <h1 class="card-title ts14b">{{ p.brand }}</h1>
                     <h2 class="card-text ts14r ts-green">
-                      Nome Completo do Produto Nome Completo do Produto
+                      {{ p.name }}
                     </h2>
                   </div>
                   <div>
-                    <p class="card-text ts28b">R$ 100,00</p>
-                    <button class="btn btn-green btn-buy ts24r" type="submit">
-                      Comprar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col col-sm-3 col-md-3 col-lg-3">
-            <a href="">
-              <div class="card card-product-search">
-                <div class="card-img">
-                  <img
-                    class="card-img-top"
-                    src="../../assets/img/miaumarro/logo_icon.svg"
-                    alt="Product Image"
-                  />
-                </div>
-                <div class="card-body">
-                  <div>
-                    <h1 class="card-title ts14b">Marca</h1>
-                    <h2 class="card-text ts14r ts-green">
-                      Nome Completo do Produto Nome Completo do Produto
-                    </h2>
-                  </div>
-                  <div>
-                    <p class="card-text ts28b">R$ 100,00</p>
-                    <button class="btn btn-green btn-buy ts24r" type="submit">
-                      Comprar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col col-sm-3 col-md-3 col-lg-3">
-            <a href="">
-              <div class="card card-product-search">
-                <div class="card-img">
-                  <img
-                    class="card-img-top"
-                    src="../../assets/img/miaumarro/logo_icon.svg"
-                    alt="Product Image"
-                  />
-                </div>
-                <div class="card-body">
-                  <div>
-                    <h1 class="card-title ts14b">Marca</h1>
-                    <h2 class="card-text ts14r ts-green">
-                      Nome Completo do Produto Nome Completo do Produto
-                    </h2>
-                  </div>
-                  <div>
-                    <p class="card-text ts28b">R$ 100,00</p>
-                    <button class="btn btn-green btn-buy ts24r" type="submit">
-                      Comprar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col col-sm-3 col-md-3 col-lg-3">
-            <a href="">
-              <div class="card card-product-search">
-                <div class="card-img">
-                  <img
-                    class="card-img-top"
-                    src="../../assets/img/miaumarro/logo_icon.svg"
-                    alt="Product Image"
-                  />
-                </div>
-                <div class="card-body">
-                  <div>
-                    <h1 class="card-title ts14b">Marca</h1>
-                    <h2 class="card-text ts14r ts-green">
-                      Nome Completo do Produto Nome Completo do Produto
-                    </h2>
-                  </div>
-                  <div>
-                    <p class="card-text ts28b">R$ 100,00</p>
+                    <p class="card-text ts28b">
+                      R$
+                      {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
+                    </p>
                     <button class="btn btn-green btn-buy ts24r" type="submit">
                       Comprar
                     </button>
@@ -270,4 +196,24 @@
   </main>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      petFavorites: [],
+    };
+  },
+  methods: {
+    async searchPetFavorite(petTag) {
+      var resposta = await fetch(
+        `https://localhost:7016/api/v1/Product?Tags=${petTag}&PageNumber=0`
+      );
+      var json = await resposta.json();
+      this.petFavorites = json.response;
+    },
+  },
+  beforeMount() {
+    this.searchPetFavorite(512);
+  },
+};
+</script>
