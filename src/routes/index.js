@@ -36,12 +36,12 @@ const router = createRouter({
       component: StoreHome,
     },
     {
-      path: "/pesquisa",
+      path: "/pesquisa/:filter",
       name: "product-search",
       component: ProductSearch,
     },
     {
-      path: "/produto",
+      path: "/produto/:id",
       name: "product-detail",
       component: ProductDetail,
     },

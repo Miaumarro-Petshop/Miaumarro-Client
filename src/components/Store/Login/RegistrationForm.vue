@@ -97,4 +97,35 @@
     </article>
   </main>
 </template>
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      email: null,
+      password: null,
+      confirmPassword: null,
+    };
+  },
+  methods: {
+    async createUser() {
+      await fetch("https://localhost:7016/api/v1/User/create", {
+        method: "POST",
+        body: JSON.stringify({
+          cpf: null,
+          name: null,
+          surname: null,
+          email: this.email,
+          phone: null,
+          password: this.password,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+        //this.$router.push(`/minha-conta/${productId}`);
+    },
+  },
+};
+</script>
