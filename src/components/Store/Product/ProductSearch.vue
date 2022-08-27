@@ -395,7 +395,7 @@ export default {
   methods: {
     async getProducts() {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}&PageSize=3`
+        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}`
       );
       var json = await resposta.json();
       this.products = json.response;
@@ -423,7 +423,6 @@ export default {
       if (this.tags != 0) query.addProperty("Tags", this.tags);
 
       var queryParameters = query.build();
-      alert(`queryparameters que vão para a rota = ${queryParameters}`);
       this.$router.push(`/pesquisa/${queryParameters}`);
     },
     nextPage() {
