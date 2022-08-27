@@ -44,6 +44,7 @@ export default {
   data() {
     return {
       userId: localStorage.getItem("userId"),
+      token: localStorage.getItem("token"),
       name: null,
       surname: null,
       email: null,
@@ -55,17 +56,17 @@ export default {
   methods: {
     async getUser() {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/User/users?Ids=${this.userId}`
-        /*
-        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}&PageSize=3`
-      */
+        `https://localhost:7016/api/v1/User/details?userId=${this.userId}`, {headers: {
+    'Authorization': `bearer ${this.token}`,
+  },
+}
       );
       var json = await resposta.json();
-      this.name = json.response[0].name;
-      this.surname = json.response[0].surname;
-      this.email = json.response[0].email;
-      this.cpf = json.response[0].cpf;
-      this.phone = json.response[0].phone;
+      this.name = json.name;
+      this.surname = json.surname;
+      this.email = json.email;
+      this.cpf = json.cpf;
+      this.phone = json.phone;
     },
     edit(){
       this.list = false;
