@@ -84,7 +84,7 @@
           </ul>
         </li>
         <li class="appointment">
-          <RouterLink to="/appointment-create">
+          <RouterLink to="/minha-conta/servicos/adicionar">
             <ul class="appointment-items">
               <a href="">Banho e tosa</a>
             </ul>
@@ -159,7 +159,7 @@
                         <a class="nav-link" href="#">Outros bichinhos</a>
                       </ul>
 
-                      <RouterLink to="/appointment-create">
+                      <RouterLink to="/minha-conta/servicos/adicionar">
                         <ul class="nav-item bottom-line">
                           <a class="nav-link" href="#">Banho e Tosa</a>
                         </ul>

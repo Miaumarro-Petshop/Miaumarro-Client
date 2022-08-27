@@ -75,49 +75,45 @@
     <section id="favorite-brand">
       <h1 class="ts40 ts-purple section-header">Nossas principais marcas</h1>
       <div class="row">
-        <carousel>
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-              <a href="#">
-                <img
-                  src="../../assets/img/brand/golden-premium-especial.webp"
-                />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img src="../../assets/img/brand/kelco.png" />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img
-                  src="../../assets/img/brand/premier-raca-especifica-300x162.webp"
-                />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img src="../../assets/img/brand/pedigree.png" />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img src="../../assets/img/brand/purina_proplan.png" />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img src="../../assets/img/brand/royal_canin.png" />
-              </a>
-            </div>
-            <div class="item">
-              <a href="#">
-                <img src="../../assets/img/brand/whiskas.png" />
-              </a>
-            </div>
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/golden-premium-especial.webp" />
+            </a>
           </div>
-        </carousel>
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/kelco.png" />
+            </a>
+          </div>
+          <div class="item">
+            <a href="#">
+              <img
+                src="../../assets/img/brand/premier-raca-especifica-300x162.webp"
+              />
+            </a>
+          </div>
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/pedigree.png" />
+            </a>
+          </div>
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/purina_proplan.png" />
+            </a>
+          </div>
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/royal_canin.png" />
+            </a>
+          </div>
+          <div class="item">
+            <a href="#">
+              <img src="../../assets/img/brand/whiskas.png" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -211,9 +207,33 @@ export default {
       var json = await resposta.json();
       this.petFavorites = json.response;
     },
+    installOwlCarousel() {
+      // eslint-disable-next-line no-undef
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 40,
+        autoHeight: true,
+        dots: false,
+        stagePadding: 80,
+        responsive: {
+          0: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 4,
+          },
+        },
+      });
+    },
   },
   beforeMount() {
     this.searchPetFavorite(512);
+    this.$nextTick(function () {
+      this.installOwlCarousel();
+    });
   },
 };
 </script>
