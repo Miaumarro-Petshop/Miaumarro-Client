@@ -207,6 +207,9 @@ export default {
       var json = await resposta.json();
       this.petFavorites = json.response;
     },
+    showProductDetail(productId) {
+      this.$router.push(`/produto/${productId}`);
+    },
     installOwlCarousel() {
       // eslint-disable-next-line no-undef
       $(".owl-carousel").owlCarousel({

@@ -24,6 +24,7 @@
             <button
               v-on:click="searchProductTerm()"
               class="btn btn-grey btn-icon"
+              onclick="this.blur();"
             >
               <img class="icon-24" src="/src/assets/img/icon/search.svg" />
             </button>
@@ -217,7 +218,7 @@
         </RouterLink>
       </div>
       <div class="navbar container-search">
-        <form id="search-bar" class="form-inline container-fluid">
+        <div id="search-bar" class="form-inline container-fluid">
           <div class="col-11">
             <input
               class="ts12r form-black"
@@ -228,11 +229,15 @@
             />
           </div>
           <div class="form-button col-1">
-            <button class="btn btn-grey btn-icon" type="submit">
+            <button
+              v-on:click="searchProductTerm()"
+              class="btn btn-grey btn-icon"
+              onclick="this.blur();"
+            >
               <img class="icon-24" src="/src/assets/img/icon/search.svg" />
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </header>

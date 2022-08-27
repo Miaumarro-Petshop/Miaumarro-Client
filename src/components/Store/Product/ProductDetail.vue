@@ -242,9 +242,35 @@ export default {
       //cart.add(this.product.id,this.counter)
       this.$router.push(`/carrinho`);
     },
+    installOwlCarousel() {
+      // eslint-disable-next-line no-undef
+      $(".owl-carousel").owlCarousel({
+        margin: 4,
+        dots: false,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 3,
+            nav: true,
+          },
+          990: {
+            items: 2,
+            nav: false,
+          },
+          1280: {
+            items: 3,
+            nav: true,
+            loop: false,
+          },
+        },
+      });
+    },
   },
   beforeMount() {
     this.getProductById();
+    this.$nextTick(function () {
+      this.installOwlCarousel();
+    });
   },
 };
 </script>
