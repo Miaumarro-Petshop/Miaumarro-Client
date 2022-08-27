@@ -1,5 +1,5 @@
 <template>
-  <article class="account">
+  <article>
     <form method="post" action="" class="ts14r row g-3">
       <div class="col-md-8 col-lg-6 space">
         <label for="name"></label>
