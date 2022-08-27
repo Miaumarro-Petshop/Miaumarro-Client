@@ -88,12 +88,12 @@
           />
         </div>
         <div class="col-4 col-md-4 col-lg-2 space">
-          <label for="uf"></label>
+          <label for="state"></label>
           <input
-            v-model="uf"
+            v-model="state"
             class="form-black form-data"
-            id="uf"
-            name="uf"
+            id="state"
+            name="state"
             type="text"
             placeholder="UF"
           />
@@ -109,10 +109,11 @@
             placeholder="Nome do destinatário"
           />
         </div>
-            <div class="col-md-8 col-lg-6" id="edit-button">
+      </form>
+      <div class="col-md-8 col-lg-6" id="edit-button">
           <a href="">
             <button
-              v-on:click="edit()"
+              v-on:click="editAddress()"
               class="btn btn-purple ts18b"
               type="submit"
             >
@@ -120,7 +121,6 @@
             </button>
           </a>
         </div>
-      </form>
 </template>
 <script>
 export default {
@@ -185,7 +185,7 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then((json) => {
+        .then(() => {
           this.$router.push(`/minha-conta/enderecos/${addressId}`);
         });
     },

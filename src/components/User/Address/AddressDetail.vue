@@ -98,13 +98,13 @@
           />
         </div>
         <div class="col-4 col-md-4 col-lg-2 space">
-          <label for="uf"></label>
+          <label for="state"></label>
           <input
           disabled
-            v-model="uf"
+            v-model="state"
             class="form-black form-data"
-            id="uf"
-            name="uf"
+            id="state"
+            name="state"
             type="text"
             placeholder="UF"
           />
