@@ -6,7 +6,7 @@ import WishListView from "../views/Store/Wishlist/WishListView.vue";
 import CartList from "../views/Store/Cart/CartList.vue";
 import LoginForm from "../views/Store/Login/LoginForm.vue";
 import RegistrationForm from "../views/Store/Login/RegistrationForm.vue";
-import DataEdit from "../views/User/Data/DataEdit.vue";
+import DataList from "../views/User/Data/DataList.vue";
 import AddressList from "../views/User/Address/AddressList.vue";
 import AddressCreate from "../views/User/Address/AddressCreate.vue";
 import AddressEdit from "../views/User/Address/AddressEdit.vue";
@@ -67,8 +67,8 @@ const router = createRouter({
     },
     {
       path: "/minha-conta",
-      name: "data-edit",
-      component: DataEdit,
+      name: "data-list",
+      component: DataList,
     },
     {
       path: "/minha-conta/enderecos",
