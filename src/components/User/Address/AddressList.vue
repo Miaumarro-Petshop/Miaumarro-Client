@@ -32,13 +32,6 @@
                                         <p class="ts14r ts-green">{{ a.neighborhood }} - {{ a.city }} - {{ a.state }}</p>
                                         <p class="ts14r ts-green">{{ a.cep }}</p>
                                     </div>
-                                    <div>
-                                        <RouterLink to="/minha-conta/enderecos/editar">
-                                        <nav>
-                                            <a class="ts14b link-green" href="">Editar</a>
-                                        </nav>
-                                        </RouterLink>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -81,7 +81,7 @@ const router = createRouter({
       component: AddressCreate,
     },
     {
-      path: "/minha-conta/enderecos/editar",
+      path: "/minha-conta/enderecos/editar/:addressId",
       name: "address-edit",
       component: AddressEdit,
     },
