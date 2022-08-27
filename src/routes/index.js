@@ -9,7 +9,7 @@ import RegistrationForm from "../views/Store/Login/RegistrationForm.vue";
 import DataList from "../views/User/Data/DataList.vue";
 import AddressList from "../views/User/Address/AddressList.vue";
 import AddressCreate from "../views/User/Address/AddressCreate.vue";
-import AddressEdit from "../views/User/Address/AddressEdit.vue";
+import AddressDetail from "../views/User/Address/AddressDetail.vue";
 import AppointmentList from "../views/User/Appointment/AppointmentList.vue";
 import AppointmentCreate from "../views/User/Appointment/AppointmentCreate.vue";
 import PetList from "../views/User/Pet/PetList.vue";
@@ -81,9 +81,9 @@ const router = createRouter({
       component: AddressCreate,
     },
     {
-      path: "/minha-conta/enderecos/editar/:addressId",
-      name: "address-edit",
-      component: AddressEdit,
+      path: "/minha-conta/enderecos/:addressId",
+      name: "address-detail",
+      component: AddressDetail,
     },
     {
       path: "/minha-conta/servicos",

@@ -1,12 +1,16 @@
 <template>
-        <section>
-        <h1 class="ts40 ts-purple space">Editar endereço</h1>
+  <main>
+    <article class="account">
+        <div v-if="detail">
+      <section>
+        <h1 class="ts40 ts-purple space">Detalhe de endereço</h1>
       </section>
       <form method="post" action="" class="ts14r row g-3">
         <div id="form-cep">
           <div class="col-6 col-md-6 col-lg-5 space">
             <label for="cep"></label>
             <input
+            disabled
             v-model="cep"
               class="form-black form-data"
               id="cep"
@@ -24,6 +28,7 @@
         <div class="col-12 col-md-12 col-lg-12 space">
           <label for="address"></label>
           <input
+          disabled
             v-model="address"
             class="form-black form-data"
             id="address"
@@ -35,6 +40,7 @@
         <div class="col-4 col-md-4 col-lg-2 space">
           <label for="number"></label>
           <input
+          disabled
             v-model="number"
             class="form-black form-data"
             id="number"
@@ -46,6 +52,7 @@
         <div class="col-8 col-md-8 col-lg-5 space">
           <label for="complement"></label>
           <input
+          disabled
             v-model="complement"
             class="form-black form-data"
             id="complement"
@@ -57,6 +64,7 @@
         <div class="col-6 col-md-6 col-lg-5 space">
           <label for="reference"></label>
           <input
+          disabled
             v-model="reference"
             class="form-black form-data"
             id="reference"
@@ -68,6 +76,7 @@
         <div class="col-6 col-md-6 col-lg-5 space">
           <label for="neighborhood"></label>
           <input
+          disabled
             v-model="neighborhood"
             class="form-black form-data"
             id="neighborhood"
@@ -79,6 +88,7 @@
         <div class="col-8 col-md-8 col-lg-5 space">
           <label for="city"></label>
           <input
+          disabled
             v-model="city"
             class="form-black form-data"
             id="city"
@@ -90,6 +100,7 @@
         <div class="col-4 col-md-4 col-lg-2 space">
           <label for="uf"></label>
           <input
+          disabled
             v-model="uf"
             class="form-black form-data"
             id="uf"
@@ -101,6 +112,7 @@
         <div class="col-12 col-md-12 col-lg-12 space">
           <label for="destinatary"></label>
           <input
+          disabled
             v-model="destinatary"
             class="form-black form-data"
             id="destinatary"
@@ -116,13 +128,18 @@
               class="btn btn-purple ts18b"
               type="submit"
             >
-              Salvar informações
+              Editar informações
             </button>
           </a>
         </div>
       </form>
+      </div>
+      <AddressEdit v-else></AddressEdit>
+    </article>
+  </main>
 </template>
 <script>
+import AddressEdit from "./AddressEdit.vue";
 export default {
   data() {
     return {
@@ -163,35 +180,15 @@ export default {
       this.reference = json.reference;
       this.destinatary = json.destinatary;
     },
-    async editAddress() {
-      await fetch(`https://localhost:7016/api/v1/Address/update`, {
-        method: "PUT",
-        body: JSON.stringify({
-          id: this.addressId,
-            userId: this.userId,
-            state: this.state,
-            city: this.city,
-            neighborhood: this.neighborhood,
-            cep: this.cep,
-            address: this.address,
-            addressNumber: this.number,
-            complement: this.complement,
-            reference: this.reference,
-            destinatary: this.destinatary,
-        }),
-        headers: {
-          'Authorization': `bearer ${this.token}`,
-          'Content-Type' : 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          this.$router.push(`/minha-conta/enderecos/${addressId}`);
-        });
+    edit() {
+      this.detail = false;
     },
   },
   beforeMount() {
     this.getAddress();
   },
-}
+  components: {
+    AddressEdit: AddressEdit,
+  },
+};
 </script>

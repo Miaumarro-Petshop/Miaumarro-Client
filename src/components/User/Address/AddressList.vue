@@ -19,7 +19,7 @@
           >
             <div class="cards-list">
                     <a v-on:click="showAddressDetail(a.id)">
-                        <div class="card card-item">
+                        <div class="card card-item space">
                             <div class="col col-lg-2">
                                 <img class="card-img-h" src="../../../assets/img/icon/house-door-fill.svg" alt="House Image">
                             </div>
@@ -27,7 +27,7 @@
                                 <div class="card-info">
                                     <div class="card-title">
                                         <h1 class="ts18b ts-green">{{ a.destinatary }}</h1>
-                                        <p class="ts14r ts-green">{{ a.address }}, {{ a.addressNumber }} - {{ a.complement }}</p>
+                                        <p class="ts14r ts-green">{{ a.address }}, {{ a.number }} - {{ a.complement }}</p>
                                         <p class="ts14r ts-green">{{ a.reference }}</p>
                                         <p class="ts14r ts-green">{{ a.neighborhood }} - {{ a.city }} - {{ a.state }}</p>
                                         <p class="ts14r ts-green">{{ a.cep }}</p>
@@ -78,7 +78,8 @@
       this.resultAmount = json.previousCount + json.amount + json.nextCount;
     },
     showAddressDetail(addressId) {
-      this.$router.push(`/minha-conta/enderecos/editar/${addressId}`);
+      this.$router.push(`/minha-conta/enderecos/${addressId}`);
+      localStorage.setItem("addressId", addressId);
     },
   },
   beforeMount() {
