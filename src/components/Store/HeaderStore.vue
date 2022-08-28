@@ -33,18 +33,24 @@
 
         <ul class="customer-options">
           <li class="customer-options-items">
-            <RouterLink to="/login">
-              <a href="#" class="login-options">
-                <img
-                  class="icon-32"
-                  src="/src/assets/img/icon/person-circle.svg"
-                />
-                <div class="hidden-xs login-options-text">
+            <a href="#" class="login-options">
+              <img
+                class="icon-32"
+                src="/src/assets/img/icon/person-circle.svg"
+              />
+              <div v-if="userId && token" class="hidden-xs login-options-text">
+                <RouterLink to="/minha-conta">
+                  <p class="ts18r">Minha conta</p>
+                </RouterLink>
+                <p v-on:click="logOut()" class="ts12r">Sair</p>
+              </div>
+              <div v-else class="hidden-xs login-options-text">
+                <RouterLink to="/login">
                   <p class="ts18r">Bem vindo(a)</p>
                   <p class="ts12r">Entre ou Cadastre-se</p>
-                </div>
-              </a>
-            </RouterLink>
+                </RouterLink>
+              </div>
+            </a>
           </li>
           <li class="customer-options-items">
             <RouterLink to="/wishlist">
@@ -165,37 +171,64 @@
                           <a class="nav-link" href="#">Banho e Tosa</a>
                         </ul>
                       </RouterLink>
-                    </div>
-                    <div id="secondary-login-menu">
-                      <li class="customer-options-items bottom-line">
-                        <RouterLink to="/wishlist">
-                          <a href="#" class="wishlist-options">
-                            <img
-                              class="icon-32"
-                              src="/src/assets/img/icon/heart-fill.svg"
-                            />
-                            <div class="hidden-xs login-options-text">
-                              <p class="ts18r">Lista de Desejos</p>
-                            </div>
-                          </a>
-                        </RouterLink>
-                      </li>
-                      <li
-                        class="customer-options customer-options-items bottom-line"
+
+                      <ul
+                        class="nav-item customer-options customer-options-items bottom-line"
                       >
-                        <RouterLink to="/login">
-                          <a href="#" class="login-options">
-                            <img
-                              class="icon-32"
-                              src="/src/assets/img/icon/person-circle.svg"
-                            />
-                            <div class="hidden-xs login-options-text">
+                        <a class="login-options">
+                          <img
+                            class="icon-32"
+                            src="/src/assets/img/icon/cart-fill.svg"
+                          />
+
+                          <div class="hidden-xs login-options-text">
+                            <RouterLink to="/carrinho">
+                              <p class="ts18r">Carrinho</p>
+                            </RouterLink>
+                          </div>
+                        </a>
+                      </ul>
+                      <ul
+                        class="nav-item customer-options customer-options-items bottom-line"
+                      >
+                        <a class="login-options">
+                          <img
+                            class="icon-32"
+                            src="../../assets/img/icon/heart-fill.svg"
+                          />
+
+                          <div class="hidden-xs login-options-text">
+                            <RouterLink to="/wishlist">
+                              <p class="ts18r">Lista de desejos</p>
+                            </RouterLink>
+                          </div>
+                        </a>
+                      </ul>
+                      <ul
+                        class="nav-item customer-options customer-options-items bottom-line"
+                      >
+                        <a class="login-options">
+                          <img
+                            class="icon-32"
+                            src="../../assets/img/icon/person-circle.svg"
+                          />
+
+                          <a
+                            v-if="userId && token"
+                            v-on:click="logOut()"
+                            class="hidden-xs login-options-text"
+                            ><RouterLink to="/login">
+                              <p class="ts18r">Sair</p>
+                            </RouterLink>
+                          </a>
+                          <div v-else class="hidden-xs login-options-text">
+                            <RouterLink to="/login">
                               <p class="ts18r">Bem vindo(a)</p>
                               <p class="ts12r">Entre ou Cadastre-se</p>
-                            </div>
-                          </a>
-                        </RouterLink>
-                      </li>
+                            </RouterLink>
+                          </div>
+                        </a>
+                      </ul>
                     </div>
                   </div>
                 </ul>
@@ -255,6 +288,7 @@ export default {
     logOut() {
       localStorage.removeItem("userId");
       localStorage.removeItem("token");
+      this.$router.push(`/login`);
     },
     searchProductPet(petTag) {
       this.$router.push(`/pesquisa/Tags=${petTag}`);

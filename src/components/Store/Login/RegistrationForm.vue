@@ -56,7 +56,6 @@
             required
           />
         </div>
-        </div>
         <div class="col-8 div-100">
           <label for="email"></label>
           <input
