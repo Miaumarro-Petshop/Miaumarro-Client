@@ -17,13 +17,15 @@
                   <a v-on:click="showProductDetail(p.id)">
                     <ul>
                       <div class="card card-product-cart">
-                        <div class="card-img-cl col col-lg-2">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                        <div class="card-img">
                           <img
                             src="/src/assets/img/miaumarro/logo_icon.svg"
                             alt="Product Image"
                           />
                         </div>
-                        <div class="card-body col col-lg-10">
+                        </div>
+                        <div class="card-body col-sm-10 col-md-10 col-lg-10">
                           <div class="card-info">
                             <div class="card-title">
                               <h1 class="ts24b">
@@ -53,14 +55,19 @@
                                   </button>
                                 </div>
                               </div>
-                              <h3 class="card-text ts28b">
-                                R$
-                                {{
-                                  Math.round(
-                                    p.price * (1 - p.discount) * 100
-                                  ) / 100
-                                }}
-                              </h3>
+                              <div class="card-text">
+                                <p class="ts-line-through ts14r">
+                                  R$ {{ p.price }}
+                                </p>
+                                <h3 class="ts28b">
+                                  R$
+                                  {{
+                                    Math.round(
+                                      p.price * (1 - p.discount) * 100
+                                    ) / 100
+                                  }}
+                                </h3>
+                              </div>
                             </div>
                           </div>
                           <div class="card-icon">
@@ -164,9 +171,9 @@ export default {
       cartItems: null,
       products: [],
       resultAmount: 0,
-      productAmountTotal:0,
+      productAmountTotal: 0,
       productPriceTotal: 0,
-      shippingPrice:0,
+      shippingPrice: 0,
     };
   },
   methods: {
@@ -184,7 +191,6 @@ export default {
         this.productAmountTotal += this.products[i].amount;
         this.producPriceTotal += this.products[i].price;
       }
-      
     },
     async getProductById(productId, amount) {
       var resposta = await fetch(

@@ -88,6 +88,10 @@
   color: var(--grey);
 }
 
+.ts-line-through{
+  text-decoration: line-through;
+}
+
 /* Icon sizes */
 
 .icon-24 {
@@ -862,6 +866,8 @@ select option {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 .card-product-purchased .row {
@@ -883,8 +889,7 @@ select option {
 .card-product-wishlist .card-img img,
 .card-product-cart .card-img img,
 .card-product-purchased .card-img img {
-  display: flex;
-  box-sizing: border-box;
+  max-width: 100%;
   padding: 1rem;
 }
 
