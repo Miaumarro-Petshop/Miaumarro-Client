@@ -15,7 +15,7 @@
         </section>
         <div div v-for="p in pets" :key="p.id" class="cards-list">
           <a v-on:click="showPetDetail(p.id)">
-            <div class="card card-item">
+            <div class="card card-item space">
               <div v-if="p.image" class="col col-lg-2">
                 <img id="card-img-pet" src="{{ p.image }}" alt="Pet Image" />
               </div>
@@ -30,9 +30,10 @@
                 <div class="card-info">
                   <div class="card-title">
                     <h1 class="ts18b ts-green">{{ p.name }}</h1>
-                    <p class="ts14r ts-green">{{ p.type }}</p>
-                    <p class="ts14r ts-green">{{ p.gender }}</p>
-                    <p class="ts14r ts-green">{{ p.dateOfBirth }} anos</p>
+                    <p class="ts14r ts-green">{{ getPetType(p.type) }}</p>
+                    <p class="ts14r ts-green">{{ getPetGender(p.gender) }}</p>
+                    <p v-if="calculatePetAge(p.dateOfBirth) > 0" class="ts14r ts-green">{{ calculatePetAge(p.dateOfBirth) }} anos</p>
+                    <p v-else class="ts14r ts-green">{{ calculatePetMonths(p.dateOfBirth) }} meses</p>
                     <p class="ts14r ts-green">{{ p.breed }}</p>
                   </div>
                 </div>
@@ -98,12 +99,6 @@ export default {
     addPet() {
       this.$router.push(`/minha-conta/pets/adicionar`);
     },
-    calculateAge(date){
-        var bornYear = date.getYear();
-        var currentYear = new Date().getFullYear();
-        var petAge = currentYear - bornYear;
-        return petAge;
-    },
     getPetGender(genderInt){
         var petGender;
         switch(genderInt){
@@ -137,6 +132,51 @@ export default {
         }
         return petType;
     },
+    calculatePetAge(petDateOfBirth){
+      var seconds = Date.parse(petDateOfBirth);
+      var date = new Date(seconds);
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDay();
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var currentMonth = currentDate.getMonth();
+      var currentDay = currentDate.getDay();
+      var age = currentYear - year;
+      if (currentMonth - month < 0){
+        age -=1;
+      } else if (currentMonth - month == 0){
+        if (currentDay - day < 0){
+          age -=1;
+        }
+      }
+      return age;
+  },
+  calculatePetMonths(petDateOfBirth){
+      var seconds = Date.parse(petDateOfBirth);
+      var date = new Date(seconds);
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDay();
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var currentMonth = currentDate.getMonth();
+      var currentDay = currentDate.getDay();
+      var age = currentYear - year;
+      var ageInMonths;
+      if (age == 0){
+        ageInMonths = currentMonth - month;
+        if (currentDay - day < 0){
+          ageInMonths -=1;
+        }
+      } else {
+        ageInMonths = (12 - month) + currentMonth;
+      if (currentDay - day < 0){
+          ageInMonths -=1;
+        }
+      }
+      return ageInMonths;
+  }
   },
   beforeMount() {
     this.currentPage = 0;

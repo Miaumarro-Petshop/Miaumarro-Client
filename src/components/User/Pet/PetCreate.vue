@@ -28,7 +28,7 @@
               id="pet-type"
               name="pet-type"
             >
-              <option selected disabled>Qual é o seu bichinho?</option>
+              <option value="5" selected disabled>Qual é o seu bichinho?</option>
               <option value="0">Cachorro</option>
               <option value="1">Gato</option>
               <option value="2">Pássaro</option>
@@ -44,7 +44,7 @@
               id="pet-gender"
               name="pet-gender"
             >
-              <option selected disabled>Seu bichinho é...</option>
+              <option value="2" selected disabled>Seu bichinho é...</option>
               <option value="0">Macho</option>
               <option value="1">Fêmea</option>
             </select>
@@ -109,8 +109,8 @@ export default {
       userId: localStorage.getItem("userId"),
       token: localStorage.getItem("token"),
       name: null,
-      type: null,
-      gender: null,
+      type: 5,
+      gender: 2,
       dateOfBirth: null,
       breed: null,
       image: null,
@@ -118,6 +118,7 @@ export default {
   },
   methods: {
     async createPet() {
+      var dateApi = formatDateMiauToApi(this.dateOfBirth);
       fetch("https://localhost:7016/api/v1/Pet/create", {
         method: "POST",
         body: JSON.stringify({
@@ -125,9 +126,9 @@ export default {
           name: this.name,
         type: this.type,
         gender: this.gender,
-        dateOfBirth: this.dateOfBirth,
+        dateOfBirth: dateApi,
         breed: this.breed,
-        image: this.image,
+        image: null,
         }),
         headers: {
           'Authorization': `bearer ${this.token}`,
@@ -135,13 +136,24 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then(() => {
-          redirectToPet();
+        .then((json) => {
+          //redirectToPet();
         });
     },
     redirectToPet(){
       this.$router.push(`/minha-conta/pets`);
-    }
+    },
+    formatDateApiToMiau(dateString){
+      var seconds = Date.parse(dateString);
+      var date = new Date(seconds);
+      return date
+    },
+    formatDateMiauToApi(dateJs){
+      var seconds = Date.parse(dateJs);
+      var dateConvert = new Date(seconds);
+      var date = `${dateConvert.getFullYear()}-${dateConvert.getMonth}-${dateConvert.getDay}T00:00:00`;
+      return date;
+    },
   },
 };
 </script>

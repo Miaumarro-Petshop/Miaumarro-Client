@@ -128,15 +128,20 @@ export default {
         }
       );
       var json = await resposta.json();
+      var dateMiau = this.formatDateApiToMiau(json.dateOfBirth);
       this.name = json.name;
       this.type = json.type;
       this.gender = json.gender;
-      this.dateOfBirth = json.dateOfBirth;
+      this.dateOfBirth = dateMiau;
       this.breed = json.breed;
       this.image = json.image;
     },
     edit() {
       this.detail = false;
+    },
+    formatDateApiToMiau(dateString){
+      var date = dateString.substring(0, dateString.indexOf('T'));
+      return date;
     },
   },
   beforeMount() {
