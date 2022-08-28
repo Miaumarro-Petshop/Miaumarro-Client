@@ -5,9 +5,6 @@
         <h1 class="ts40 ts-purple">Editar bichinho</h1>
       </section>
       <div>
-        <section>
-          <h1 class="ts40 ts-purple space">Meu bichinho</h1>
-        </section>
             <form method="post" action="" class="ts14r row g-3 my-pet-container">
               <div class="col">
               <div class="col-12">
@@ -117,7 +114,7 @@ export default {
       dateOfBirth: null,
       breed: null,
       image: null,
-      detail: true,
+      detail: false,
     };
   },
   methods: {
@@ -131,10 +128,11 @@ export default {
         }
       );
       var json = await resposta.json();
+      var dateMiau = this.formatDateApiToMiau(json.dateOfBirth);
       this.name = json.name;
       this.type = json.type;
       this.gender = json.gender;
-      this.dateOfBirth = json.dateOfBirth;
+      this.dateOfBirth = dateMiau;
       this.breed = json.breed;
       this.image = json.image;
     },
@@ -161,6 +159,13 @@ export default {
           //this.$router.push(`/minha-conta/pets/${petId}`);
         });
     },
+     formatDateApiToMiau(dateString){
+      var date = dateString.substring(0, dateString.indexOf('T'));
+      return date;
+    },
+    /*
+    formatDateMiauToApi(dateString){
+    },*/
   },
   beforeMount() {
     this.getPet();

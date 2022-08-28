@@ -58,7 +58,7 @@
                   class="form-black form-data"
                   id="pet-date-of-birth"
                   name="pet-date-of-birth"
-                  type="text"
+                  type="date"
                   placeholder="Data de nascimento"
                 />
               </div>
@@ -140,9 +140,8 @@ export default {
       this.detail = false;
     },
     formatDateApiToMiau(dateString){
-      var seconds = Date.parse(dateString);
-      var date = new Date(seconds);
-      return date.toLocaleDateString();
+      var date = dateString.substring(0, dateString.indexOf('T'));
+      return date;
     },
   },
   beforeMount() {
