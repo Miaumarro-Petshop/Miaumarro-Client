@@ -12,53 +12,65 @@
             <p class="ts18b">{{ resultAmount }} produtos favoritados</p>
           </div>
           <li class="cards-list">
-            <ul>
-              <div
-                v-for="p in products"
-                :key="p.id"
-                class="card card-product-wishlist"
-              >
-                <div
-                  v-on:click="showProductDetail(p.id)"
-                  class="card-img col col-lg-2"
-                >
-                  <img
-                    src="../../../assets/img/miaumarro/logo_icon.svg"
-                    alt="Product Image"
-                  />
-                </div>
-                <div class="card-body col col-lg-10">
-                  <div class="card-info">
-                    <div
-                      v-on:click="showProductDetail(p.id)"
-                      class="card-title"
-                    >
-                      <h1 class="ts24b">
-                        {{ p.name }}
-                      </h1>
-                      <h2 class="ts14b ts-purple">
-                        CÓDIGO DO PRODUTO: {{ p.id }}
-                      </h2>
-                    </div>
-                    <div v-on:click="showProductDetail(p.id)" class="card-text">
-                      <p class="ts-line-through ts14r">R$ {{ p.price }}</p>
-                      <h3 class="ts28b">
-                        R$
-                        {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
-                      </h3>
-                    </div>
-                  </div>
-                  <div v-on:click="deleteFromWishlist(p.id)" class="card-icon">
-                    <a href="">
+            <div v-for="(p, index) in products" :key="p.id">
+              <ul>
+                <div class="card card-product-wishlist">
+                  <div
+                    v-on:click="showProductDetail(p.id)"
+                    class="col-sm-2 col-md-2 col-lg-2"
+                  >
+                    <div class="card-img">
                       <img
-                        src="../../../assets/img/icon/heart-fill-purple.svg"
-                        class="icon-32"
+                        src="/src/assets/img/miaumarro/logo_icon.svg"
+                        alt="Product Image"
                       />
-                    </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-10 col-md-10 col-lg-10">
+                    <div class="card-body">
+                      <div class="card-info">
+                        <div
+                          v-on:click="showProductDetail(p.id)"
+                          class="card-title"
+                        >
+                          <h1 class="ts24b">
+                            {{ p.name }}
+                          </h1>
+                          <h2 class="ts14b ts-purple">
+                            CÓDIGO DO PRODUTO: {{ p.id }}
+                          </h2>
+                        </div>
+                        <div class="card-text-cart">
+                          <div
+                            v-on:click="showProductDetail(p.id)"
+                            class="card-text"
+                          >
+                            <p class="ts-line-through ts14r">
+                              R$ {{ p.price }}
+                            </p>
+                            <h3 class="ts28b">
+                              R$
+                              {{
+                                Math.round(p.price * (1 - p.discount) * 100) /
+                                100
+                              }}
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                      <div v-on:click="deleteFromCart(index)" class="card-icon">
+                        <a href="">
+                          <img
+                            src="/src/assets/img/icon/heart-fill-purple.svg"
+                            class="icon-32"
+                          />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ul>
+              </ul>
+            </div>
           </li>
         </div>
 

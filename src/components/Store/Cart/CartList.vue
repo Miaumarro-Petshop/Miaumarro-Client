@@ -146,16 +146,23 @@
                   <h1 class="upper ts14b">
                     Produtos ({{ productAmountTotal }})
                   </h1>
-                  <p class="ts28b">R$ {{ productPriceTotal }}</p>
+                  <p class="ts28b">
+                    R$
+                    {{ Math.round(productPriceTotal * 100) / 100 }}
+                  </p>
                 </section>
                 <section>
                   <h1 class="upper ts14b">Frete</h1>
-                  <p class="ts28b">R$ {{ shippingPrice }}</p>
+                  <p class="ts28b">
+                    R$
+                    {{ Math.round(shippingPrice * 100) / 100 }}
+                  </p>
                 </section>
                 <section class="ts-green">
                   <h1 class="upper ts14b">Promoções e cupons</h1>
                   <p class="ts28b ts-line-through">
-                    - R$ {{ productDiscountTotal }}
+                    - R$
+                    {{ Math.round(productDiscountTotal * 100) / 100 }}
                   </p>
                 </section>
                 <hr size="1" width="100%" class="line" />
@@ -165,12 +172,11 @@
                     R$
                     {{
                       Math.round(
-                        ((productPriceTotal -
+                        (productPriceTotal -
                           productDiscountTotal +
                           shippingPrice) *
-                          100) /
                           100
-                      )
+                      ) / 100
                     }}
                   </p>
                 </section>
@@ -244,33 +250,26 @@ export default {
       });
       this.productPriceTotal += json.price * amount;
       this.productDiscountTotal += json.discount * json.price * amount;
+      this.productAmountTotal += amount;
     },
     counterAdd(index, amount) {
       amount++;
-      console.log("amount", amount);
       this.updateCart(index, amount);
     },
     counterSubtract(index, amount) {
-      console.log("index", index);
-      console.log("amount", amount);
       if (amount > 1) {
         amount--;
-        console.log("amount", amount);
-
         this.updateCart(index, amount);
       }
-      //this.updateCart();
     },
     updateCart(index, amount) {
-      console.log("Entrou em update");
       let cartItems = [];
       if (localStorage.getItem("cart")) {
         cartItems = JSON.parse(localStorage.getItem("cart"));
       }
-      console.log("cartItems", cartItems);
       cartItems[index].amount = amount;
       localStorage.setItem("cart", JSON.stringify(cartItems));
-      this.getCart();
+      this.$router.go();
     },
     deleteCart() {
       localStorage.removeItem("cart", JSON.stringify(this.cartItems));
@@ -300,7 +299,6 @@ export default {
             productIds.push(cartItems[i].productId);
           }
         }
-        console.log("productIds", productIds);
         this.postPurchase(productIds);
       } else {
         this.$router.push(`/login`);
@@ -315,12 +313,14 @@ export default {
           couponId: 1,
         }),
         headers: {
+          Authorization: `bearer ${this.token}`,
           "Content-type": "application/json",
         },
       })
         .then((response) => {
           response.json().then((json) => {
-            console.log("json", json);
+            console.log(json);
+            console.log(response);
             this.$router.push(`/minha-conta/pedidos`);
           });
         })

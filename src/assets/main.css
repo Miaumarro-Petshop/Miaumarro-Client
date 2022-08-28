@@ -914,6 +914,8 @@ select option {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  height: 100%;
 }
 
 .card-product-wishlist .card-body a,
