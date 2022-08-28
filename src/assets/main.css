@@ -88,7 +88,7 @@
   color: var(--grey);
 }
 
-.ts-line-through{
+.ts-line-through {
   text-decoration: line-through;
 }
 
@@ -350,11 +350,25 @@ main {
   padding-left: 3.2rem;
 }
 
+.form-control .form-black {
+  height: 4rem;
+  min-height: 40px;
+  background-color: var(--black);
+  color: var(--green);
+  border: none;
+  border-radius: 12px;
+  padding-left: 3.2rem;
+}
+
 .form-data {
   width: 100%;
 }
 
 .form-black::placeholder {
+  color: var(--green);
+}
+
+.form-control .form-black::placeholder {
   color: var(--green);
 }
 

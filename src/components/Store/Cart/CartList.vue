@@ -164,7 +164,13 @@
                   <p class="ts28b">
                     R$
                     {{
-                      productPriceTotal - productDiscountTotal + shippingPrice
+                      Math.round(
+                        ((productPriceTotal -
+                          productDiscountTotal +
+                          shippingPrice) *
+                          100) /
+                          100
+                      )
                     }}
                   </p>
                 </section>
