@@ -51,8 +51,8 @@
                   <div v-on:click="deleteFromWishlist(p.id)" class="card-icon">
                     <a href="">
                       <img
-                        src="../../../assets/img/icon/heart-fill.svg"
-                        class="icon-32 icon-purple"
+                        src="../../../assets/img/icon/heart-fill-purple.svg"
+                        class="icon-32"
                       />
                     </a>
                   </div>
@@ -149,8 +149,8 @@ export default {
         this.$router.push(`/login`);
       }
     },
-    deleteFromWishlist(productId) {
-      fetch(
+    async deleteFromWishlist(productId) {
+      await fetch(
         `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
           "userId"
         )}&ProductId=${productId}`,

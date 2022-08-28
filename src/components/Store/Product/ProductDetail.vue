@@ -40,12 +40,34 @@
         </div>
 
         <div class="product-info col col-md-6 col-lg-5">
-          <p class="upper ts14b ts-purple">
-            {{ product.brand }}
-          </p>
-          <h1 class="ts24b">
-            {{ product.name }}
-          </h1>
+          <div class="d-flex flex-row justify-content-between">
+            <div>
+              <p class="upper ts14b ts-purple">
+                {{ product.brand }}
+              </p>
+              <h1 class="ts24b">
+                {{ product.name }}
+              </h1>
+            </div>
+
+            <div
+              v-if="favorited"
+              v-on:click="deleteFromWishlist(p.id)"
+              class="card-icon"
+            >
+              <a href="">
+                <img
+                  src="../../../assets/img/icon/heart-fill-purple.svg"
+                  class="icon-32"
+                />
+              </a>
+            </div>
+            <div v-else v-on:click="addToWishlist(p.id)" class="card-icon">
+              <a href="">
+                <img src="../../../assets/img/icon/heart.svg" class="icon-32" />
+              </a>
+            </div>
+          </div>
           <p class="upper ts14b ts-grey">Código do produto: {{ product.id }}</p>
 
           <div class="product-info-review">
@@ -228,6 +250,9 @@ export default {
       product: null,
       id: this.$route.params.id,
       counter: 1,
+      userId: localStorage.getItem("userId"),
+      token: localStorage.getItem("token"),
+      favorited: 0,
     };
   },
   methods: {
@@ -287,6 +312,54 @@ export default {
           },
         },
       });
+    },
+    async isFavorited() {
+      if (this.userId && this.token) {
+        var resposta = await fetch(
+          `https://localhost:7016/api/v1/Wishlist?UserId=${this.userId}`,
+          {
+            headers: {
+              Authorization: `bearer ${this.token}`,
+            },
+          }
+        );
+        var json = await resposta.json();
+        this.products = json.response;
+        var result = this.products.find((item) => item.id == this.product.id);
+        if (result) {
+          this.favorited = true;
+        }
+      }
+    },
+    async addToWishlist() {
+      if (this.userId && this.token) {
+        await fetch("https://localhost:7016/api/v1/Authentication", {
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.userId,
+            productId: this.product.id,
+          }),
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `bearer ${this.token}`,
+          },
+        });
+      } else {
+        this.$router.push(`/login`);
+      }
+    },
+    async deleteFromWishlist() {
+      await fetch(
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
+          "userId"
+        )}&ProductId=${this.product.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `bearer ${this.token}`,
+          },
+        }
+      );
     },
   },
   beforeMount() {

@@ -301,7 +301,7 @@ export default {
       }
     },
     async postPurchase(productIds) {
-      fetch("https://localhost:7016/api/v1/Purchase/create", {
+      await fetch("https://localhost:7016/api/v1/Purchase/create", {
         method: "POST",
         body: JSON.stringify({
           userId: 9,
