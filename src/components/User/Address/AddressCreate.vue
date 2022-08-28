@@ -171,7 +171,7 @@ export default {
       })
         .then((response) => response.json())
         .then(() => {
-          redirectToAddress();
+          this.redirectToAddress();
         });
     },
     redirectToAddress(){

@@ -308,12 +308,12 @@ export default {
       await fetch("https://localhost:7016/api/v1/Purchase/create", {
         method: "POST",
         body: JSON.stringify({
-          userId: 9,
+          userId: this.userId,
           productIds: productIds,
           couponId: 1,
         }),
         headers: {
-          Authorization: `bearer ${this.token}`,
+          "Authorization": `bearer ${this.token}`,
           "Content-type": "application/json",
         },
       })

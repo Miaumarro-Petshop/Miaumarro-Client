@@ -318,7 +318,7 @@ export default {
           `https://localhost:7016/api/v1/Wishlist?UserId=${this.userId}`,
           {
             headers: {
-              Authorization: `bearer ${this.token}`,
+              "Authorization": `bearer ${this.token}`,
             },
           }
         );
@@ -345,7 +345,7 @@ export default {
           }),
           headers: {
             "Content-type": "application/json",
-            Authorization: `bearer ${this.token}`,
+            "Authorization": `bearer ${this.token}`,
           },
         });
         this.favorited = true;
@@ -360,7 +360,7 @@ export default {
         {
           method: "DELETE",
           headers: {
-            Authorization: `bearer ${this.token}`,
+            "Authorization": `bearer ${this.token}`,
           },
         }
       );
