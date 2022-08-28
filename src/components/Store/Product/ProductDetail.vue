@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div class="product-info col col-md-6 col-lg-5">
+        <div :key="favorited" class="product-info col col-md-6 col-lg-5">
           <div class="d-flex flex-row justify-content-between">
             <div>
               <p class="upper ts14b ts-purple">
@@ -52,19 +52,19 @@
 
             <div
               v-if="favorited"
-              v-on:click="deleteFromWishlist(p.id)"
+              v-on:click="deleteFromWishlist()"
               class="card-icon"
             >
-              <a href="">
+              <a>
                 <img
-                  src="../../../assets/img/icon/heart-fill-purple.svg"
+                  src="/src/assets/img/icon/heart-fill-purple.svg"
                   class="icon-32"
                 />
               </a>
             </div>
-            <div v-else v-on:click="addToWishlist(p.id)" class="card-icon">
-              <a href="">
-                <img src="../../../assets/img/icon/heart.svg" class="icon-32" />
+            <div v-else v-on:click="addToWishlist()" class="card-icon">
+              <a>
+                <img src="/src/assets/img/icon/heart.svg" class="icon-32" />
               </a>
             </div>
           </div>
@@ -139,6 +139,8 @@
           </div>
         </div>
       </div>
+      <button v-on:click="deleteFromWishlist()">DELETAR DA WISHLIST</button>
+      <button v-on:click="addToWishlist()">ADICIONAR NA WISHLIST</button>
 
       <div class="accordion" id="accordionProductReview">
         <div class="accordion-item">
@@ -287,7 +289,6 @@ export default {
         });
       }
       localStorage.setItem("cart", JSON.stringify(cartItems));
-      console.log(localStorage.getItem("cart"));
       this.$router.push(`/carrinho`);
     },
     installOwlCarousel() {
@@ -314,6 +315,7 @@ export default {
       });
     },
     async isFavorited() {
+      console.log("check isFavorited");
       if (this.userId && this.token) {
         var resposta = await fetch(
           `https://localhost:7016/api/v1/Wishlist?UserId=${this.userId}`,
@@ -323,17 +325,29 @@ export default {
             },
           }
         );
+
         var json = await resposta.json();
-        this.products = json.response;
-        var result = this.products.find((item) => item.id == this.product.id);
-        if (result) {
-          this.favorited = true;
+        console.log(json);
+        if (resposta.ok) {
+          this.products = await json.response;
+          console.log("json.response", json.response);
+          console.log("this.products", this.products);
+          var result = await this.products.find(
+            (item) => item.id == this.product.id
+          );
+          if (result) {
+            this.favorited = true;
+            console.log("IsFAVORITED!!!!!!!!!");
+          }
         }
       }
     },
     async addToWishlist() {
+      console.log("Entrou em wishlist");
       if (this.userId && this.token) {
-        await fetch("https://localhost:7016/api/v1/Authentication", {
+        console.log("Usuário logado");
+
+        await fetch("https://localhost:7016/api/v1/Wishlist/create", {
           method: "POST",
           body: JSON.stringify({
             userId: this.userId,
@@ -344,11 +358,22 @@ export default {
             Authorization: `bearer ${this.token}`,
           },
         });
+        var response = await response.json().then((token) => {
+          console.log(token);
+        });
+        this.favorited = true;
+        this.$router.push(`/produto/${this.product.Id}`);
       } else {
         this.$router.push(`/login`);
       }
     },
     async deleteFromWishlist() {
+      console.log(
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
+          "userId"
+        )}&ProductId=${this.product.id}`
+      );
+      /*
       await fetch(
         `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
           "userId"
@@ -360,6 +385,12 @@ export default {
           },
         }
       );
+      */
+      console.log(
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
+          "userId"
+        )}&ProductId=${this.product.id}`
+      );
     },
   },
   beforeMount() {
@@ -367,6 +398,7 @@ export default {
     this.$nextTick(function () {
       this.installOwlCarousel();
     });
+    this.isFavorited();
   },
 };
 </script>
