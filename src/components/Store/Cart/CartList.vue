@@ -16,7 +16,10 @@
                 <div v-for="(p, index) in products" :key="p.id">
                   <ul>
                     <div class="card card-product-cart">
-                      <div class="col-sm-2 col-md-2 col-lg-2">
+                      <div
+                        v-on:click="showProductDetail(p.id)"
+                        class="col-sm-2 col-md-2 col-lg-2"
+                      >
                         <div class="card-img">
                           <img
                             src="/src/assets/img/miaumarro/logo_icon.svg"
@@ -27,7 +30,10 @@
                       <div class="col-sm-10 col-md-10 col-lg-10">
                         <div class="card-body">
                           <div class="card-info">
-                            <div class="card-title">
+                            <div
+                              v-on:click="showProductDetail(p.id)"
+                              class="card-title"
+                            >
                               <h1 class="ts24b">
                                 {{ p.name }}
                               </h1>
@@ -59,7 +65,7 @@
                                   </button>
                                 </div>
                               </div>
-                              <div class="card-text">
+                              <div v-on:click="showProductDetail(p.id)" class="card-text">
                                 <p class="ts-line-through ts14r">
                                   R$ {{ p.price }}
                                 </p>
@@ -74,7 +80,10 @@
                               </div>
                             </div>
                           </div>
-                          <div class="card-icon">
+                          <div
+                            v-on:click="deleteFromCart(index)"
+                            class="card-icon"
+                          >
                             <a href="">
                               <img
                                 src="/src/assets/img/icon/trash-fill-purple.svg"
@@ -250,6 +259,15 @@ export default {
     },
     deleteCart() {
       localStorage.removeItem("cart", JSON.stringify(this.cartItems));
+    },
+    deleteFromCart(index) {
+      let cartItems = [];
+      if (localStorage.getItem("cart")) {
+        cartItems = JSON.parse(localStorage.getItem("cart"));
+      }
+      cartItems.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      this.getCart();
     },
     showProductDetail(productId) {
       this.$router.push(`/produto/${productId}`);
