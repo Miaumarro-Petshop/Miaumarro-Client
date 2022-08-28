@@ -43,7 +43,7 @@
                                     -
                                   </button>
                                   <div class="counter-display ts24r ts-black">
-                                    {{ p.name }}
+                                    {{ p.amount }}
                                   </div>
                                   <button
                                     class="btn btn-purple ts24r"
@@ -53,7 +53,14 @@
                                   </button>
                                 </div>
                               </div>
-                              <h3 class="card-text ts28b">R$ 100,00</h3>
+                              <h3 class="card-text ts28b">
+                                R$
+                                {{
+                                  Math.round(
+                                    p.price * (1 - p.discount) * 100
+                                  ) / 100
+                                }}
+                              </h3>
                             </div>
                           </div>
                           <div class="card-icon">
@@ -155,43 +162,48 @@ export default {
   data() {
     return {
       cartItems: null,
-      products: null,
+      products: [],
       resultAmount: 0,
+      productAmountTotal:0,
+      productPriceTotal: 0,
+      shippingPrice:0,
     };
   },
   methods: {
-    async getProductById(id, amount) {
+    getCart() {
+      let cartItems = [];
+      if (localStorage.getItem("cart")) {
+        cartItems = JSON.parse(localStorage.getItem("cart"));
+      }
+      this.resultAmount = cartItems.length;
+      console.log("cartItems", cartItems);
+      for (let i = 0; i < cartItems.length; i++) {
+        this.getProductById(cartItems[i].productId, cartItems[i].amount);
+      }
+      for (let i = 0; i < this.products.length; i++) {
+        this.productAmountTotal += this.products[i].amount;
+        this.producPriceTotal += this.products[i].price;
+      }
+      
+    },
+    async getProductById(productId, amount) {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Product/details?id=${id}`
-      );
-      console.log(
-        `Request https://localhost:7016/api/v1/Product/details?id=${id}`
+        `https://localhost:7016/api/v1/Product/details?id=${productId}`
       );
       var json = await resposta.json();
-      //return json;
-      var product = {
-        id: json.id,
+      this.products.push({
+        id: productId,
+        amount: amount,
         name: json.name,
         price: json.price,
         discount: json.discount,
-        amount: amount,
-      };
-      return product;
+      });
     },
     counterAdd() {
       this.counter++;
     },
     counterSubtract() {
       if (this.counter > 1) this.counter--;
-    },
-    getCart() {
-      if (localStorage.getItem("cart")) {
-        this.cartItems = JSON.parse(localStorage.getItem("cart"));
-        console.log(this.cartItems);
-      }
-      this.resultAmount = this.cartItems.length;
-      console.log("GET CART!! cart items", this.cartItems);
-      this.getProducts();
     },
     addToCart() {
       if (this.cartItems.find((item) => item.productId == this.product.id)) {
@@ -206,15 +218,6 @@ export default {
     },
     deleteCart() {
       localStorage.removeItem("cart", JSON.stringify(this.cartItems));
-    },
-    getProducts() {
-      this.products = [];
-
-      for (let p in this.cartItems) {
-        this.products.push(this.getProductById(p.productId, p.amount));
-        console.log("cart items", p.productId);
-      }
-      console.log("GET PRODUCTS!! cart items", this.products);
     },
     showProductDetail(productId) {
       this.$router.push(`/produto/${productId}`);
