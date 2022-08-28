@@ -1,9 +1,9 @@
 <script setup>
 import HeaderUser from "../../../components/User/HeaderUser.vue";
-import PetEdit from "../../../components/User/Pet/PetEdit.vue";
+import DataList from "../../../components/User/Data/DataList.vue";
 </script>
 
 <template>
   <HeaderUser></HeaderUser>
-  <PetEdit></PetEdit>
+  <DataList></DataList>
 </template>
