@@ -1049,7 +1049,7 @@ select option {
 }
 
 .card-product-buy {
-  height: 24rem;
+  height: 100%;
 }
 
 .product-buy-price,

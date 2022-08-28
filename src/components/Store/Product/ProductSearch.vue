@@ -306,10 +306,16 @@
                     </h2>
                   </div>
                   <div>
-                    <p class="card-text ts28b">
-                      R$
-                      {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
-                    </p>
+                    <div>
+                      <p class="card-text ts18r ts-purple ts-line-through">
+                        R$
+                        {{ p.price }}
+                      </p>
+                      <p class="card-text ts28b">
+                        R$
+                        {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
+                      </p>
+                    </div>
                     <button class="btn btn-green btn-buy ts24r" type="submit">
                       Comprar
                     </button>
