@@ -139,8 +139,6 @@
           </div>
         </div>
       </div>
-      <button v-on:click="deleteFromWishlist()">DELETAR DA WISHLIST</button>
-      <button v-on:click="addToWishlist()">ADICIONAR NA WISHLIST</button>
 
       <div class="accordion" id="accordionProductReview">
         <div class="accordion-item">
@@ -315,7 +313,6 @@ export default {
       });
     },
     async isFavorited() {
-      console.log("check isFavorited");
       if (this.userId && this.token) {
         var resposta = await fetch(
           `https://localhost:7016/api/v1/Wishlist?UserId=${this.userId}`,
@@ -327,26 +324,19 @@ export default {
         );
 
         var json = await resposta.json();
-        console.log(json);
         if (resposta.ok) {
           this.products = await json.response;
-          console.log("json.response", json.response);
-          console.log("this.products", this.products);
           var result = await this.products.find(
             (item) => item.id == this.product.id
           );
           if (result) {
             this.favorited = true;
-            console.log("IsFAVORITED!!!!!!!!!");
           }
         }
       }
     },
     async addToWishlist() {
-      console.log("Entrou em wishlist");
       if (this.userId && this.token) {
-        console.log("Usuário logado");
-
         await fetch("https://localhost:7016/api/v1/Wishlist/create", {
           method: "POST",
           body: JSON.stringify({
@@ -358,9 +348,6 @@ export default {
             Authorization: `bearer ${this.token}`,
           },
         });
-        var response = await response.json().then((token) => {
-          console.log(token);
-        });
         this.favorited = true;
         this.$router.push(`/produto/${this.product.Id}`);
       } else {
@@ -368,16 +355,8 @@ export default {
       }
     },
     async deleteFromWishlist() {
-      console.log(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`
-      );
-      /*
       await fetch(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`,
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${this.userId}&ProductId=${this.product.id}`,
         {
           method: "DELETE",
           headers: {
@@ -385,12 +364,7 @@ export default {
           },
         }
       );
-      */
-      console.log(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`
-      );
+      this.$router.go();
     },
   },
   beforeMount() {
