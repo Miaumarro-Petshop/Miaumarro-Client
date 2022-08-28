@@ -139,8 +139,6 @@
           </div>
         </div>
       </div>
-      <button v-on:click="deleteFromWishlist()">DELETAR DA WISHLIST</button>
-      <button v-on:click="addToWishlist()">ADICIONAR NA WISHLIST</button>
 
       <div class="accordion" id="accordionProductReview">
         <div class="accordion-item">
@@ -368,16 +366,8 @@ export default {
       }
     },
     async deleteFromWishlist() {
-      console.log(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`
-      );
-      /*
       await fetch(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`,
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${this.userId}&ProductId=${this.product.id}`,
         {
           method: "DELETE",
           headers: {
@@ -385,12 +375,7 @@ export default {
           },
         }
       );
-      */
-      console.log(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${this.product.id}`
-      );
+      this.$router.go();
     },
   },
   beforeMount() {

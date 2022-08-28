@@ -163,9 +163,7 @@ export default {
     },
     async deleteFromWishlist(productId) {
       await fetch(
-        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${localStorage.getItem(
-          "userId"
-        )}&ProductId=${productId}`,
+        `https://localhost:7016/api/v1/Wishlist/delete?UserId=${this.userId}&ProductId=${productId}`,
         {
           method: "DELETE",
           headers: {
@@ -173,6 +171,7 @@ export default {
           },
         }
       );
+      this.$router.go();
     },
     showProductDetail(productId) {
       this.$router.push(`/produto/${productId}`);
