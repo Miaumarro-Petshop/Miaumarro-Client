@@ -1,6 +1,4 @@
 <template>
-  <main>
-        <article class="account">
         <section class="customer-empty-container">
             <div class="card card-empty col col-lg-10">
                 <img src="../../../assets/img/icon/geo-alt-fill.svg" class="icon-64" alt="Map icon">
@@ -9,7 +7,5 @@
                     Adicione um novo endereço no botão abaixo.</h2>
             </div>
         </section>
-    </article>
-    </main>
 </template>
 <script></script>
