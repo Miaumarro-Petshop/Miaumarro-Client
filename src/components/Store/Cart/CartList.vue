@@ -15,9 +15,7 @@
               <li class="cards-list space">
                 <div v-for="(p, index) in products" :key="p.id">
                   <ul>
-                    <div
-                      class="card card-product-cart"
-                    >
+                    <div class="card card-product-cart">
                       <div
                         v-on:click="showProductDetail(p.id)"
                         class="col-sm-2 col-md-2 col-lg-2"
@@ -315,11 +313,14 @@ export default {
           couponId: 1,
         }),
         headers: {
+          Authorization: `bearer ${this.token}`,
           "Content-type": "application/json",
         },
       })
         .then((response) => {
           response.json().then((json) => {
+            console.log(json);
+            console.log(response);
             this.$router.push(`/minha-conta/pedidos`);
           });
         })
