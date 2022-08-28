@@ -1,5 +1,4 @@
 <template>
-  <main>
         <section class="customer-empty-container">
             <div class="card card-empty col col-lg-10">
                 <img src="../../../assets/img/miaumarro/logo_icon.svg" class="icon-64 icon-purple" alt="Miaumarro icon">
@@ -8,6 +7,5 @@
                     Adicione um novo pet no botão abaixo.</h2>
             </div>
         </section>
-    </main>
 </template>
 <script></script>
