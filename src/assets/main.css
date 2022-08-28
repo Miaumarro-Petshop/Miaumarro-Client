@@ -896,7 +896,7 @@ select option {
 .card-product-wishlist .card-body,
 .card-product-cart .card-body,
 .card-product-purchased .card-body {
-  padding: 0 0 0 0;
+  padding: 0 1.6rem 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -18,65 +18,67 @@
                     <ul>
                       <div class="card card-product-cart">
                         <div class="col-sm-2 col-md-2 col-lg-2">
-                        <div class="card-img">
-                          <img
-                            src="/src/assets/img/miaumarro/logo_icon.svg"
-                            alt="Product Image"
-                          />
+                          <div class="card-img">
+                            <img
+                              src="/src/assets/img/miaumarro/logo_icon.svg"
+                              alt="Product Image"
+                            />
+                          </div>
                         </div>
-                        </div>
-                        <div class="card-body col-sm-10 col-md-10 col-lg-10">
-                          <div class="card-info">
-                            <div class="card-title">
-                              <h1 class="ts24b">
-                                {{ p.name }}
-                              </h1>
-                              <h2 class="ts14b ts-purple">
-                                CÓDIGO DO PRODUTO: {{ p.id }}
-                              </h2>
-                            </div>
-                            <div class="card-text-cart">
-                              <div class="product-amount">
-                                <div class="counter">
-                                  <button
-                                    class="btn btn-purple ts24r"
-                                    onclick="this.blur();"
-                                  >
-                                    -
-                                  </button>
-                                  <div class="counter-display ts24r ts-black">
-                                    {{ p.amount }}
+                        <div class="col-sm-10 col-md-10 col-lg-10">
+                          <div class="card-body">
+                            <div class="card-info">
+                              <div class="card-title">
+                                <h1 class="ts24b">
+                                  {{ p.name }}
+                                </h1>
+                                <h2 class="ts14b ts-purple">
+                                  CÓDIGO DO PRODUTO: {{ p.id }}
+                                </h2>
+                              </div>
+                              <div class="card-text-cart">
+                                <div class="product-amount">
+                                  <div class="counter">
+                                    <button
+                                      class="btn btn-purple ts24r"
+                                      onclick="this.blur();"
+                                    >
+                                      -
+                                    </button>
+                                    <div class="counter-display ts24r ts-black">
+                                      {{ p.amount }}
+                                    </div>
+                                    <button
+                                      class="btn btn-purple ts24r"
+                                      onclick="this.blur();"
+                                    >
+                                      +
+                                    </button>
                                   </div>
-                                  <button
-                                    class="btn btn-purple ts24r"
-                                    onclick="this.blur();"
-                                  >
-                                    +
-                                  </button>
+                                </div>
+                                <div class="card-text">
+                                  <p class="ts-line-through ts14r">
+                                    R$ {{ p.price }}
+                                  </p>
+                                  <h3 class="ts28b">
+                                    R$
+                                    {{
+                                      Math.round(
+                                        p.price * (1 - p.discount) * 100
+                                      ) / 100
+                                    }}
+                                  </h3>
                                 </div>
                               </div>
-                              <div class="card-text">
-                                <p class="ts-line-through ts14r">
-                                  R$ {{ p.price }}
-                                </p>
-                                <h3 class="ts28b">
-                                  R$
-                                  {{
-                                    Math.round(
-                                      p.price * (1 - p.discount) * 100
-                                    ) / 100
-                                  }}
-                                </h3>
-                              </div>
                             </div>
-                          </div>
-                          <div class="card-icon">
-                            <a href="">
-                              <img
-                                src="/src/assets/img/icon/trash-fill-purple.svg"
-                                class="icon-32"
-                              />
-                            </a>
+                            <div class="card-icon">
+                              <a href="">
+                                <img
+                                  src="/src/assets/img/icon/trash-fill-purple.svg"
+                                  class="icon-32"
+                                />
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -127,21 +129,30 @@
             <div class="card card-cart-buy col col-md-4 col-lg-3">
               <div class="cart-buy-price">
                 <section>
-                  <h1 class="upper ts14b">Produtos (2)</h1>
-                  <p class="ts28b">R$ 200,00</p>
+                  <h1 class="upper ts14b">
+                    Produtos ({{ productAmountTotal }})
+                  </h1>
+                  <p class="ts28b">R$ {{ productPriceTotal }}</p>
                 </section>
                 <section>
                   <h1 class="upper ts14b">Frete</h1>
-                  <p class="ts28b">R$ 100,00</p>
+                  <p class="ts28b">R$ {{ shippingPrice }}</p>
                 </section>
                 <section class="ts-green">
                   <h1 class="upper ts14b">Promoções e cupons</h1>
-                  <p class="ts28b">- R$ 100,00</p>
+                  <p class="ts28b ts-line-through">
+                    - R$ {{ productDiscountTotal }}
+                  </p>
                 </section>
                 <hr size="1" width="100%" class="line" />
                 <section>
                   <h1 class="upper ts14b">Total</h1>
-                  <p class="ts28b">R$ 200,00</p>
+                  <p class="ts28b">
+                    R$
+                    {{
+                      productPriceTotal - productDiscountTotal + shippingPrice
+                    }}
+                  </p>
                 </section>
                 <div class="product-buy">
                   <button class="btn btn-green btn-buy ts24b" type="submit">
@@ -173,23 +184,24 @@ export default {
       resultAmount: 0,
       productAmountTotal: 0,
       productPriceTotal: 0,
+      productDiscountTotal: 0,
       shippingPrice: 0,
+      cartTotal:
+        this.productPriceTotal + this.productDiscountTotal + this.shippingPrice,
     };
   },
   methods: {
     getCart() {
+      this.productAmountTotal = 0;
+      this.productPriceTotal = 0;
+      this.productDiscountTotal = 0;
       let cartItems = [];
       if (localStorage.getItem("cart")) {
         cartItems = JSON.parse(localStorage.getItem("cart"));
       }
       this.resultAmount = cartItems.length;
-      console.log("cartItems", cartItems);
       for (let i = 0; i < cartItems.length; i++) {
         this.getProductById(cartItems[i].productId, cartItems[i].amount);
-      }
-      for (let i = 0; i < this.products.length; i++) {
-        this.productAmountTotal += this.products[i].amount;
-        this.producPriceTotal += this.products[i].price;
       }
     },
     async getProductById(productId, amount) {
@@ -204,6 +216,8 @@ export default {
         price: json.price,
         discount: json.discount,
       });
+      this.productPriceTotal += json.price * amount;
+      this.productDiscountTotal += json.discount * json.price * amount;
     },
     counterAdd() {
       this.counter++;
