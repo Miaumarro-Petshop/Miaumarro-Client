@@ -65,7 +65,10 @@
                                   </button>
                                 </div>
                               </div>
-                              <div v-on:click="showProductDetail(p.id)" class="card-text">
+                              <div
+                                v-on:click="showProductDetail(p.id)"
+                                class="card-text"
+                              >
                                 <p class="ts-line-through ts14r">
                                   R$ {{ p.price }}
                                 </p>
@@ -166,7 +169,11 @@
                   </p>
                 </section>
                 <div class="product-buy">
-                  <button class="btn btn-green btn-buy ts24b" type="submit">
+                  <button
+                    v-on:click="checkout()"
+                    class="btn btn-green btn-buy ts24b"
+                    type="submit"
+                  >
                     Concluir a compra
                   </button>
                   <a v-on:click="deleteCart()" class="ts14b link-green" href=""
@@ -271,6 +278,47 @@ export default {
     },
     showProductDetail(productId) {
       this.$router.push(`/produto/${productId}`);
+    },
+    checkout() {
+      if (localStorage.getItem("token") && localStorage.getItem("userId")) {
+        let cartItems = [];
+        if (localStorage.getItem("cart")) {
+          cartItems = JSON.parse(localStorage.getItem("cart"));
+        }
+        let productIds = [];
+
+        for (let i = 0; i < cartItems.length; i++) {
+          for (let j = 0; j < cartItems[i].amount; j++) {
+            productIds.push(cartItems[i].productId);
+          }
+        }
+        console.log("productIds", productIds);
+        this.postPurchase(productIds);
+      } else {
+        this.$router.push(`/login`);
+      }
+    },
+    async postPurchase(productIds) {
+      fetch("https://localhost:7016/api/v1/Purchase/create", {
+        method: "POST",
+        body: JSON.stringify({
+          userId: 9,
+          productIds: productIds,
+          couponId: 1,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then((response) => {
+          response.json().then((json) => {
+            console.log("json", json);
+            this.$router.push(`/minha-conta/pedidos`);
+          });
+        })
+        .catch((err) => {
+          alert(`${err.Messsage}`);
+        });
     },
   },
   beforeMount() {
