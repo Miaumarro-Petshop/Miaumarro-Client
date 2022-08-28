@@ -41,6 +41,7 @@
             name="phone"
             type="text"
             placeholder="Telefone (apenas números)"
+            required
           />
         </div>
         <div class="col-8 div-100">
@@ -100,8 +101,9 @@
       </form>
       <div id="account-button" class="space">
         <button
-          v-on:click="createUser()"
+          v-on:click="checkForm()"
           class="btn btn-purple col-8 col-md-8 col-lg-6"
+          onclick="this.blur();"
         >
           Criar conta
         </button>
@@ -138,11 +140,11 @@ export default {
       phone: null,
       errors: [],
       validForm: false,
+      errorsApi: [],
     };
   },
   methods: {
     async createUser() {
-      console.log("this.cpf", this.cpf);
       await fetch("https://localhost:7016/api/v1/User/create", {
         method: "POST",
         body: JSON.stringify({
@@ -160,19 +162,13 @@ export default {
         response.json().then((token) => {
           localStorage.setItem("token", token.sessionToken);
           localStorage.setItem("userId", token.id);
-          //this.$router.push(`/minha-conta`);
+          this.errorsAPI = token.errors;
+          this.$router.push(`/minha-conta`);
         });
       });
-      console.log("userId", localStorage.getItem("userId"));
-      //this.$router.push(`/minha-conta`);
     },
-    checkForm: function (e) {
+    checkForm() {
       this.errors = [];
-      if (!this.email) {
-        this.errors.push("Informe o e-mail");
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push("Informe um e-mail válido.");
-      }
       if (!this.name) {
         this.errors.push("Informe o seu nome.");
       }
@@ -180,20 +176,18 @@ export default {
         this.errors.push("Informe o seu sobrenome.");
       }
 
-      if (!this.phone) {
-        this.errors.push("Informe o telefone");
-      } else if (!this.isNumber(this.phone)) {
+      if (this.phone && !this.isNumber(this.phone)) {
         this.errors.push(
           "O telefone deve conter apenas dígitos (entre 10 e 14 dígitos)."
         );
-      } else if (this.cpf.length != 11) {
+      } else if (this.phone && this.phone.length < 10) {
         this.errors.push("O telefone deve ter entre 10 e 14 dígitos.");
       }
       if (!this.cpf) {
-        this.errors.push("Informe o telefone");
+        this.errors.push("Informe o cpf");
       } else if (!this.isNumber(this.cpf)) {
         this.errors.push("O CPF deve conter apenas dígitos (11 dígitos).");
-      } else if (this.cpf.value.length != 11) {
+      } else if (this.cpf.length != 11) {
         this.errors.push("O CPF deve ter 11 dígitos.");
       }
       if (!this.email) {
@@ -211,11 +205,9 @@ export default {
         this.errors.push("A senha informada não coincide.");
       }
       if (!this.errors.length) {
-        return true;
-      } else {
         this.createUser();
+        return true;
       }
-      e.preventDefault();
     },
     validEmail(email) {
       var re =
