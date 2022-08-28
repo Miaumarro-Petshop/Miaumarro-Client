@@ -1,10 +1,7 @@
 <template>
   <main>
     <article class="account">
-      <section>
-        <h1 class="ts40 ts-purple">Editar bichinho</h1>
-      </section>
-      <div>
+      <div v-if="detail">
         <section>
           <h1 class="ts40 ts-purple space">Meu bichinho</h1>
         </section>
@@ -13,6 +10,7 @@
               <div class="col-12">
                 <label for="pet-name"></label>
                 <input
+                disabled
                 v-model="name"
                   class="form-black form-data"
                   id="name"
@@ -28,6 +26,7 @@
                   class="form-select form-black form-data ts14r"
                   id="type"
                   name="type"
+                  disabled
                 >
                   <option selected disabled>Qual é o seu bichinho?</option>
                   <option value="0">Cachorro</option>
@@ -44,6 +43,7 @@
                   class="form-select form-black form-data ts14r"
                   id="pet-gender"
                   name="pet-gender"
+                  disabled
                 >
                   <option selected disabled>Seu bichinho é...</option>
                   <option value="0">Macho</option>
@@ -53,6 +53,7 @@
               <div class="col-12 space">
                 <label for="pet-date-of-birth"></label>
                 <input
+                disabled
                 v-model="dateOfBirth"
                   class="form-black form-data"
                   id="pet-date-of-birth"
@@ -64,6 +65,7 @@
               <div class="col-12 space">
                 <label for="pet-breed"></label>
                 <input
+                disabled
                 v-model="breed"
                   class="form-black form-data"
                   id="pet-breed"
@@ -80,31 +82,26 @@
                 src="../../../assets/img/miaumarro/logo_icon.svg"
               />
             </div>
-           <div class="col-8 file-container">
-            <input
-              id="file-button"
-              type="file"
-              class="btn-purple ts14b space"
-            />
-          </div>
           </div>
             </form>
             <div class="col-md-8 col-lg-6" id="edit-button">
           <a href="">
             <button
-              v-on:click="editPet()"
+              v-on:click="edit()"
               class="btn btn-purple ts18b"
               type="submit"
             >
-              Salvar informações
+              Editar informações
             </button>
           </a>
         </div>
           </div>
+          <PetEdit v-else></PetEdit>
     </article>
   </main>
 </template>
 <script>
+import PetEdit from "./PetEdit.vue";
 export default {
   data() {
     return {
@@ -117,10 +114,11 @@ export default {
       dateOfBirth: null,
       breed: null,
       image: null,
+      detail: true,
     };
   },
   methods: {
-     async getPet() {
+    async getPet() {
       var resposta = await fetch(
         `https://localhost:7016/api/v1/Pet/details?id=${this.petId}`,
         {
@@ -137,33 +135,15 @@ export default {
       this.breed = json.breed;
       this.image = json.image;
     },
-    async editPet() {
-      await fetch(`https://localhost:7016/api/v1/Pet/update`, {
-        method: "PUT",
-        body: JSON.stringify({
-        id: this.petId,
-        userId: this.userId,
-        name: this.name,
-        type: this.type,
-        gender: this.gender,
-        dateOfBirth: this.dateOfBirth,
-        breed: this.breed,
-        image: this.image,
-        }),
-        headers: {
-          'Authorization': `bearer ${this.token}`,
-          'Content-Type' : 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then(() => {
-          this.$router.push(`/minha-conta/pets/${petId}`);
-        });
+    edit() {
+      this.detail = false;
     },
   },
   beforeMount() {
     this.getPet();
   },
-}
+  components: {
+    PetEdit: PetEdit,
+  },
+};
 </script>
-

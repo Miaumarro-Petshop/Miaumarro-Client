@@ -121,7 +121,7 @@
             placeholder="Nome do destinatário"
           />
         </div>
-            <div class="col-md-8 col-lg-6" id="edit-button">
+          <div class="col-md-8 col-lg-6" id="edit-button">
           <a href="">
             <button
               v-on:click="edit()"

@@ -137,7 +137,6 @@ export default {
     return {
       userId: localStorage.getItem("userId"),
       token: localStorage.getItem("token"),
-      id: null,
       state: null,
       city: null,
       neighborhood: null,

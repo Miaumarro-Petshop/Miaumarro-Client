@@ -12,7 +12,7 @@
       </section>
       <div v-if="resultAmount">
         <section>
-          <div class="result-count">
+          <div class="result-count space">
             <p class="ts18b">{{ resultAmount }} endereços adicionados</p>
           </div>
         </section>
@@ -53,7 +53,7 @@
       <div class="col-md-8 col-lg-3" id="center-btn">
         <a href="#" class="row">
           <button
-            v-on:click="add()"
+            v-on:click="addAddress()"
             class="btn btn-purple btn-48 ts18b"
             type="submit"
           >
@@ -74,6 +74,9 @@ export default {
       addresses: [],
       currentPage: 0,
       resultAmount: 0,
+      totalPages: 0,
+      hasPreviousPage: false,
+      hasNextPage: false,
     };
   },
   methods: {
@@ -90,12 +93,15 @@ export default {
       this.addresses = json.response;
       this.currentPage = json.pageNumber;
       this.resultAmount = json.previousCount + json.amount + json.nextCount;
+      this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
+      this.hasPreviousPage = json.previousCount != 0;
+      this.hasNextPage = json.nextCount != 0;
     },
     showAddressDetail(addressId) {
       this.$router.push(`/minha-conta/enderecos/${addressId}`);
       localStorage.setItem("addressId", addressId);
     },
-    add() {
+    addAddress() {
       this.$router.push(`/minha-conta/enderecos/adicionar`);
     },
   },

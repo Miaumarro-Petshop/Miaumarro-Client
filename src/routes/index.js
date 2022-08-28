@@ -14,7 +14,7 @@ import AppointmentList from "../views/User/Appointment/AppointmentList.vue";
 import AppointmentCreate from "../views/User/Appointment/AppointmentCreate.vue";
 import PetList from "../views/User/Pet/PetList.vue";
 import PetCreate from "../views/User/Pet/PetCreate.vue";
-import PetEdit from "../views/User/Pet/PetEdit.vue";
+import PetDetail from "../views/User/Pet/PetDetail.vue";
 import PurchaseList from "../views/User/Purchase/PurchaseList.vue";
 import PurchaseDetail from "../views/User/Purchase/PurchaseDetail.vue";
 import ProductList from "../views/Admin/Product/ProductList.vue";
@@ -106,9 +106,9 @@ const router = createRouter({
       component: PetCreate,
     },
     {
-      path: "/minha-conta/pets/editar",
-      name: "pet-edit",
-      component: PetEdit,
+      path: "/minha-conta/pets/:petId",
+      name: "pet-detail",
+      component: PetDetail,
     },
     {
       path: "/minha-conta/pedidos",
