@@ -206,6 +206,8 @@ export default {
       shippingPrice: 0,
       cartTotal:
         this.productPriceTotal + this.productDiscountTotal + this.shippingPrice,
+      userId: localStorage.getItem("userId"),
+      token: localStorage.getItem("token"),
     };
   },
   methods: {
@@ -280,7 +282,7 @@ export default {
       this.$router.push(`/produto/${productId}`);
     },
     checkout() {
-      if (localStorage.getItem("token") && localStorage.getItem("userId")) {
+      if (this.userId && this.token) {
         let cartItems = [];
         if (localStorage.getItem("cart")) {
           cartItems = JSON.parse(localStorage.getItem("cart"));
