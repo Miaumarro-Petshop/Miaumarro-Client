@@ -114,10 +114,12 @@ export default {
       dateOfBirth: null,
       breed: null,
       image: null,
+      imagePet: document.getElementById("file-button"),
     };
   },
   methods: {
     async createPet() {
+      var dateApi = formatDateMiauToApi(this.dateOfBirth)
       fetch("https://localhost:7016/api/v1/Pet/create", {
         method: "POST",
         body: JSON.stringify({
@@ -125,9 +127,9 @@ export default {
           name: this.name,
         type: this.type,
         gender: this.gender,
-        dateOfBirth: this.dateOfBirth,
+        dateOfBirth: dateApi,
         breed: this.breed,
-        image: this.image,
+        image: null,
         }),
         headers: {
           'Authorization': `bearer ${this.token}`,
@@ -135,13 +137,22 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then(() => {
-          redirectToPet();
+        .then((json) => {
+          //redirectToPet();
         });
     },
     redirectToPet(){
       this.$router.push(`/minha-conta/pets`);
-    }
+    },
+    formatDateApiToMiau(dateString){
+      var seconds = Date.parse(dateString);
+      var date = new Date(seconds);
+      return date
+    },
+    formatDateMiauToApi(dateJs){
+      var date = dateJs + "T00:00:00.001Z"
+      return date;
+    },
   },
 };
 </script>

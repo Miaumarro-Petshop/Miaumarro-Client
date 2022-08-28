@@ -58,7 +58,7 @@
                   class="form-black form-data"
                   id="pet-date-of-birth"
                   name="pet-date-of-birth"
-                  type="date"
+                  type="text"
                   placeholder="Data de nascimento"
                 />
               </div>
@@ -128,15 +128,21 @@ export default {
         }
       );
       var json = await resposta.json();
+      var dateMiau = this.formatDateApiToMiau(json.dateOfBirth);
       this.name = json.name;
       this.type = json.type;
       this.gender = json.gender;
-      this.dateOfBirth = json.dateOfBirth;
+      this.dateOfBirth = dateMiau;
       this.breed = json.breed;
       this.image = json.image;
     },
     edit() {
       this.detail = false;
+    },
+    formatDateApiToMiau(dateString){
+      var seconds = Date.parse(dateString);
+      var date = new Date(seconds);
+      return date.toLocaleDateString();
     },
   },
   beforeMount() {

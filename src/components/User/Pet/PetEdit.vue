@@ -117,6 +117,7 @@ export default {
       dateOfBirth: null,
       breed: null,
       image: null,
+      detail: true,
     };
   },
   methods: {
@@ -157,7 +158,7 @@ export default {
       })
         .then((response) => response.json())
         .then(() => {
-          this.$router.push(`/minha-conta/pets/${petId}`);
+          //this.$router.push(`/minha-conta/pets/${petId}`);
         });
     },
   },
