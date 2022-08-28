@@ -1405,15 +1405,16 @@ tfoot {
   margin-bottom: 2rem;
 }
 
-#file-button{
+#file-button {
   min-height: 4rem;
   border-radius: 1.2rem;
   padding: 0.3rem 0.3rem 0.2rem 0.3rem;
- }
+}
 
-.form-select:disabled{
+.form-select:disabled {
   background-color: var(--black);
 }
+
 @media (max-width: 768px) {
   html {
     font-size: 50%;
@@ -1556,23 +1557,23 @@ tfoot {
     display: flex;
     align-items: center;
     padding-left: 1.6rem;
-
   }
 
-   #file-button{
+  #file-button {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 4rem;
     border-radius: 1.2rem;
     padding: 0.3rem 0.3rem 0.2rem 0.3rem;
-   }
-   .file-container{
-    display:flex;
+  }
+  .file-container {
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-   }
+  }
+}
 
 @media (max-width: 600px) {
   .card-product-purchased .card-text-cart {
