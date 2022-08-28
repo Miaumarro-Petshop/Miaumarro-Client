@@ -13,77 +13,79 @@
           <div class="cart-info">
             <div class="purchase-required-info">
               <li class="cards-list space">
-                <div v-for="p in products" :key="p.id">
-                  <a v-on:click="showProductDetail(p.id)">
-                    <ul>
-                      <div class="card card-product-cart">
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                          <div class="card-img">
-                            <img
-                              src="/src/assets/img/miaumarro/logo_icon.svg"
-                              alt="Product Image"
-                            />
-                          </div>
+                <div v-for="(p, index) in products" :key="p.id">
+                  <ul>
+                    <div class="card card-product-cart">
+                      <div class="col-sm-2 col-md-2 col-lg-2">
+                        <div class="card-img">
+                          <img
+                            src="/src/assets/img/miaumarro/logo_icon.svg"
+                            alt="Product Image"
+                          />
                         </div>
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                          <div class="card-body">
-                            <div class="card-info">
-                              <div class="card-title">
-                                <h1 class="ts24b">
-                                  {{ p.name }}
-                                </h1>
-                                <h2 class="ts14b ts-purple">
-                                  CÓDIGO DO PRODUTO: {{ p.id }}
-                                </h2>
-                              </div>
-                              <div class="card-text-cart">
-                                <div class="product-amount">
-                                  <div class="counter">
-                                    <button
-                                      class="btn btn-purple ts24r"
-                                      onclick="this.blur();"
-                                    >
-                                      -
-                                    </button>
-                                    <div class="counter-display ts24r ts-black">
-                                      {{ p.amount }}
-                                    </div>
-                                    <button
-                                      class="btn btn-purple ts24r"
-                                      onclick="this.blur();"
-                                    >
-                                      +
-                                    </button>
+                      </div>
+                      <div class="col-sm-10 col-md-10 col-lg-10">
+                        <div class="card-body">
+                          <div class="card-info">
+                            <div class="card-title">
+                              <h1 class="ts24b">
+                                {{ p.name }}
+                              </h1>
+                              <h2 class="ts14b ts-purple">
+                                CÓDIGO DO PRODUTO: {{ p.id }}
+                              </h2>
+                            </div>
+                            <div class="card-text-cart">
+                              <div class="product-amount">
+                                <div class="counter">
+                                  <button
+                                    v-on:click="
+                                      counterSubtract(index, p.amount)
+                                    "
+                                    class="btn btn-purple ts24r"
+                                    onclick="this.blur();"
+                                  >
+                                    -
+                                  </button>
+                                  <div class="counter-display ts24r ts-black">
+                                    {{ p.amount }}
                                   </div>
-                                </div>
-                                <div class="card-text">
-                                  <p class="ts-line-through ts14r">
-                                    R$ {{ p.price }}
-                                  </p>
-                                  <h3 class="ts28b">
-                                    R$
-                                    {{
-                                      Math.round(
-                                        p.price * (1 - p.discount) * 100
-                                      ) / 100
-                                    }}
-                                  </h3>
+                                  <button
+                                    v-on:click="counterAdd(index, p.amount)"
+                                    class="btn btn-purple ts24r"
+                                    onclick="this.blur();"
+                                  >
+                                    +
+                                  </button>
                                 </div>
                               </div>
+                              <div class="card-text">
+                                <p class="ts-line-through ts14r">
+                                  R$ {{ p.price }}
+                                </p>
+                                <h3 class="ts28b">
+                                  R$
+                                  {{
+                                    Math.round(
+                                      p.price * (1 - p.discount) * 100
+                                    ) / 100
+                                  }}
+                                </h3>
+                              </div>
                             </div>
-                            <div class="card-icon">
-                              <a href="">
-                                <img
-                                  src="/src/assets/img/icon/trash-fill-purple.svg"
-                                  class="icon-32"
-                                />
-                              </a>
-                            </div>
+                          </div>
+                          <div class="card-icon">
+                            <a href="">
+                              <img
+                                src="/src/assets/img/icon/trash-fill-purple.svg"
+                                class="icon-32"
+                              />
+                            </a>
                           </div>
                         </div>
                       </div>
-                    </ul>
-                  </a>
+                    </div>
+                  </ul>
                 </div>
               </li>
               <section class="purchase-additional-info">
@@ -179,7 +181,7 @@ import CartEmpty from "./CartEmpty.vue";
 export default {
   data() {
     return {
-      cartItems: null,
+      cartItems: [],
       products: [],
       resultAmount: 0,
       productAmountTotal: 0,
@@ -219,21 +221,31 @@ export default {
       this.productPriceTotal += json.price * amount;
       this.productDiscountTotal += json.discount * json.price * amount;
     },
-    counterAdd() {
-      this.counter++;
+    counterAdd(index, amount) {
+      amount++;
+      console.log("amount", amount);
+      this.updateCart(index, amount);
     },
-    counterSubtract() {
-      if (this.counter > 1) this.counter--;
-    },
-    addToCart() {
-      if (this.cartItems.find((item) => item.productId == this.product.id)) {
-        let index = this.cartItems.findIndex(
-          (item) => item.productId == this.product.id
-        );
-        this.cartItems[index].amount = this.counter;
+    counterSubtract(index, amount) {
+      console.log("index", index);
+      console.log("amount", amount);
+      if (amount > 1) {
+        amount--;
+        console.log("amount", amount);
+
+        this.updateCart(index, amount);
       }
-      localStorage.setItem("cart", JSON.stringify(this.cartItems));
-      console.log("cart items", this.cartItems);
+      //this.updateCart();
+    },
+    updateCart(index, amount) {
+      console.log("Entrou em update");
+      let cartItems = [];
+      if (localStorage.getItem("cart")) {
+        cartItems = JSON.parse(localStorage.getItem("cart"));
+      }
+      console.log("cartItems", cartItems);
+      cartItems[index].amount = amount;
+      localStorage.setItem("cart", JSON.stringify(cartItems));
       this.getCart();
     },
     deleteCart() {
