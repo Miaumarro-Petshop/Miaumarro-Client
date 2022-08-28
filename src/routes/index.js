@@ -117,7 +117,7 @@ const router = createRouter({
       component: PurchaseList,
     },
     {
-      path: "/minha-conta/pedidos/detalhe",
+      path: "/minha-conta/pedidos/:purchaseId",
       name: "purchase-detail",
       component: PurchaseDetail,
     },
