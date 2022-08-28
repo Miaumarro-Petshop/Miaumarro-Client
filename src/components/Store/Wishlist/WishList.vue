@@ -12,7 +12,7 @@
             <p class="ts18b">{{ resultAmount }} produtos favoritados</p>
           </div>
           <li class="cards-list">
-            <div v-for="(p, index) in products" :key="p.id">
+            <div v-for="p in products" :key="p.id">
               <ul>
                 <div class="card card-product-wishlist">
                   <div
@@ -58,8 +58,11 @@
                           </div>
                         </div>
                       </div>
-                      <div v-on:click="deleteFromCart(index)" class="card-icon">
-                        <a href="">
+                      <div
+                        v-on:click="deleteFromWishlist(p.id)"
+                        class="card-icon"
+                      >
+                        <a>
                           <img
                             src="/src/assets/img/icon/heart-fill-purple.svg"
                             class="icon-32"
@@ -80,7 +83,6 @@
               <a
                 v-on:click="previousPage()"
                 class="page-link ts-purple ts18b"
-                href=""
                 tabindex="-1"
               >
                 <span aria-hidden="true" class="ts24r">&lt;</span>
