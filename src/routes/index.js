@@ -27,6 +27,7 @@ import ProductImageList from "../views/Admin/ProductImage/ProductImageList.vue";
 import ProductImageCreate from "../views/Admin/ProductImage/ProductImageCreate.vue";
 import ProductImageEdit from "../views/Admin/ProductImage/ProductImageEdit.vue";
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,12 +37,12 @@ const router = createRouter({
       component: StoreHome,
     },
     {
-      path: "/pesquisa",
+      path: "/pesquisa/:filter",
       name: "product-search",
       component: ProductSearch,
     },
     {
-      path: "/produto",
+      path: "/produto/:id",
       name: "product-detail",
       component: ProductDetail,
     },
