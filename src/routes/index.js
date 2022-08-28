@@ -1,31 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
-import StoreHome from "/src/views/StoreHome.vue";
-import ProductSearch from "/src/views/Store/Product/ProductSearch.vue";
-import ProductDetail from "/src/views/Store/Product/ProductDetail.vue";
-import WishListView from "/src/views/Store/Wishlist/WishListView.vue";
-import CartList from "/src/views/Store/Cart/CartList.vue";
-import LoginForm from "/src/views/Store/Login/LoginForm.vue";
-import RegistrationForm from "/src/views/Store/Login/RegistrationForm.vue";
-import DataEdit from "/src/views/User/Data/DataEdit.vue";
-import AddressList from "/src/views/User/Address/AddressList.vue";
-import AddressCreate from "/src/views/User/Address/AddressCreate.vue";
-import AddressEdit from "/src/views/User/Address/AddressEdit.vue";
-import AppointmentList from "/src/views/User/Appointment/AppointmentList.vue";
-import AppointmentCreate from "/src/views/User/Appointment/AppointmentCreate.vue";
-import PetList from "/src/views/User/Pet/PetList.vue";
-import PetCreate from "/src/views/User/Pet/PetCreate.vue";
-import PetEdit from "/src/views/User/Pet/PetEdit.vue";
-import PurchaseList from "/src/views/User/Purchase/PurchaseList.vue";
-import PurchaseDetail from "/src/views/User/Purchase/PurchaseDetail.vue";
-import ProductList from "/src/views/Admin/Product/ProductList.vue";
-import ProductCreate from "/src/views/Admin/Product/ProductCreate.vue";
-import ProductEdit from "/src/views/Admin/Product/ProductEdit.vue";
-import UserList from "/src/views/Admin/User/UserList.vue";
-import UserCreate from "/src/views/Admin/User/UserCreate.vue";
-import UserEdit from "/src/views/Admin/User/UserEdit.vue";
-import ProductImageList from "/src/views/Admin/ProductImage/ProductImageList.vue";
-import ProductImageCreate from "/src/views/Admin/ProductImage/ProductImageCreate.vue";
-import ProductImageEdit from "/src/views/Admin/ProductImage/ProductImageEdit.vue";
+import StoreHome from "../views/StoreHome.vue";
+import ProductSearch from "../views/Store/Product/ProductSearch.vue";
+import ProductDetail from "../views/Store/Product/ProductDetail.vue";
+import WishListView from "../views/Store/Wishlist/WishListView.vue";
+import CartList from "../views/Store/Cart/CartList.vue";
+import LoginForm from "../views/Store/Login/LoginForm.vue";
+import RegistrationForm from "../views/Store/Login/RegistrationForm.vue";
+import DataList from "../views/User/Data/DataList.vue";
+import AddressList from "../views/User/Address/AddressList.vue";
+import AddressCreate from "../views/User/Address/AddressCreate.vue";
+import AddressDetail from "../views/User/Address/AddressDetail.vue";
+import AppointmentList from "../views/User/Appointment/AppointmentList.vue";
+import AppointmentCreate from "../views/User/Appointment/AppointmentCreate.vue";
+import PetList from "../views/User/Pet/PetList.vue";
+import PetCreate from "../views/User/Pet/PetCreate.vue";
+import PetDetail from "../views/User/Pet/PetDetail.vue";
+import PurchaseList from "../views/User/Purchase/PurchaseList.vue";
+import PurchaseDetail from "../views/User/Purchase/PurchaseDetail.vue";
+import ProductList from "../views/Admin/Product/ProductList.vue";
+import ProductCreate from "../views/Admin/Product/ProductCreate.vue";
+import ProductEdit from "../views/Admin/Product/ProductEdit.vue";
+import UserList from "../views/Admin/User/UserList.vue";
+import UserCreate from "../views/Admin/User/UserCreate.vue";
+import UserEdit from "../views/Admin/User/UserEdit.vue";
+import ProductImageList from "../views/Admin/ProductImage/ProductImageList.vue";
+import ProductImageCreate from "../views/Admin/ProductImage/ProductImageCreate.vue";
+import ProductImageEdit from "../views/Admin/ProductImage/ProductImageEdit.vue";
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -67,8 +68,8 @@ const router = createRouter({
     },
     {
       path: "/minha-conta",
-      name: "data-edit",
-      component: DataEdit,
+      name: "data-list",
+      component: DataList,
     },
     {
       path: "/minha-conta/enderecos",
@@ -81,9 +82,9 @@ const router = createRouter({
       component: AddressCreate,
     },
     {
-      path: "/minha-conta/enderecos/editar",
-      name: "address-edit",
-      component: AddressEdit,
+      path: "/minha-conta/enderecos/:addressId",
+      name: "address-detail",
+      component: AddressDetail,
     },
     {
       path: "/minha-conta/servicos",
@@ -106,9 +107,9 @@ const router = createRouter({
       component: PetCreate,
     },
     {
-      path: "/minha-conta/pets/editar",
-      name: "pet-edit",
-      component: PetEdit,
+      path: "/minha-conta/pets/:petId",
+      name: "pet-detail",
+      component: PetDetail,
     },
     {
       path: "/minha-conta/pedidos",
