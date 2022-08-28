@@ -306,10 +306,16 @@
                     </h2>
                   </div>
                   <div>
-                    <p class="card-text ts28b">
-                      R$
-                      {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
-                    </p>
+                    <div>
+                      <p class="card-text ts18r ts-purple ts-line-through">
+                        R$
+                        {{ p.price }}
+                      </p>
+                      <p class="card-text ts28b">
+                        R$
+                        {{ Math.round(p.price * (1 - p.discount) * 100) / 100 }}
+                      </p>
+                    </div>
                     <button class="btn btn-green btn-buy ts24r" type="submit">
                       Comprar
                     </button>
@@ -395,7 +401,7 @@ export default {
   methods: {
     async getProducts() {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}&PageSize=3`
+        `https://localhost:7016/api/v1/Product?${this.filter}&PageNumber=${this.currentPage}`
       );
       var json = await resposta.json();
       this.products = json.response;
@@ -423,7 +429,6 @@ export default {
       if (this.tags != 0) query.addProperty("Tags", this.tags);
 
       var queryParameters = query.build();
-      alert(`queryparameters que vão para a rota = ${queryParameters}`);
       this.$router.push(`/pesquisa/${queryParameters}`);
     },
     nextPage() {
