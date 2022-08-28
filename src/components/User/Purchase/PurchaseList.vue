@@ -7,10 +7,10 @@
       <section>
         <p class="ts12r ts-green">Aqui você pode acompanhar os seus pedidos!</p>
       </section>
-      <div v-if="resultAmount">
+      <div v-if="amount">
       <section>
         <div class="result-count">
-          <p class="ts18b">{{ resultAmount }} pedidos realizados</p>
+          <p class="ts18b">{{ amount }} pedidos realizados</p>
         </div>
       </section>
       <div class="cards-list">
@@ -22,7 +22,7 @@
                   <div class="card-title">
                     <h1 class="ts-green ts18b">Status do pedido: {{getPurchaseStatus(p.status)}}</h1>
                     <h2 class="ts-green ts14r">Pedido #{{ p.id}}</h2>
-                    <h3 class="ts14r ts-green">{{p.products.lenght}} itens</h3>
+                    <h3 class="ts14r ts-green">{{p.products}} itens</h3>
                     <h4 class="ts14b ts-green">Total do pedido: R$ {{ calculatePurchaseTotal(p.products) }}</h4>
                   </div>
 
@@ -62,7 +62,7 @@ export default {
       token: localStorage.getItem("token"),
       purchases: [],
       currentPage: 0,
-      resultAmount: 0,
+      amount: 0,
       totalPages: 0,
       hasPreviousPage: false,
       hasNextPage: false,
@@ -71,18 +71,18 @@ export default {
   methods: {
     async getPurchases() {
       var resposta = await fetch(
-        `https://localhost:7016/api/v1/Purchase?UserId=${userId}`,
+        `https://localhost:7016/api/v1/Purchase?UserId=${this.userId}`,
         {
           headers: {
-            Authorization: `bearer ${this.token}`,
+            "Authorization": `bearer ${this.token}`,
           },
         }
       );
       var json = await resposta.json();
       this.purchases = json.response;
       this.currentPage = json.pageNumber;
-      this.resultAmount = json.previousCount + json.amount + json.nextCount;
-      this.totalPages = Math.ceil(this.resultAmount / json.pageSize);
+      this.amount = json.previousCount + json.amount + json.nextCount;
+      this.totalPages = Math.ceil(this.amount / json.pageSize);
       this.hasPreviousPage = json.previousCount != 0;
       this.hasNextPage = json.nextCount != 0;
     },
@@ -112,7 +112,9 @@ export default {
     },
     calculatePurchaseTotal(products){
       var price = 0;
-      products.forEach(price += products.price);
+      for (var i = 0; i < products.lenght ; i++){
+        price += products[i].price;
+      }
       return price;
     },
   },

@@ -186,7 +186,7 @@ export default {
       })
         .then((response) => response.json())
         .then(() => {
-          this.$router.push(`/minha-conta/enderecos/${addressId}`);
+          this.$router.push(`/minha-conta/enderecos/${this.addressId}`);
         });
     },
   },
