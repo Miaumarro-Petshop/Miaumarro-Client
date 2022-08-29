@@ -148,7 +148,7 @@ export default {
           `https://localhost:7016/api/v1/Wishlist?UserId=${this.userId}`,
           {
             headers: {
-              "Authorization": `bearer ${this.token}`,
+              Authorization: `bearer ${this.token}`,
             },
           }
         );
@@ -169,7 +169,7 @@ export default {
         {
           method: "DELETE",
           headers: {
-            "Authorization": `bearer ${this.token}`,
+            Authorization: `bearer ${this.token}`,
           },
         }
       );
@@ -180,7 +180,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getWishlistProducts();
+    if (this.userId && this.token) {
+      this.getWishlistProducts();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     WishlistEmpty: WishlistEmpty,

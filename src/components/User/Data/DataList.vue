@@ -124,7 +124,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getUser();
+    if (this.userId && this.token) {
+      this.getUser();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     DataEdit: DataEdit,

@@ -179,8 +179,12 @@ export default {
   }
   },
   beforeMount() {
-    this.currentPage = 0;
-    this.getPets();
+    if (this.userId && this.token) {
+      this.currentPage = 0;
+      this.getPets();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     PetEmpty: PetEmpty,

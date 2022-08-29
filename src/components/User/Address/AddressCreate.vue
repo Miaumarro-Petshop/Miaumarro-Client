@@ -23,9 +23,9 @@
             />
           </div>
           <div class="col-4 col-md-4 col-lg-4 space" id="search-button">
-            <a href="">
-              <button class="btn btn-purple ts14b">Buscar</button>
-            </a>
+            <div>
+              <a class="btn btn-purple ts14b">Buscar</a>
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-12 col-lg-12 space">
@@ -150,7 +150,7 @@ export default {
   },
   methods: {
     async createAddress() {
-      fetch("https://localhost:7016/api/v1/Address/create", {
+      await fetch("https://localhost:7016/api/v1/Address/create", {
         method: "POST",
         body: JSON.stringify({
           userId: this.userId,
@@ -166,17 +166,24 @@ export default {
         }),
         headers: {
           'Authorization': `bearer ${this.token}`,
-          "Content-type": "application/json; charset=UTF-8",
+          'Content-type': 'application/json; charset=UTF-8',
         },
       })
         .then((response) => response.json())
-        .then(() => {
+        .then((json) => {
+          console.log(json);
           this.redirectToAddress();
         });
+        
     },
     redirectToAddress(){
       this.$router.push(`/minha-conta/enderecos`);
     }
   },
+  beforeMount() {
+    if (!(this.userId && this.token)) {
+      this.$router.push(`/login`);
+    }
+  }
 };
 </script>

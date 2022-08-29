@@ -118,13 +118,17 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then((json) => {
-          //this.$router.push(`/minha-conta`);
+        .then(() => {
+          this.$router.push(`/minha-conta`);
         });
     },
   },
   beforeMount() {
-    this.getUser();
+    if (this.userId && this.token) {
+      this.getUser();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
 };
 </script>

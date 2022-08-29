@@ -93,7 +93,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getPurchases();
+    if (this.userId && this.token) {
+      this.getPurchases();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     PurchaseEmpty: PurchaseEmpty,

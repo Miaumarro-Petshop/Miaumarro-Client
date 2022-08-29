@@ -85,7 +85,7 @@ export default {
         `https://localhost:7016/api/v1/Address?UserId=${this.userId}`,
         {
           headers: {
-            Authorization: `bearer ${this.token}`,
+            'Authorization': `bearer ${this.token}`,
           },
         }
       );
@@ -106,8 +106,12 @@ export default {
     },
   },
   beforeMount() {
-    this.currentPage = 0;
-    this.getAddresses();
+    if (this.userId && this.token) {
+      this.currentPage = 0;
+      this.getAddresses();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     AddressEmpty: AddressEmpty,

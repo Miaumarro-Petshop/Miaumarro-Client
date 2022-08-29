@@ -19,11 +19,6 @@
               placeholder="CEP"
             />
           </div>
-          <div class="col-4 col-md-4 col-lg-4 space" id="search-button">
-            <a href="">
-              <button class="btn btn-purple ts14b">Buscar</button>
-            </a>
-          </div>
         </div>
         <div class="col-12 col-md-12 col-lg-12 space">
           <label for="address"></label>
@@ -185,7 +180,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getAddress();
+    if (this.userId && this.token) {
+      this.getAddress();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     AddressEdit: AddressEdit,

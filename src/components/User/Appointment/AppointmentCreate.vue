@@ -35,13 +35,13 @@
                     </a>
                 </ul>
                 <ul>
-                    <a href="">
+                    <RouterLink to="/minha-conta/pets/adicionar">
                         <div class="">
                             <div class="col col-lg-2">
                                 <img id="img-pet-2" src="../../../assets/img/icon/plus-square-fill.svg" alt="Plus Image">
                             </div>
                         </div>
-                    </a>
+                    </RouterLink>
                 </ul>
             </li>
             <section>
@@ -98,4 +98,18 @@
         </article>
     </main>
 </template>
-<script></script>
+<script>
+    export default {
+      data() {
+        return {
+          userId: localStorage.getItem("userId"),
+          token: localStorage.getItem("token"),
+        };
+      },
+      beforeMount() {
+        if (!(this.userId && this.token)) {
+          this.$router.push(`/login`);
+        }
+      },
+    };
+    </script>
