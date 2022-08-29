@@ -180,7 +180,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getWishlistProducts();
+    if (this.userId && this.token) {
+      this.getWishlistProducts();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     WishlistEmpty: WishlistEmpty,

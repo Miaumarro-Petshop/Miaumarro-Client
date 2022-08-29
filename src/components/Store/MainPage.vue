@@ -31,21 +31,21 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../../assets/img/banner/black.jpg"
+              src="../../assets/img/banner/banner1.png"
               class="d-block"
               alt="..."
             />
           </div>
           <div class="carousel-item">
             <img
-              src="../../assets/img/banner/purple.jpg"
+              src="../../assets/img/banner/banner2.png"
               class="d-block"
               alt="..."
             />
           </div>
           <div class="carousel-item">
             <img
-              src="../../assets/img/banner/green.jpg"
+              src="../../assets/img/banner/banner3.png"
               class="d-block"
               alt="..."
             />
@@ -71,7 +71,7 @@
         </button>
       </div>
     </section>
-
+    <!--
     <section id="favorite-brand">
       <h1 class="ts40 ts-purple section-header">Nossas principais marcas</h1>
       <div class="row">
@@ -116,6 +116,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <section id="pet-favorite">
       <div class="section-header">

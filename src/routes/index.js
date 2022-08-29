@@ -27,7 +27,6 @@ import ProductImageList from "../views/Admin/ProductImage/ProductImageList.vue";
 import ProductImageCreate from "../views/Admin/ProductImage/ProductImageCreate.vue";
 import ProductImageEdit from "../views/Admin/ProductImage/ProductImageEdit.vue";
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -165,6 +164,11 @@ const router = createRouter({
       path: "/admin/produto-imagens/editar",
       name: "product-image-edit",
       component: ProductImageEdit,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "store-home",
+      component: StoreHome,
     },
   ],
 });

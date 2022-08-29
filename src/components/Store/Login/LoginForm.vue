@@ -93,9 +93,6 @@ export default {
             localStorage.setItem("userId", token.id);
             this.$router.push(`/minha-conta`);
           });
-        })
-        .catch((err) => {
-          alert(`Usuario ou senha incorretos. ${err.Messsage}`);
         });
     },
     checkForm: function (e) {

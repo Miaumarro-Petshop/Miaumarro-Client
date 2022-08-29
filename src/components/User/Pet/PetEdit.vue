@@ -114,11 +114,10 @@ export default {
       dateOfBirth: null,
       breed: null,
       image: null,
-      detail: false,
     };
   },
   methods: {
-     async getPet() {
+    async getPet() {
       var resposta = await fetch(
         `https://localhost:7016/api/v1/Pet/details?id=${this.petId}`,
         {
@@ -156,7 +155,7 @@ export default {
       })
         .then((response) => response.json())
         .then(() => {
-          //this.$router.push(`/minha-conta/pets/${petId}`);
+          this.$router.push(`/minha-conta/pets/${this.petId}`);
         });
     },
      formatDateApiToMiau(dateString){
@@ -168,7 +167,11 @@ export default {
     },*/
   },
   beforeMount() {
-    this.getPet();
+    if (this.userId && this.token) {
+      this.getPet();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
 }
 </script>

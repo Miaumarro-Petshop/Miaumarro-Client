@@ -101,8 +101,12 @@ export default {
     },
   },
   beforeMount() {
-    this.currentPage = 0;
-    this.getAppointments();
+    if (this.userId && this.token) {
+      this.currentPage = 0;
+      this.getAppointments();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     AppointmentEmpty: AppointmentEmpty,

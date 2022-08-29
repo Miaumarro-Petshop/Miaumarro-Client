@@ -118,7 +118,7 @@ export default {
   },
   methods: {
     async createPet() {
-      var dateApi = formatDateMiauToApi(this.dateOfBirth);
+      var dateApi = this.formatDateMiauToApi(this.dateOfBirth);
       fetch("https://localhost:7016/api/v1/Pet/create", {
         method: "POST",
         body: JSON.stringify({
@@ -136,7 +136,7 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then((json) => {
+        .then(() => {
           //redirectToPet();
         });
     },
@@ -154,6 +154,11 @@ export default {
       var date = `${dateConvert.getFullYear()}-${dateConvert.getMonth}-${dateConvert.getDay}T00:00:00`;
       return date;
     },
+  },
+  beforeMount() {
+    if (!(this.userId && this.token)) {
+      this.$router.push(`/login`);
+    }
   },
 };
 </script>

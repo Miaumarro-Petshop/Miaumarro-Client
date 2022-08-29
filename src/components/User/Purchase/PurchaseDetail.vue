@@ -287,7 +287,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getPurchase();
+    if (this.userId && this.token) {
+      this.getPurchase();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
 };
 </script>

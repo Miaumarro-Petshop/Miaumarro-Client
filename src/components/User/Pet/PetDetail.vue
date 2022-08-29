@@ -94,9 +94,9 @@
               Editar informações
             </button>
           </a>
-        </div>
-          </div>
-          <PetEdit v-else></PetEdit>
+            </div>
+      </div>
+      <PetEdit v-else></PetEdit>
     </article>
   </main>
 </template>
@@ -145,7 +145,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getPet();
+    if (this.userId && this.token) {
+      this.getPet();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
   components: {
     PetEdit: PetEdit,

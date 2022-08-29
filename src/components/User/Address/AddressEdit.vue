@@ -16,7 +16,7 @@
             />
           </div>
           <div class="col-4 col-md-4 col-lg-4 space" id="search-button">
-            <a href="">
+            <a>
               <button class="btn btn-purple ts14b">Buscar</button>
             </a>
           </div>
@@ -191,7 +191,11 @@ export default {
     },
   },
   beforeMount() {
-    this.getAddress();
+    if (this.userId && this.token) {
+      this.getAddress();
+    } else {
+      this.$router.push(`/login`);
+    }
   },
 }
 </script>
