@@ -16,10 +16,7 @@
         <div div v-for="p in pets" :key="p.id" class="cards-list">
           <a v-on:click="showPetDetail(p.id)">
             <div class="card card-item space">
-              <div v-if="p.image" class="col col-lg-2">
-                <img id="card-img-pet" src="{{ p.image }}" alt="Pet Image" />
-              </div>
-              <div v-else class="col col-lg-2">
+              <div class="col col-lg-2">
                 <img
                   id="card-img-pet"
                   src="../../../assets/img/miaumarro/logo_icon.svg"
