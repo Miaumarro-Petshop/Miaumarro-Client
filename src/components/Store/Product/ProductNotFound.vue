@@ -3,7 +3,7 @@
     <section class="customer-empty-container">
       <div class="card card-empty col col-lg-10">
         <img
-          src="/src/assets/img/miaumarro/Logo_icon.svg"
+          src="../../../assets/img/miaumarro/logo_icon.svg"
           class="icon-64 icon-purple"
           alt="Cart icon"
         />
